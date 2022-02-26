@@ -6,9 +6,10 @@ Clean project is in app/. Uses Expo.
 ### Steps:
 Download XCode from the App Store.  
 Download ExpoGo app on your iPhone.   
+I use Github Desktop, which I think makes life 100% easier, so I would also recommend downloading that.  
 
 Run these in your command line: 
-git clone https://github.com/laineywang/theGivingTree.git  
+git clone https://github.com/laineywang/theGivingTree.git (if you download Github Desktop, alternatively you can follow the steps in the interface to clone the repo)    
 brew install node  
 npm install -g expo-cli  
 brew install watchman  
