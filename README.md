@@ -4,21 +4,22 @@
 Clean project is in app/. Uses Expo. 
 
 ### Steps:
-Download XCode from the App Store.
-Download ExpoGo app on your iPhone. 
+Download XCode from the App Store.  
+Download ExpoGo app on your iPhone.   
 
-Run these in your command line:
-brew install node
-npm install -g expo-cli
-brew install watchman
-sudo gem install cocoapods
+Run these in your command line: 
+
+brew install node  
+npm install -g expo-cli  
+brew install watchman  
+sudo gem install cocoapods  
 
 To run the app, cd into app/ and from there type:
-npm start
+npm start  
 If everything loads and you can run the simulator with no errors (either on your phone or from XCode simulator), then you should be good to go. 
 
 ### DISCLAIMER: idk what packages you have installed on your computer, so you will almost definitely need to run more commands to download things (like XCode simulator? idk). Some troubleshooting tips:
-- Command not recognized error = you need to install that package (google "install [package] package")
+- Command not recognized error = you need to install that package (google "install [package] package")  
 - Generally, if you’re getting permissions errors, try running “sudo” in front of a command (npm install --global yarn —> sudo npm install --global yarn)
 - When you get an error and you don't know what to do, Google it!! Cannot stress this enough, this is literally all I do lol
 
