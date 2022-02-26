@@ -8,7 +8,7 @@ Download XCode from the App Store.
 Download ExpoGo app on your iPhone.   
 
 Run these in your command line: 
-
+git clone https://github.com/laineywang/theGivingTree.git  
 brew install node  
 npm install -g expo-cli  
 brew install watchman  
