@@ -7,9 +7,8 @@ import { RootTabScreenProps } from '../types';
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <Text style={styles.welcome}>Hi, Nancy</Text>
+      <Text style={styles.gt_description}>Keep your tree growing with donations!</Text>
     </View>
   );
 }
@@ -19,14 +18,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#bbd7f0',
   },
-  title: {
-    fontSize: 20,
+  welcome: {
+    fontSize: 50,
     fontWeight: 'bold',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  gt_description: {
+    fontSize: 20,
+    fontStyle: 'italic',
   },
+  
 });
