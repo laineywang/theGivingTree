@@ -4,6 +4,8 @@ import { Text, View } from '../components/Themed';
 import React, { useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import TabOneScreen from './TabOneScreen';
+import Dropdown from '../components/Dropdown';
+import filters from "../data/filters.json"
 
 export default function TabTwoScreen() {
 
@@ -20,6 +22,9 @@ export default function TabTwoScreen() {
         <View style={styles.search_bar}>
           <SearchBar/>
         </View>
+        {/* <div style={styles.sort_button}>
+          <Dropdown filters={filters}/>
+        </div> */}
       </View>
       <View style={styles.lower}>
         <Pressable style={styles.org_button}> 
@@ -84,7 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'green',
     textAlign: 'center',
-    fontFamily: 'Nunito-Black'
+    //fontFamily: 'Nunito-Black'
   },
 
   description: {
@@ -115,7 +120,7 @@ const styles = StyleSheet.create({
   },
 
   sort_button: {
-    
+    width: 200, 
   }, 
 
   sort_text: {
