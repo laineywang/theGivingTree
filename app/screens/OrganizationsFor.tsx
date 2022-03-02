@@ -41,7 +41,7 @@ export default function TabTwoScreen() {
       </View>
       <View style={styles.lower}>
         <Pressable style={styles.org_button}> 
-        <Image style={styles.logo} source={require("../assets/images/unnamed.jpeg")}/>
+        <Image style={styles.aspa} source={require("../assets/images/ASPCA-logo-1024x276.png")}/>
         <View style={styles.org_title_des}>
           <Text style={styles.org_title}>
             ASPCA
@@ -54,7 +54,7 @@ export default function TabTwoScreen() {
       </View>
       <View style={styles.lower}>
         <Pressable style={styles.org_button}> 
-        <Image style={styles.logo} source={require("../assets/images/unnamed.jpeg")}/>
+        <Image style={styles.logo} source={require("../assets/images/logo-header-mobile.png")}/>
         <View style={styles.org_title_des}>
           <Text style={styles.org_title}>
             In Defense of Animals
@@ -67,7 +67,7 @@ export default function TabTwoScreen() {
       </View>
       <View style={styles.lower}>
         <Pressable style={styles.org_button}> 
-        <Image style={styles.logo} source={require("../assets/images/unnamed.jpeg")}/>
+        <Image style={styles.logo} source={require("../assets/images/oceanAllianceLogo.png")}/>
         <View style={styles.org_title_des}>
           <Text style={styles.org_title}>
             Ocean Alliance
@@ -155,26 +155,41 @@ const styles = StyleSheet.create({
     borderRadius: 16, 
     height: 100, 
     width: 320, 
-    flexDirection: "row"
+    flexDirection: "row",
   },
 
   org_title_des:{
     flexDirection: 'column',
+    justifyContent: 'flex-start',
   },
 
   org_title: {
-    fontSize: 30,
+    top: 10,
+    fontSize: 25,
     color: 'black',
     fontWeight: 'bold',
   }, 
   
   org_description: {
-    fontSize: 10,
+    top: 15,
+    fontSize: 12,
     color: 'gray',
+
   },
 
   logo: {
-    height: 30, 
-    width: 30,
+    top: 10,
+    height: 50, 
+    width: 70,
+    resizeMode: 'contain',
   },
+
+  aspa: {
+    top: 10,
+    left: 5,
+    paddingRight:5, 
+    height: 45, 
+    width: 60,
+    resizeMode: 'contain',
+  }
 });
