@@ -1,4 +1,4 @@
-import { StyleSheet, Image, SafeAreaView, Pressable } from 'react-native';
+import { StyleSheet, Image, SafeAreaView, Pressable, ScrollView } from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import React, { useState } from 'react';
@@ -9,6 +9,7 @@ export default function TabTwoScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <ScrollView>
       <View style={styles.upper}>
         <Text style={styles.title}>Organizations for Animal Rights</Text>
         <Text style={styles.description}>
@@ -22,14 +23,45 @@ export default function TabTwoScreen() {
       </View>
       <View style={styles.lower}>
         <Pressable style={styles.org_button}> 
-        </Pressable>
-        <Pressable style={styles.org_button}> 
-        </Pressable>
-        <Pressable style={styles.org_button}> 
-        </Pressable>
-        <Pressable style={styles.org_button}> 
+          <Text style={styles.org_title}>
+            Animal Ethics
+          </Text>
+          <Text style={styles.org_description}>
+            "Our vision is a world where all sentient beings are given moral consideration."
+          </Text>
         </Pressable>
       </View>
+      <View style={styles.lower}>
+        <Pressable style={styles.org_button}> 
+          <Text style={styles.org_title}>
+            ASPCA
+          </Text>
+          <Text style={styles.org_description}>
+            "We are their voice."
+          </Text>
+        </Pressable>
+      </View>
+      <View style={styles.lower}>
+        <Pressable style={styles.org_button}> 
+          <Text style={styles.org_title}>
+            In Defense of Animals
+          </Text>
+          <Text style={styles.org_description}>
+            "Working to protect the rights, welfare, and habitats or animals."
+          </Text>
+        </Pressable>
+      </View>
+      <View style={styles.lower}>
+        <Pressable style={styles.org_button}> 
+          <Text style={styles.org_title}>
+            Ocean Alliance
+          </Text>
+          <Text style={styles.org_description}>
+            "Healthy Whales, Healthy Oceans, Healthy Humans"
+          </Text>
+        </Pressable>
+      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -77,6 +109,8 @@ const styles = StyleSheet.create({
     shadowOffset: {width: -1, height: 2},
     borderRadius: 20,
     bottom: 10, 
+    left: 40,
+    justifyContent: 'center',
   },
 
   sort_button: {
@@ -89,11 +123,12 @@ const styles = StyleSheet.create({
 
   // lower region (orgs)
   lower: {
-
+      top: 20, 
+      paddingBottom:20, 
+      alignItems: 'center',
   },
 
   org_button: {
-    top: 30,
     backgroundColor: 'white',
     shadowColor: 'gray', 
     shadowOpacity: 0.4, 
@@ -112,6 +147,6 @@ const styles = StyleSheet.create({
   
   org_description: {
     fontSize: 10,
-    color: 'black',
+    color: 'gray',
   },
 });
