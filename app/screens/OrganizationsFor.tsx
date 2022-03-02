@@ -28,42 +28,54 @@ export default function TabTwoScreen() {
       </View>
       <View style={styles.lower}>
         <Pressable style={styles.org_button}> 
+        <Image style={styles.logo} source={require("../assets/images/unnamed.jpeg")}/>
+          <View style={styles.org_title_des}>
           <Text style={styles.org_title}>
             Animal Ethics
           </Text>
           <Text style={styles.org_description}>
             "Our vision is a world where all sentient beings are given moral consideration."
           </Text>
+          </View>
         </Pressable>
       </View>
       <View style={styles.lower}>
         <Pressable style={styles.org_button}> 
+        <Image style={styles.logo} source={require("../assets/images/unnamed.jpeg")}/>
+        <View style={styles.org_title_des}>
           <Text style={styles.org_title}>
             ASPCA
           </Text>
           <Text style={styles.org_description}>
-            "We are their voice."
+            "We are their voice"
           </Text>
+          </View>
         </Pressable>
       </View>
       <View style={styles.lower}>
         <Pressable style={styles.org_button}> 
+        <Image style={styles.logo} source={require("../assets/images/unnamed.jpeg")}/>
+        <View style={styles.org_title_des}>
           <Text style={styles.org_title}>
             In Defense of Animals
           </Text>
           <Text style={styles.org_description}>
-            "Working to protect the rights, welfare, and habitats or animals."
+            "Working to protect the rights, welfare, and habitats of animals."
           </Text>
+          </View>
         </Pressable>
       </View>
       <View style={styles.lower}>
         <Pressable style={styles.org_button}> 
+        <Image style={styles.logo} source={require("../assets/images/unnamed.jpeg")}/>
+        <View style={styles.org_title_des}>
           <Text style={styles.org_title}>
             Ocean Alliance
           </Text>
           <Text style={styles.org_description}>
-            "Healthy Whales, Healthy Oceans, Healthy Humans"
+            "Healthy Whales, Healthy Oceans, Healthy Humans."
           </Text>
+          </View>
         </Pressable>
       </View>
       </ScrollView>
@@ -143,6 +155,11 @@ const styles = StyleSheet.create({
     borderRadius: 16, 
     height: 100, 
     width: 320, 
+    flexDirection: "row"
+  },
+
+  org_title_des:{
+    flexDirection: 'column',
   },
 
   org_title: {
@@ -154,5 +171,10 @@ const styles = StyleSheet.create({
   org_description: {
     fontSize: 10,
     color: 'gray',
+  },
+
+  logo: {
+    height: 30, 
+    width: 30,
   },
 });
