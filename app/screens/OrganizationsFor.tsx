@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'green',
     textAlign: 'center',
+    fontFamily: 'Nunito-Black'
   },
 
   description: {
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
   },
 
   sort_button: {
-
+    
   }, 
 
   sort_text: {
