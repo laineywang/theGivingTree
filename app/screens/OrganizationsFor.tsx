@@ -13,17 +13,26 @@ import {
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
 import SearchBar from "../components/SearchBar";
-import organizations from "../data/organizations.json";
+import organizations from "../data/organizations.js";
 import OrgsButton from "../components/OrgsButton";
 import OrgDetails from "./OrgDetails";
 
 export default function TabTwoScreen() {
-  const renderItem = (item: {
-    id: number;
-    name: string;
-    description: string;
-    logo: string;
-  }) => <OrgsButton organization={item} />;
+  // const renderItem = (item: {
+  //   id: number;
+  //   name: string;
+  //   description: string;
+  //   logo: string;
+  // }) => <OrgsButton organization={item} />;
+
+  const renderItem = (item) => (
+    <OrgsButton 
+    name={item.name}
+    id={item.id}
+    description={item.description}
+    logo={item.logo}
+    />
+  )
 
   const HomeStack = createNativeStackNavigator();
   return (
