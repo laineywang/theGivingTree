@@ -9,7 +9,7 @@ import { Text, View } from "../components/Themed";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-const OrgsButton = ({ organization }) => {
+const OrgsButton = ({ name, description, id, logo }) => {
   const navigation = useNavigation();
 
   return (
@@ -18,9 +18,10 @@ const OrgsButton = ({ organization }) => {
       onPress={() => navigation.navigate("OrgDetails")}
     >
       {/* <Image style={styles.logo} source={require(organization.image)} /> */}
+      <Image style={styles.logo} source={logo}/>
       <View style={styles.org_title_des}>
-        <Text style={styles.org_title}> {organization.name}</Text>
-        <Text style={styles.org_description}> {organization.description}</Text>
+        <Text style={styles.org_title}> {name}</Text>
+        <Text style={styles.org_description}> {description}</Text>
       </View>
     </Pressable>
   );
