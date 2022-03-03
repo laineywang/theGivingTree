@@ -50,29 +50,28 @@ export default function TabTwoScreen() {
   function OrganizationsFor() {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView>
-          <View style={styles.upper}>
-            <Text style={styles.title}>Organizations for Animal Rights</Text>
-            <Text style={styles.description}>
-              Help aid organizations fighting for animals to be free of
-              involvement and suffering in medical research, hunting, and other
-              industries that benefit humans.
-            </Text>
+        <View style={styles.upper}>
+          <Text style={styles.title}>Organizations for Animal Rights</Text>
+          <Text style={styles.description}>
+            Help aid organizations fighting for animals to be free of
+            involvement and suffering in medical research, hunting, and other
+            industries that benefit humans.
+          </Text>
+        </View>
+        <View style={styles.search_sort}>
+          <View style={styles.search_bar}>
+            <SearchBar />
           </View>
-          <View style={styles.search_sort}>
-            <View style={styles.search_bar}>
-              <SearchBar />
-            </View>
-            {/* <div style={styles.sort_button}>
+          {/* <div style={styles.sort_button}>
           <Dropdown filters={filters}/>
         </div> */}
-          </View>
-          <FlatList
-            data={organizations} // the array of data that the FlatList displays
-            renderItem={({ item }) => renderItem(item)} // function that renders each item
-            keyExtractor={(item) => item.id}
-          />
-        </ScrollView>
+        </View>
+
+        <FlatList
+          data={organizations} // the array of data that the FlatList displays
+          renderItem={({ item }) => renderItem(item)} // function that renders each item
+          keyExtractor={(item) => item.id}
+        />
       </SafeAreaView>
     );
   }
