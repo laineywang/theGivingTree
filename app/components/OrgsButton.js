@@ -15,7 +15,7 @@ const OrgsButton = ({ name, description, id, logo }) => {
   return (
     <Pressable
       style={styles.org_button}
-      onPress={() => navigation.navigate("OrgDetails")}
+      onPress={() => navigation.navigate("OrgDetails", {name: name, description: description, id:id, logo:logo})}
     >
       {/* <Image style={styles.logo} source={require(organization.image)} /> */}
       <Image style={styles.logo} source={logo}/>

@@ -30,7 +30,7 @@ export default function OrgInfo({route}) {
               <View style={styles.confirm_section}>
               <Button 
                   title='CONFIRM'
-                  onPress={() => navigation.navigate('Donations', {textData: org_name})}
+                  onPress={() => (navigation.navigate('Root'))}
                   color={colors.darkgreen} />
               </View>
           </View>
