@@ -6,11 +6,11 @@ import SearchBar from '../components/SearchBar';
 import TabOneScreen from './TabOneScreen';
 import Dropdown from '../components/Dropdown';
 import filters from "../data/filters.json"
-import organizations from "../data/organizations.json"
+import organizations from "../data/organizations"
 import OrgsButton from "../components/OrgsButton"
 
 export default function TabTwoScreen() {
-
+  console.log("organizations", organizations)
   const renderItem = (item) => (
     <OrgsButton
       name={item.name}

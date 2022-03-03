@@ -2,13 +2,13 @@ import { StyleSheet, Image, SafeAreaView, Pressable, ScrollView } from 'react-na
 import { Text, View } from '../components/Themed';
 import React, { useState } from 'react';
 
-const OrgsButton = ({ organization }) => {
+const OrgsButton = ({ name, description, id, logo }) => {
     return (
         <Pressable style={styles.org_button}> 
-        <Image style={styles.logo} source={require(organization.image)}/>
+        <Image style={styles.logo} source={logo}/>
           <View style={styles.org_title_des}>
-          <Text style={styles.org_title}> {organization.name}</Text>
-          <Text style={styles.org_description}> {organization.description}</Text>
+          <Text style={styles.org_title}> {name}</Text>
+          <Text style={styles.org_description}> {description}</Text>
           </View>
         </Pressable>
     )
