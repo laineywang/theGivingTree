@@ -7,7 +7,7 @@ const OrgsButton = ({ organization }) => {
         <Pressable style={styles.org_button}> 
         <Image style={styles.logo} source={require(organization.image)}/>
           <View style={styles.org_title_des}>
-          <Text style={styles.org_title}> {organization.title}</Text>
+          <Text style={styles.org_title}> {organization.name}</Text>
           <Text style={styles.org_description}> {organization.description}</Text>
           </View>
         </Pressable>
