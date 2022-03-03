@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button, TextInput, Image } from 'react-native';
-import Colors from '../Themes/colors';
+import colors from '../Themes/Colors';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 export default function OrgInfo({navigation, route, category, org_name, org_logo, org_site, org_info_text}) {
