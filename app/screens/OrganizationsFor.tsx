@@ -13,10 +13,11 @@ export default function TabTwoScreen() {
 
   const renderItem = (item) => (
     <OrgsButton
-      name={item.name}
-      id={item.id}
-      description={item.description}
-      logo={item.logo}
+    organization={item}
+      // name={item.name}
+      // id={item.id}
+      // description={item.description}
+      // logo={item.logo}
     />
   );
 
