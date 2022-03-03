@@ -16,6 +16,7 @@ import SearchBar from "../components/SearchBar";
 import organizations from "../data/organizations.js";
 import OrgsButton from "../components/OrgsButton";
 import OrgDetails from "./OrgDetails";
+import DonateModal from "./DonateModal";
 
 export default function TabTwoScreen() {
   // const renderItem = (item: {
@@ -26,13 +27,13 @@ export default function TabTwoScreen() {
   // }) => <OrgsButton organization={item} />;
 
   const renderItem = (item) => (
-    <OrgsButton 
-    name={item.name}
-    id={item.id}
-    description={item.description}
-    logo={item.logo}
+    <OrgsButton
+      name={item.name}
+      id={item.id}
+      description={item.description}
+      logo={item.logo}
     />
-  )
+  );
 
   const HomeStack = createNativeStackNavigator();
   return (
@@ -53,6 +54,9 @@ export default function TabTwoScreen() {
           headerTintColor: "black",
         }}
       />
+      <HomeStack.Group screenOptions={{ presentation: "modal" }}>
+        <HomeStack.Screen name="Modal" component={DonateModal} />
+      </HomeStack.Group>
     </HomeStack.Navigator>
   );
 
