@@ -7,10 +7,16 @@ import {
 } from "react-native";
 import { Text, View } from "../components/Themed";
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const OrgsButton = ({ organization }) => {
+  const navigation = useNavigation();
+
   return (
-    <Pressable style={styles.org_button}>
+    <Pressable
+      style={styles.org_button}
+      onPress={() => navigation.navigate("OrgDetails")}
+    >
       {/* <Image style={styles.logo} source={require(organization.image)} /> */}
       <View style={styles.org_title_des}>
         <Text style={styles.org_title}> {organization.name}</Text>

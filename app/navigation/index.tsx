@@ -61,6 +61,7 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        headerShown: false
       }}>
       <BottomTab.Screen
         name="TabOne"
@@ -85,10 +86,10 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="placeholder"
+        name="Browse"
         component={OrganizationsFor}
         options={{
-          title: 'placeholder',
+          title: 'Browse',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
