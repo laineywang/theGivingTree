@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button, TextInput, Image } from 'react-native';
-import Colors from '../Themes/colors';
+import colors from '../Themes/Colors';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 export default function OrgInfo({navigation, route, category, org_name, org_logo, org_site, org_info_text}) {
@@ -24,7 +24,7 @@ return (
             <Button 
                 title='CONFIRM'
                 onPress={() => navigation.navigate('Donations', {textData: org_name})}
-                color={Colors.darkgreen} />
+                color={colors.darkgreen} />
             </View>
         </View>
     </View>
@@ -34,7 +34,7 @@ return (
 
 const styles = StyleSheet.create({
 screen :{
-    backgroundColor : Colors.lightgreen,
+    backgroundColor : colors.lightgreen,
     width : '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -46,7 +46,7 @@ category_text: {
 },
 box: {
     maxHeight: '75%',
-    backgroundColor: Colors.background,
+    backgroundColor: colors.background,
     justifyContent: 'flex-start',
 },
 title_and_logo_section: {
@@ -71,7 +71,7 @@ link_section: {
 },
 link: {
     alignSelf: 'flex-start',
-    backgroundColor: Colors.lightblue,
+    backgroundColor: colors.lightblue,
     borderRadius: 15,
     maxWidth: '20%'
 },
