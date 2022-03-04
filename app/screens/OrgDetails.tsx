@@ -29,8 +29,8 @@ export default function OrgInfo({ route }) {
         </View>
         <View style={styles.confirm_section}>
           <LargeActionButton
-            label="CONFIRM"
-            onPress={() => navigation.navigate("Modal")}
+            label="DONATE"
+            onPress={() => navigation.navigate("Modal", { name: params.name })}
           />
         </View>
       </View>

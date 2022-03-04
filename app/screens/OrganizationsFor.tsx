@@ -49,13 +49,20 @@ export default function TabTwoScreen() {
         name="OrgDetails"
         component={OrgDetails}
         options={{
+          title: "",
           headerTransparent: true,
           headerBackTitleVisible: false,
           headerTintColor: "black",
         }}
       />
       <HomeStack.Group screenOptions={{ presentation: "modal" }}>
-        <HomeStack.Screen name="Modal" component={DonateModal} />
+        <HomeStack.Screen
+          name="Modal"
+          component={DonateModal}
+          options={{
+            headerShown: false,
+          }}
+        />
       </HomeStack.Group>
     </HomeStack.Navigator>
   );
