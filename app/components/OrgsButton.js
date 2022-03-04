@@ -39,15 +39,15 @@ const styles = StyleSheet.create({
     shadowOffset: { width: -1, height: 2 },
     borderRadius: 16,
     height: 100,
-    width: '90%',
+    width: '85%',
     flexDirection: "row",
     paddingTop: 10,
+    left:7
     
   },
 
   org_title_des: {
-    flexWrap: 'wrap', 
-    flexGrow: 1,  
+    
   },
 
   org_title: {

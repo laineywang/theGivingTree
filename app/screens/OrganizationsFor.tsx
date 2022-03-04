@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
 
   button:{
-    marginBottom: 10, 
+    marginBottom: 20, 
   },
   
   // upper region (title and description)
