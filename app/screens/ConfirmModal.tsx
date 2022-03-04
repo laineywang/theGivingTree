@@ -1,5 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet, Image, TextInput } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TextInput,
+} from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
@@ -33,7 +39,7 @@ class ConfirmModal extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.amountContainer}></View>
         {/* <Image
           style={styles.bar}
@@ -71,7 +77,7 @@ class ConfirmModal extends Component {
             active={true}
           />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
