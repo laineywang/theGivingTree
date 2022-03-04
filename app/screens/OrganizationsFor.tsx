@@ -16,78 +16,57 @@ import SearchBar from "../components/SearchBar";
 import organizations from "../data/organizations.js";
 import OrgsButton from "../components/OrgsButton";
 import OrgDetails from "./OrgDetails";
+import DonateModal from "./DonateModal";
+import ConfirmModal from "./ConfirmModal";
+import ThankYou from "./ThankYou";
 
-export default function TabTwoScreen() {
-  // const renderItem = (item: {
-  //   id: number;
-  //   name: string;
-  //   description: string;
-  //   logo: string;
-  // }) => <OrgsButton organization={item} />;
+// const renderItem = (item: {
+//   id: number;
+//   name: string;
+//   description: string;
+//   logo: string;
+// }) => <OrgsButton organization={item} />;
 
-  const renderItem = (item) => (
-    <View style={styles.button}>
-    <OrgsButton 
-    name={item.name}
-    id={item.id}
-    description={item.description}
-    logo={item.logo}
-    info={item.info}
-    url={item.url}
+const renderItem = (item) => (
+  <View style={styles.button}>
+    <OrgsButton
+      name={item.name}
+      id={item.id}
+      description={item.description}
+      logo={item.logo}
+      info={item.info}
+      url={item.url}
     />
-    </View>
-  )
+  </View>
+);
 
-  const HomeStack = createNativeStackNavigator();
+export default function OrganizationsFor() {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen
-        name="Home"
-        component={OrganizationsFor}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <HomeStack.Screen
-        name="OrgDetails"
-        component={OrgDetails}
-        options={{
-          headerTransparent: true,
-          headerBackTitleVisible: false,
-          headerTintColor: "black",
-        }}
-      />
-    </HomeStack.Navigator>
-  );
-
-  function OrganizationsFor() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.upper}>
-          <Text style={styles.title}>Organizations for Animal Rights</Text>
-          <Text style={styles.description}>
-            Help aid organizations fighting for animals to be free of
-            involvement and suffering in medical research, hunting, and other
-            industries that benefit humans.
-          </Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.upper}>
+        <Text style={styles.title}>Organizations for Animal Rights</Text>
+        <Text style={styles.description}>
+          Help aid organizations fighting for animals to be free of involvement
+          and suffering in medical research, hunting, and other industries that
+          benefit humans.
+        </Text>
+      </View>
+      <View style={styles.search_sort}>
+        <View style={styles.search_bar}>
+          <SearchBar />
         </View>
-        <View style={styles.search_sort}>
-          <View style={styles.search_bar}>
-            <SearchBar/>
-          </View>
-          {/* <div style={styles.sort_button}>
+        {/* <div style={styles.sort_button}>
           <Dropdown filters={filters}/>
         </div> */}
-        </View>
-        <FlatList
-          style={styles.list}
-          data={organizations} // the array of data that the FlatList displays
-          renderItem={({ item }) => renderItem(item)} // function that renders each item
-          keyExtractor={(item) => item.id}
-        />
-      </SafeAreaView>
-    );
-  }
+      </View>
+      <FlatList
+        style={styles.list}
+        data={organizations} // the array of data that the FlatList displays
+        renderItem={({ item }) => renderItem(item)} // function that renders each item
+        keyExtractor={(item) => item.id}
+      />
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -98,15 +77,15 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 
-  button:{
-    marginBottom: 10, 
+  button: {
+    marginBottom: 20,
+    width: "100%",
   },
-  
+
   // upper region (title and description)
   upper: {
     justifyContent: "flex-start",
   },
-
 
   title: {
     fontSize: 35,
@@ -117,7 +96,7 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    left: 20
+    left: 20,
   },
 
   description: {
@@ -166,4 +145,3 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 });
-

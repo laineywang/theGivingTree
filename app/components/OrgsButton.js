@@ -18,12 +18,12 @@ const OrgsButton = ({ name, description, id, logo, info, url}) => {
         onPress={() => navigation.navigate("OrgDetails", {name: name, description: description, id:id, logo:logo, info:info, url:url})}
       >
         {/* <Image style={styles.logo} source={require(organization.image)} /> */}
-        <View style={{flexDirection: 'row'}}>
-        <Image style={styles.logo} source={logo}/>
-        <View style={styles.org_title_des}>
-          <Text style={styles.org_title}> {name}</Text>
-          <Text style={styles.org_description}> {description}</Text>
-        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Image style={styles.logo} source={logo} />
+          <View style={styles.org_title_des}>
+            <Text style={styles.org_title}>{name}</Text>
+            <Text style={styles.org_description}>{description}</Text>
+          </View>
         </View>
       </Pressable>
     </View>
@@ -39,15 +39,16 @@ const styles = StyleSheet.create({
     shadowOffset: { width: -1, height: 2 },
     borderRadius: 16,
     height: 100,
-    width: '90%',
+    width: "85%",
     flexDirection: "row",
     paddingTop: 10,
-    
+    left: 7,
   },
 
   org_title_des: {
-    flexWrap: 'wrap', 
-    flexGrow: 1,  
+    width: "100%",
+    maxWidth: "60%",
+    marginLeft: 10,
   },
 
   org_title: {
@@ -55,11 +56,10 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: "black",
     fontWeight: "bold",
-
   },
 
   org_description: {
-    flexWrap: 'wrap', 
+    flexWrap: "wrap",
     top: 15,
     fontSize: 12,
     color: "gray",
