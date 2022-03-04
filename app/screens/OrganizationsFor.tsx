@@ -31,6 +31,7 @@ export default function TabTwoScreen() {
     id={item.id}
     description={item.description}
     logo={item.logo}
+    info={item.info}
     />
   )
 
