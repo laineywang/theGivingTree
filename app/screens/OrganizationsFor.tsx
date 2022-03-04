@@ -36,6 +36,7 @@ const renderItem = (item) => (
       description={item.description}
       logo={item.logo}
       info={item.info}
+      url={item.url}
     />
   </View>
 );
