@@ -16,6 +16,8 @@ class DonateModal extends Component {
   constructor(props) {
     super(props);
 
+    console.log(this.props);
+
     this.state = {
       donateAmt: 0,
       recurring: "",
@@ -28,8 +30,13 @@ class DonateModal extends Component {
   }
 
   onDonatePress() {
+    let amt =
+      this.state.customAmt == "" ? this.state.donateAmt : this.state.customAmt;
+
     this.props.navigation.navigate("ConfirmModal", {
-      name: this.props.route.params.name,
+      name: this.props.route.params.params.name,
+      donateAmt: amt,
+      recurring: this.state.recurring,
     });
   }
 
@@ -112,7 +119,7 @@ class DonateModal extends Component {
           source={require("../assets/images/divider-bar.png")}
         /> */}
 
-        <Text style={styles.selectText}> Recurring Payment</Text>
+        <Text style={styles.freqText}>Frequency</Text>
         <View style={styles.rowContainer}>
           <RecurringBtn
             label={"One Time"}
@@ -162,7 +169,17 @@ const styles = StyleSheet.create({
   amountContainer: {},
 
   selectText: {
-    marginTop: 60,
+    marginTop: 80,
+    fontSize: 26,
+    marginLeft: "12%",
+    textAlign: "left",
+    marginBottom: 15,
+    color: "black",
+    fontWeight: "bold",
+  },
+
+  freqText: {
+    marginTop: 50,
     fontSize: 26,
     marginLeft: "12%",
     textAlign: "left",
@@ -207,7 +224,7 @@ const styles = StyleSheet.create({
   },
 
   actionContainer: {
-    marginTop: 100,
+    marginTop: "10%",
     width: "70%",
     alignSelf: "center",
   },

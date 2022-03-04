@@ -15,6 +15,8 @@ import { useNavigation } from "@react-navigation/native";
 class ConfirmModal extends Component {
   constructor(props) {
     super(props);
+
+    console.log(this.props);
     this.state = {
       donateAmt: 0,
       recurring: "",
@@ -25,124 +27,48 @@ class ConfirmModal extends Component {
     this.onPress = this.onPress.bind(this);
   }
 
-  onDonatePress() {}
-
-  onPress(amount, index) {
-    let newState = [false, false, false, false, false, false];
-    if (!this.state.donateBtnState[index]) {
-      newState[index] = true;
-    } else {
-      amount = 0;
-    }
-
-    this.setState({ donateAmt: amount, donateBtnState: newState });
-  }
-
-  onRecPress(recurr, index) {
-    let newState = [false, false, false, false];
-    if (!this.state.recBtnState[index]) {
-      newState[index] = true;
-    } else {
-      recurr = "";
-    }
-
-    this.setState({ recurring: recurr, recBtnState: newState });
+  onPress() {
+    this.props.navigation.navigate("ThankYou");
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.amountContainer}>
-          <Text style={styles.selectText}>pie</Text>
-          <View style={styles.rowContainer}>
-            <AmountBtn
-              label={"$20"}
-              onPress={() => this.onPress(10, 0)}
-              active={this.state.donateBtnState[0]}
-            />
-            <AmountBtn
-              label={"$25"}
-              onPress={() => this.onPress(25, 1)}
-              active={this.state.donateBtnState[1]}
-            />
-            <AmountBtn
-              label={"$50"}
-              onPress={() => this.onPress(50, 2)}
-              active={this.state.donateBtnState[2]}
-            />
-          </View>
-          <View style={styles.rowContainer}>
-            <AmountBtn
-              label={"$100"}
-              onPress={() => this.onPress(100, 3)}
-              active={this.state.donateBtnState[3]}
-            />
-            <AmountBtn
-              label={"$250"}
-              onPress={() => this.onPress(250, 4)}
-              active={this.state.donateBtnState[4]}
-            />
-            <AmountBtn
-              label={"$500"}
-              onPress={() => this.onPress(500, 5)}
-              active={this.state.donateBtnState[5]}
-            />
-          </View>
-
-          <Image
-            style={styles.orBar}
-            source={require("../assets/images/or-bar.png")}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="$20.00"
-            keyboardType="numeric"
-            onChangeText={(customAmt) => this.setState({ customAmt })}
-            value={this.state.customAmt}
-          />
-        </View>
+        <View style={styles.amountContainer}></View>
         {/* <Image
           style={styles.bar}
           source={require("../assets/images/divider-bar.png")}
         /> */}
 
-        <Text style={styles.selectText}> Recurring Payment</Text>
-        <View style={styles.rowContainer}>
-          <RecurringBtn
-            label={"One Time"}
-            onPress={() => this.onRecPress("One Time", 0)}
-            active={this.state.recBtnState[0]}
-          />
-          <RecurringBtn
-            label={"Weekly"}
-            onPress={() => this.onRecPress("Weekly", 1)}
-            active={this.state.recBtnState[1]}
-          />
-        </View>
-        <View style={styles.rowContainer}>
-          <RecurringBtn
-            label={"Monthly"}
-            onPress={() => this.onRecPress("Monthly", 2)}
-            active={this.state.recBtnState[2]}
-          />
-          <RecurringBtn
-            label={"Annually"}
-            onPress={() => this.onRecPress("Annually", 3)}
-            active={this.state.recBtnState[3]}
-          />
+        <Text style={styles.selectText}>Your Donation:</Text>
+        <View style={styles.textContainer}>
+          <View style={styles.tContainer}>
+            <Text style={styles.leadText}>Organization:</Text>
+            <Text style={styles.text}>
+              {"  "}
+              {this.props.route.params.name}
+            </Text>
+          </View>
+          <View style={styles.tContainer}>
+            <Text style={styles.leadText}>Amount:</Text>
+            <Text style={styles.text}>
+              {"  "}${this.props.route.params.donateAmt}
+            </Text>
+          </View>
+          <View style={styles.tContainer}>
+            <Text style={styles.leadText}>Frequency:</Text>
+            <Text style={styles.text}>
+              {"  "}
+              {this.props.route.params.recurring}
+            </Text>
+          </View>
         </View>
 
-        <View>
-          <View></View>
-        </View>
         <View style={styles.actionContainer}>
           <LargeActionButton
-            label={"DONATE"}
+            label={"CONFIRM"}
             onPress={this.onPress}
-            active={
-              (this.state.donateAmt > 0 || this.state.customAmt != "") &&
-              this.state.recurring != ""
-            }
+            active={true}
           />
         </View>
       </View>
@@ -156,52 +82,45 @@ const styles = StyleSheet.create({
   amountContainer: {},
 
   selectText: {
-    marginTop: 60,
-    fontSize: 26,
-    marginLeft: "12%",
+    marginTop: "50%",
+    fontSize: 48,
+    textAlign: "center",
+    marginBottom: 15,
+    color: "black",
+    fontWeight: "bold",
+  },
+
+  textContainer: {
+    marginTop: "15%",
+    borderColor: "#dddddd",
+    borderWidth: 2,
+    marginHorizontal: 20,
+    borderRadius: 20,
+    paddingVertical: 50,
+    alignItems: "center",
+    textAlign: "left",
+    marginBottom: "10%",
+  },
+
+  tContainer: {
+    flexDirection: "row",
+    fontSize: 24,
+  },
+
+  leadText: {
+    fontSize: 24,
     textAlign: "left",
     marginBottom: 15,
     color: "black",
     fontWeight: "bold",
   },
 
-  rowContainer: {
-    paddingLeft: "15%",
-    paddingRight: "15%",
-    paddingBottom: 10,
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-
-  orBar: {
-    width: "70%",
-    margin: 0,
-    alignSelf: "center",
-    resizeMode: "contain",
-    height: 50,
-  },
-
-  textInput: {
-    borderRadius: 5,
-    borderWidth: 1,
-    height: 50,
-    fontSize: 20,
-    fontWeight: "bold",
-    paddingHorizontal: 10,
-    marginHorizontal: "15%",
-    marginTop: 20,
-  },
-
-  bar: {
-    width: "100%",
-    margin: 50,
-    alignSelf: "center",
-    resizeMode: "contain",
-    height: 50,
+  text: {
+    fontSize: 24,
   },
 
   actionContainer: {
-    marginTop: 100,
+    marginTop: "10%",
     width: "70%",
     alignSelf: "center",
   },

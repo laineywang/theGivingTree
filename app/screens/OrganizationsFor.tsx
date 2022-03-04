@@ -18,6 +18,7 @@ import OrgsButton from "../components/OrgsButton";
 import OrgDetails from "./OrgDetails";
 import DonateModal from "./DonateModal";
 import ConfirmModal from "./ConfirmModal";
+import ThankYou from "./ThankYou";
 
 export default function TabTwoScreen() {
   // const renderItem = (item: {
@@ -38,32 +39,6 @@ export default function TabTwoScreen() {
 
   const ModalStack = createNativeStackNavigator();
   const HomeStack = createNativeStackNavigator();
-
-  function DonateModalStack() {
-    return (
-      <ModalStack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <ModalStack.Screen
-          name="DonateModal"
-          component={DonateModal}
-          options={{
-            presentation: "modal",
-          }}
-        />
-        <ModalStack.Screen
-          name="ConfirmModal"
-          component={ConfirmModal}
-          options={{
-            presentation: "card",
-            headerShown: true,
-          }}
-        />
-      </ModalStack.Navigator>
-    );
-  }
 
   return (
     <HomeStack.Navigator>
@@ -87,28 +62,33 @@ export default function TabTwoScreen() {
       {/* <HomeStack.Group screenOptions={{ presentation: "modal" }}> */}
       <HomeStack.Screen
         name="Modal"
-        component={DonateModalStack}
-        options={{
-          headerShown: false,
-          presentation: "modal",
-        }}
-      />
-      {/* <HomeStack.Screen
-        name="Modal"
         component={DonateModal}
         options={{
-          headerShown: false,
-          presentation: "modal",
+          title: "",
+          headerTransparent: true,
+          headerBackTitleVisible: false,
+          headerTintColor: "black",
+          presentation: "card",
         }}
       />
       <HomeStack.Screen
         name="ConfirmModal"
         component={ConfirmModal}
         options={{
-          headerShown: false,
+          title: "",
+          headerTransparent: true,
+          headerBackTitleVisible: false,
+          headerTintColor: "black",
           presentation: "card",
         }}
-      /> */}
+      />
+      <HomeStack.Screen
+        name="ThankYou"
+        component={ThankYou}
+        options={{
+          headerShown: false,
+        }}
+      />
       {/* </HomeStack.Group> */}
     </HomeStack.Navigator>
   );
