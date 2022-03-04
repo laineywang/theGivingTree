@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
 
   button: {
     marginBottom: 20,
+    width: "100%",
   },
 
   // upper region (title and description)
