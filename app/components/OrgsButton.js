@@ -9,21 +9,13 @@ import { Text, View } from "../components/Themed";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-const OrgsButton = ({ name, description, id, logo, info }) => {
+const OrgsButton = ({ name, description, id, logo, info, url}) => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.org_button}>
       <Pressable
-        onPress={() =>
-          navigation.navigate("OrgDetails", {
-            name: name,
-            description: description,
-            id: id,
-            logo: logo,
-            info: info,
-          })
-        }
+        onPress={() => navigation.navigate("OrgDetails", {name: name, description: description, id:id, logo:logo, info:info, url:url})}
       >
         {/* <Image style={styles.logo} source={require(organization.image)} /> */}
         <View style={{ flexDirection: "row" }}>
