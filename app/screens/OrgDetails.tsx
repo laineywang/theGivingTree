@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
-import * as React from 'react';
+import * as React from "react";
+import LargeActionButton from "../components/LargeActionButton";
 import EditScreenInfo from "../components/EditScreenInfo";
-import { Text, View} from "../components/Themed";
-import { Button, Image } from 'react-native';
+import { Text, View } from "../components/Themed";
+import { Button, Image } from "react-native";
 import { RootTabScreenProps } from "../types";
-import colors from '../Themes/Colors';
+import colors from "../Themes/Colors";
 import organizations from "../data/organizations.js";
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 
 export default function OrgInfo({route}) {
@@ -31,14 +32,22 @@ export default function OrgInfo({route}) {
                 </View>
 
                 <View style={styles.confirm_section}>
-                    <Button 
-                        title='CONFIRM'
-                        onPress={() => (navigation.navigate('Root'))}
-                        color={colors.darkgreen} />
+                  <LargeActionButton
+            label="DONATE"
+            onPress={() =>
+              // navigation.navigate("Modal", {
+              //   name: params.name,
+              // })
+              navigation.navigate("Modal", {
+                screen: "DonateModal",
+                params: { name: params.name },
+              })
+            }
+            active={true}
+          />
                 </View>
             </View>
         </View>
-      
   );
 }
 
@@ -109,5 +118,4 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: '5%'
     }
-
 });

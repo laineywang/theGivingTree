@@ -16,6 +16,9 @@ import SearchBar from "../components/SearchBar";
 import organizations from "../data/organizations.js";
 import OrgsButton from "../components/OrgsButton";
 import OrgDetails from "./OrgDetails";
+import DonateModal from "./DonateModal";
+import ConfirmModal from "./ConfirmModal";
+import ThankYou from "./ThankYou";
 
 export default function TabTwoScreen() {
   // const renderItem = (item: {
@@ -27,17 +30,18 @@ export default function TabTwoScreen() {
 
   const renderItem = (item) => (
     <View style={styles.button}>
-    <OrgsButton 
-    name={item.name}
-    id={item.id}
-    description={item.description}
-    logo={item.logo}
-    info={item.info}
-    />
+      <OrgsButton
+        name={item.name}
+        id={item.id}
+        description={item.description}
+        logo={item.logo}
+        info={item.info}
+      />
     </View>
-  )
+  );
 
   const HomeStack = createNativeStackNavigator();
+
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
@@ -51,11 +55,44 @@ export default function TabTwoScreen() {
         name="OrgDetails"
         component={OrgDetails}
         options={{
+          title: "",
           headerTransparent: true,
           headerBackTitleVisible: false,
           headerTintColor: "black",
+          presentation: "card",
         }}
       />
+      {/* <HomeStack.Group screenOptions={{ presentation: "modal" }}> */}
+      <HomeStack.Screen
+        name="Modal"
+        component={DonateModal}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerBackTitleVisible: false,
+          headerTintColor: "black",
+          presentation: "card",
+        }}
+      />
+      <HomeStack.Screen
+        name="ConfirmModal"
+        component={ConfirmModal}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerBackTitleVisible: false,
+          headerTintColor: "black",
+          presentation: "card",
+        }}
+      />
+      <HomeStack.Screen
+        name="ThankYou"
+        component={ThankYou}
+        options={{
+          headerShown: false,
+        }}
+      />
+      {/* </HomeStack.Group> */}
     </HomeStack.Navigator>
   );
 
@@ -72,7 +109,7 @@ export default function TabTwoScreen() {
         </View>
         <View style={styles.search_sort}>
           <View style={styles.search_bar}>
-            <SearchBar/>
+            <SearchBar />
           </View>
           {/* <div style={styles.sort_button}>
           <Dropdown filters={filters}/>
@@ -97,15 +134,14 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 
-  button:{
-    marginBottom: 20, 
+  button: {
+    marginBottom: 20,
   },
-  
+
   // upper region (title and description)
   upper: {
     justifyContent: "flex-start",
   },
-
 
   title: {
     fontSize: 35,
@@ -116,7 +152,7 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    left: 20
+    left: 20,
   },
 
   description: {
@@ -165,4 +201,3 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 });
-
