@@ -1,11 +1,17 @@
+import { createIconSetFromFontello } from "@expo/vector-icons";
 import { StyleSheet, Pressable, Button, SafeAreaView } from "react-native";
 import { Text, View } from "../components/Themed";
+import Colors from "../Themes/Colors";
 
-const LargeActionButton = ({ label, onPress }) => {
+const LargeActionButton = ({ label, onPress, active }) => {
   return (
     <Pressable
-      style={({ pressed }) => [styles.button, pressed ? { opacity: 0.9 } : {}]}
+      style={({ pressed }) => [
+        active ? styles.activeButton : styles.disabledButton,
+        pressed ? { opacity: 0.9 } : {},
+      ]}
       onPress={onPress}
+      disabled={!active}
     >
       <Text style={styles.text}>{label}</Text>
     </Pressable>
@@ -13,7 +19,7 @@ const LargeActionButton = ({ label, onPress }) => {
 };
 
 const styles = StyleSheet.create({
-  button: {
+  activeButton: {
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
@@ -21,8 +27,21 @@ const styles = StyleSheet.create({
 
     borderRadius: 30,
     elevation: 3,
-    backgroundColor: "#185A37", // could not import Colors for the life of me for some reason idk
+    backgroundColor: Colors.darkgreen,
   },
+
+  disabledButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+
+    borderRadius: 30,
+    elevation: 3,
+    backgroundColor: Colors.darkgreen,
+    opacity: 0.2,
+  },
+
   text: {
     fontSize: 42,
     fontWeight: "bold",

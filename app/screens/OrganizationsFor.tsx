@@ -17,6 +17,7 @@ import organizations from "../data/organizations.js";
 import OrgsButton from "../components/OrgsButton";
 import OrgDetails from "./OrgDetails";
 import DonateModal from "./DonateModal";
+import ConfirmModal from "./ConfirmModal";
 
 export default function TabTwoScreen() {
   // const renderItem = (item: {
@@ -35,7 +36,32 @@ export default function TabTwoScreen() {
     />
   );
 
+  const ModalStack = createNativeStackNavigator();
   const HomeStack = createNativeStackNavigator();
+
+  const DonateModalStack = () => (
+    <ModalStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <ModalStack.Screen
+        name="DonateModal"
+        component={DonateModal}
+        options={{
+          presentation: "modal",
+        }}
+      />
+      <ModalStack.Screen
+        name="ConfirmModal"
+        component={ConfirmModal}
+        options={{
+          presentation: "card",
+        }}
+      />
+    </ModalStack.Navigator>
+  );
+
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
@@ -55,15 +81,32 @@ export default function TabTwoScreen() {
           headerTintColor: "black",
         }}
       />
-      <HomeStack.Group screenOptions={{ presentation: "modal" }}>
-        <HomeStack.Screen
-          name="Modal"
-          component={DonateModal}
-          options={{
-            headerShown: false,
-          }}
-        />
-      </HomeStack.Group>
+      {/* <HomeStack.Group screenOptions={{ presentation: "modal" }}> */}
+      <HomeStack.Screen
+        name="Modal"
+        component={DonateModalStack}
+        options={{
+          headerShown: false,
+          presentation: "modal",
+        }}
+      />
+      {/* <HomeStack.Screen
+        name="Modal"
+        component={DonateModal}
+        options={{
+          headerShown: false,
+          presentation: "modal",
+        }}
+      />
+      <HomeStack.Screen
+        name="ConfirmModal"
+        component={ConfirmModal}
+        options={{
+          headerShown: false,
+          presentation: "card",
+        }}
+      /> */}
+      {/* </HomeStack.Group> */}
     </HomeStack.Navigator>
   );
 

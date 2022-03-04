@@ -10,12 +10,11 @@ import LargeActionButton from "../components/LargeActionButton";
 import React, { Component } from "react";
 import Colors from "../Themes/Colors";
 
-import { useNavigation } from "react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
-class DonateModal extends Component {
+class ConfirmModal extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       donateAmt: 0,
       recurring: "",
@@ -24,13 +23,10 @@ class DonateModal extends Component {
       recBtnState: [false, false, false, false],
     };
     this.onPress = this.onPress.bind(this);
-    this.onDonatePress = this.onDonatePress.bind(this);
   }
 
   onDonatePress() {
-    this.props.navigation.navigate("ConfirmModal", {
-      name: this.props.route.params.name,
-    });
+    const navigation = useNavigation();
   }
 
   onPress(amount, index) {
@@ -59,10 +55,10 @@ class DonateModal extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.amountContainer}>
-          <Text style={styles.selectText}> Select Amount</Text>
+          <Text style={styles.selectText}>pie</Text>
           <View style={styles.rowContainer}>
             <AmountBtn
-              label={"$10"}
+              label={"$20"}
               onPress={() => this.onPress(10, 0)}
               active={this.state.donateBtnState[0]}
             />
@@ -144,7 +140,7 @@ class DonateModal extends Component {
         <View style={styles.actionContainer}>
           <LargeActionButton
             label={"DONATE"}
-            onPress={() => this.onDonatePress()}
+            onPress={this.onPress}
             active={
               (this.state.donateAmt > 0 || this.state.customAmt != "") &&
               this.state.recurring != ""
@@ -213,4 +209,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DonateModal;
+export default ConfirmModal;
