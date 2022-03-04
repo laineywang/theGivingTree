@@ -37,16 +37,20 @@ import {
       height: 150,
       width: 150,
       flexDirection: "row",
-  
+      margin: 15,
+      marginHorizontal: 20,
+      justifyContent: 'center',
     },
   
     cause_name: {
       top: 10,
-      fontSize: 25,
+      fontSize: 16,
       color: "black",
       fontWeight: "bold",
-      top: 50,
+      top: 85,
       textAlign: 'center',
+      color: colors.darkgreen,
+      right: 3,
     },
   
     cause_image: {

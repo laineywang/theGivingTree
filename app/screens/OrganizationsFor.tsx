@@ -19,6 +19,7 @@ import OrgDetails from "./OrgDetails";
 import DonateModal from "./DonateModal";
 import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
+import colors from "../Themes/Colors";
 
 // const renderItem = (item: {
 //   id: number;
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 35,
     fontWeight: "bold",
-    color: "green",
+    color: colors.darkgreen,
     textAlign: "center",
     //fontFamily: 'Nunito-Black'
   },

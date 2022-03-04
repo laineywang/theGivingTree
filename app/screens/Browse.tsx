@@ -19,6 +19,7 @@ import OrgDetails from "./OrgDetails";
 import DonateModal from "./DonateModal";
 import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
+import colors from "../Themes/Colors";
 
 export default function Browse() {
   const renderItem = (item) => <CausesButton id={item.id} cause={item.cause} />;
@@ -93,8 +94,10 @@ export default function Browse() {
   function Browse() {
     return (
       <SafeAreaView>
-        <Text> Browse Causes</Text>
+        <Text style={styles.title}> Browse Causes</Text>
         <FlatList
+          columnWrapperStyle={{justifyContent: 'space-evenly'}}
+          numColumns={2}
           data={causes} // the array of data that the FlatList displays
           renderItem={({ item }) => renderItem(item)} // function that renders each item
           keyExtractor={(item) => item.id}
@@ -111,4 +114,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "white",
   },
+
+  title: {
+    fontSize: 35,
+    fontWeight: "bold",
+    color: colors.darkgreen,
+    textAlign: "center",
+  }
 });
