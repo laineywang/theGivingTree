@@ -1,5 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet, Image, TextInput } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Image,
+  TextInput,
+} from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
@@ -8,6 +14,8 @@ import AmountBtn from "../components/DonationModal/AmountBtn";
 import RecurringBtn from "../components/DonationModal/RecurringBtn";
 import LargeActionButton from "../components/LargeActionButton";
 import React, { Component } from "react";
+import { Dimensions } from "react-native";
+
 import Colors from "../Themes/Colors";
 
 import { useNavigation } from "react-navigation/native";
@@ -15,8 +23,6 @@ import { useNavigation } from "react-navigation/native";
 class DonateModal extends Component {
   constructor(props) {
     super(props);
-
-    console.log(this.props);
 
     this.state = {
       donateAmt: 0,
@@ -64,7 +70,7 @@ class DonateModal extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.amountContainer}>
           <Text style={styles.selectText}> Select Amount</Text>
           <View style={styles.rowContainer}>
@@ -118,68 +124,73 @@ class DonateModal extends Component {
           style={styles.bar}
           source={require("../assets/images/divider-bar.png")}
         /> */}
+        <View style={styles.freqContainer}>
+          <Text style={styles.freqText}>Frequency</Text>
+          <View style={styles.rowContainer}>
+            <RecurringBtn
+              label={"One Time"}
+              onPress={() => this.onRecPress("One Time", 0)}
+              active={this.state.recBtnState[0]}
+            />
+            <RecurringBtn
+              label={"Weekly"}
+              onPress={() => this.onRecPress("Weekly", 1)}
+              active={this.state.recBtnState[1]}
+            />
+          </View>
+          <View style={styles.rowContainer}>
+            <RecurringBtn
+              label={"Monthly"}
+              onPress={() => this.onRecPress("Monthly", 2)}
+              active={this.state.recBtnState[2]}
+            />
+            <RecurringBtn
+              label={"Annually"}
+              onPress={() => this.onRecPress("Annually", 3)}
+              active={this.state.recBtnState[3]}
+            />
+          </View>
 
-        <Text style={styles.freqText}>Frequency</Text>
-        <View style={styles.rowContainer}>
-          <RecurringBtn
-            label={"One Time"}
-            onPress={() => this.onRecPress("One Time", 0)}
-            active={this.state.recBtnState[0]}
-          />
-          <RecurringBtn
-            label={"Weekly"}
-            onPress={() => this.onRecPress("Weekly", 1)}
-            active={this.state.recBtnState[1]}
-          />
+          <View>
+            <View></View>
+          </View>
+          <View style={styles.actionContainer}>
+            <LargeActionButton
+              label={"DONATE"}
+              onPress={() => this.onDonatePress()}
+              active={
+                (this.state.donateAmt > 0 || this.state.customAmt != "") &&
+                this.state.recurring != ""
+              }
+            />
+          </View>
         </View>
-        <View style={styles.rowContainer}>
-          <RecurringBtn
-            label={"Monthly"}
-            onPress={() => this.onRecPress("Monthly", 2)}
-            active={this.state.recBtnState[2]}
-          />
-          <RecurringBtn
-            label={"Annually"}
-            onPress={() => this.onRecPress("Annually", 3)}
-            active={this.state.recBtnState[3]}
-          />
-        </View>
-
-        <View>
-          <View></View>
-        </View>
-        <View style={styles.actionContainer}>
-          <LargeActionButton
-            label={"DONATE"}
-            onPress={() => this.onDonatePress()}
-            active={
-              (this.state.donateAmt > 0 || this.state.customAmt != "") &&
-              this.state.recurring != ""
-            }
-          />
-        </View>
-      </View>
+      </ScrollView>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: { height: "100%" },
+let ScreenHeight = Dimensions.get("window").height;
 
-  amountContainer: {},
+const styles = StyleSheet.create({
+  container: { height: ScreenHeight },
+
+  amountContainer: { flex: 1 },
+
+  freqContainer: { flex: 1 },
 
   selectText: {
-    marginTop: 80,
+    marginTop: "30%",
     fontSize: 26,
     marginLeft: "12%",
     textAlign: "left",
-    marginBottom: 15,
+    marginBottom: "5%",
     color: "black",
     fontWeight: "bold",
   },
 
   freqText: {
-    marginTop: 50,
+    marginTop: "10%",
     fontSize: 26,
     marginLeft: "12%",
     textAlign: "left",
