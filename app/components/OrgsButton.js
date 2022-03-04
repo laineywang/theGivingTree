@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     height: 100,
     width: 320,
     flexDirection: "row",
+
   },
 
   org_title_des: {

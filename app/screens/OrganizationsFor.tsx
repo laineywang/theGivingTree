@@ -146,43 +146,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  org_button: {
-    backgroundColor: "white",
-    shadowColor: "gray",
-    shadowOpacity: 0.4,
-    shadowRadius: 5,
-    shadowOffset: { width: -1, height: 2 },
-    borderRadius: 16,
-    height: 100,
-    width: 320,
-    flexDirection: "row",
-  },
-
-  org_title_des: {
-    flexDirection: "column",
-    justifyContent: "flex-start",
-  },
-
-  org_title: {
-    top: 10,
-    fontSize: 25,
-    color: "black",
-    fontWeight: "bold",
-  },
-
-  org_description: {
-    top: 15,
-    fontSize: 12,
-    color: "gray",
-  },
-
-  logo: {
-    top: 10,
-    height: 50,
-    width: 70,
-    resizeMode: "contain",
-  },
-
   aspa: {
     top: 10,
     left: 5,
