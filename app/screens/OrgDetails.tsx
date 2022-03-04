@@ -59,27 +59,25 @@ export default function OrgInfo({route}) {
             </View>
         );
     }
+    return (
+        <HomeStack.Navigator>
+          <HomeStack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <HomeStack.Screen
+            name="LinkScreen"
+            component={LinkScreen}
+            options={{
+              headerShown:false
+            }}
+          />
+        </HomeStack.Navigator>
+      );
 
-  return (
-      <HomeStack.Navigator>
-        <HomeStack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <HomeStack.Screen
-          name="LinkScreen"
-          component={LinkScreen}
-          options={{
-            headerTransparent: true,
-            headerBackTitleVisible: false,
-            headerTintColor: "black",
-          }}
-        />
-      </HomeStack.Navigator>
-    );
 }
 
 const styles = StyleSheet.create({

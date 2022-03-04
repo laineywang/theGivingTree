@@ -2,21 +2,22 @@ import * as React from "react";
 import { Text, View, StyleSheet, Button, TextInput, Image, Pressable } from "react-native";
 import colors from "../Themes/Colors";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
-
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import TabOneScreen from "./TabOneScreen";
 
 export default function ThankYou() {
   const navigation = useNavigation();
-
-  return (
-    <View style={styles.screen}>
-      <Text style={styles.thanks_text}>Thank you for your donation!</Text>
-      <Pressable
-        onPress={() => navigation.navigate("Root")}
-        style={styles.button}>
-        <Text style={styles.nav_text}>See your GivingTree's progress</Text>
-      </Pressable>
-    </View>
-  );
+  const HomeStack = createNativeStackNavigator();
+    return (
+      <View style={styles.screen}>
+        <Text style={styles.thanks_text}>Thank you for your donation!</Text>
+        <Pressable
+          onPress={() => navigation.popToTop()}
+          style={styles.button}>
+          <Text style={styles.nav_text}>See your GivingTree's progress</Text>
+        </Pressable>
+      </View>
+    );
 }
 
 const styles = StyleSheet.create({
