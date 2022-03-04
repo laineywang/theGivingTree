@@ -18,6 +18,7 @@ import TabOneScreen from '../screens/TabOneScreen';
 import OrganizationsFor from '../screens/OrganizationsFor';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import Browse from '../screens/Browse';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -85,9 +86,17 @@ function BottomTabNavigator() {
           ),
         })}
       />
+      {/* <BottomTab.Screen
+        name="placeholder"
+        component={OrganizationsFor}
+        options={{
+          title: 'placeholder',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      /> */}
       <BottomTab.Screen
         name="Browse"
-        component={OrganizationsFor}
+        component={Browse}
         options={{
           title: 'Browse',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,

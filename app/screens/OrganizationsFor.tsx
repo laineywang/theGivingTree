@@ -29,13 +29,16 @@ export default function TabTwoScreen() {
   // }) => <OrgsButton organization={item} />;
 
   const renderItem = (item) => (
-    <OrgsButton
-      name={item.name}
-      id={item.id}
-      description={item.description}
-      logo={item.logo}
+    <View style={styles.button}>
+    <OrgsButton 
+    name={item.name}
+    id={item.id}
+    description={item.description}
+    logo={item.logo}
+    info={item.info}
     />
-  );
+    </View>
+  )
 
   const ModalStack = createNativeStackNavigator();
   const HomeStack = createNativeStackNavigator();
@@ -106,14 +109,14 @@ export default function TabTwoScreen() {
         </View>
         <View style={styles.search_sort}>
           <View style={styles.search_bar}>
-            <SearchBar />
+            <SearchBar/>
           </View>
           {/* <div style={styles.sort_button}>
           <Dropdown filters={filters}/>
         </div> */}
         </View>
-
         <FlatList
+          style={styles.list}
           data={organizations} // the array of data that the FlatList displays
           renderItem={({ item }) => renderItem(item)} // function that renders each item
           keyExtractor={(item) => item.id}
@@ -131,10 +134,15 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 
+  button:{
+    marginBottom: 20, 
+  },
+  
   // upper region (title and description)
   upper: {
     justifyContent: "flex-start",
   },
+
 
   title: {
     fontSize: 35,
@@ -142,6 +150,10 @@ const styles = StyleSheet.create({
     color: "green",
     textAlign: "center",
     //fontFamily: 'Nunito-Black'
+  },
+
+  list: {
+    left: 20
   },
 
   description: {
@@ -165,7 +177,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: -1, height: 2 },
     borderRadius: 20,
     bottom: 10,
-    left: 40,
     justifyContent: "center",
   },
 
@@ -182,43 +193,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  org_button: {
-    backgroundColor: "white",
-    shadowColor: "gray",
-    shadowOpacity: 0.4,
-    shadowRadius: 5,
-    shadowOffset: { width: -1, height: 2 },
-    borderRadius: 16,
-    height: 100,
-    width: 320,
-    flexDirection: "row",
-  },
-
-  org_title_des: {
-    flexDirection: "column",
-    justifyContent: "flex-start",
-  },
-
-  org_title: {
-    top: 10,
-    fontSize: 25,
-    color: "black",
-    fontWeight: "bold",
-  },
-
-  org_description: {
-    top: 15,
-    fontSize: 12,
-    color: "gray",
-  },
-
-  logo: {
-    top: 10,
-    height: 50,
-    width: 70,
-    resizeMode: "contain",
-  },
-
   aspa: {
     top: 10,
     left: 5,
@@ -229,57 +203,3 @@ const styles = StyleSheet.create({
   },
 });
 
-// Previous Drafts
-
-// <View style={styles.lower}>
-//         <Pressable style={styles.org_button}>
-//         <Image style={styles.logo} source={require("../assets/images/unnamed.jpeg")}/>
-//           <View style={styles.org_title_des}>
-//           <Text style={styles.org_title}>
-//             Animal Ethics
-//           </Text>
-//           <Text style={styles.org_description}>
-//             "Our vision is a world where all sentient beings are given moral consideration."
-//           </Text>
-//           </View>
-//         </Pressable>
-//       </View>
-//       <View style={styles.lower}>
-//         <Pressable style={styles.org_button}>
-//         <Image style={styles.aspa} source={require("../assets/images/ASPCA-logo-1024x276.png")}/>
-//         <View style={styles.org_title_des}>
-//           <Text style={styles.org_title}>
-//             ASPCA
-//           </Text>
-//           <Text style={styles.org_description}>
-//             "We are their voice"
-//           </Text>
-//           </View>
-//         </Pressable>
-//       </View>
-//       <View style={styles.lower}>
-//         <Pressable style={styles.org_button}>
-//         <Image style={styles.logo} source={require("../assets/images/logo-header-mobile.png")}/>
-//         <View style={styles.org_title_des}>
-//           <Text style={styles.org_title}>
-//             In Defense of Animals
-//           </Text>
-//           <Text style={styles.org_description}>
-//             "Working to protect the rights, welfare, and habitats of animals."
-//           </Text>
-//           </View>
-//         </Pressable>
-//       </View>
-//       <View style={styles.lower}>
-//         <Pressable style={styles.org_button}>
-//         <Image style={styles.logo} source={require("../assets/images/oceanAllianceLogo.png")}/>
-//         <View style={styles.org_title_des}>
-//           <Text style={styles.org_title}>
-//             Ocean Alliance
-//           </Text>
-//           <Text style={styles.org_description}>
-//             "Healthy Whales, Healthy Oceans, Healthy Humans."
-//           </Text>
-//           </View>
-//         </Pressable>
-//       </View>
