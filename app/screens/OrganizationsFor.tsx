@@ -30,17 +30,16 @@ export default function TabTwoScreen() {
 
   const renderItem = (item) => (
     <View style={styles.button}>
-    <OrgsButton 
-    name={item.name}
-    id={item.id}
-    description={item.description}
-    logo={item.logo}
-    info={item.info}
-    />
+      <OrgsButton
+        name={item.name}
+        id={item.id}
+        description={item.description}
+        logo={item.logo}
+        info={item.info}
+      />
     </View>
-  )
+  );
 
-  const ModalStack = createNativeStackNavigator();
   const HomeStack = createNativeStackNavigator();
 
   return (
@@ -60,6 +59,7 @@ export default function TabTwoScreen() {
           headerTransparent: true,
           headerBackTitleVisible: false,
           headerTintColor: "black",
+          presentation: "card",
         }}
       />
       {/* <HomeStack.Group screenOptions={{ presentation: "modal" }}> */}
@@ -109,7 +109,7 @@ export default function TabTwoScreen() {
         </View>
         <View style={styles.search_sort}>
           <View style={styles.search_bar}>
-            <SearchBar/>
+            <SearchBar />
           </View>
           {/* <div style={styles.sort_button}>
           <Dropdown filters={filters}/>
@@ -134,15 +134,14 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 
-  button:{
-    marginBottom: 20, 
+  button: {
+    marginBottom: 20,
   },
-  
+
   // upper region (title and description)
   upper: {
     justifyContent: "flex-start",
   },
-
 
   title: {
     fontSize: 35,
@@ -153,7 +152,7 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    left: 20
+    left: 20,
   },
 
   description: {
@@ -202,4 +201,3 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 });
-
