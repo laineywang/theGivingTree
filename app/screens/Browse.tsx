@@ -23,6 +23,7 @@ import ThankYou from "./ThankYou";
 export default function Browse() {
   const renderItem = (item) => <CausesButton id={item.id} cause={item.cause} />;
 
+
   const HomeStack = createNativeStackNavigator();
   return (
     <HomeStack.Navigator>
@@ -86,6 +87,7 @@ export default function Browse() {
         }}
       />
     </HomeStack.Navigator>
+
   );
 
   function Browse() {
