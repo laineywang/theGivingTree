@@ -42,9 +42,9 @@ export default function OrgInfo({route}) {
 const styles = StyleSheet.create({
   container :{
       backgroundColor : colors.lightgreen,
-      width : '100%',
       justifyContent: 'center',
       alignItems: 'center',
+      flex: 1,
   },
   category_text: {
       fontSize: 20,
@@ -57,18 +57,21 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
   },
   title_and_logo_section: {
-      flex: 1,
+      flex: 2,
       justifyContent: 'space-between',
+      flexDirection: 'row',
       padding: '5%',
+      maxWidth: '90%',
   },
   title: {
-      fontSize: 40,
+      fontSize: 27,
       fontWeight: 'bold',
-      textAlign: 'left',
+      //paddingLeft: '20%'
   },
   logo: {
       resizeMode: 'contain',
       maxHeight: '80%',
+      maxWidth: '20%',
   },
   link_section: {
       flex: 0.5,
@@ -83,13 +86,13 @@ const styles = StyleSheet.create({
       maxWidth: '20%'
   },
   description_box: {
-      flex: 2,
+      flex: 3,
       padding: '5%',
       justifyContent: 'flex-start'
   },
   description_text: {
       textAlign: 'left',
-      fontSize: 25,
+      fontSize: 15,
   },
   confirm_section: {
       flex: 1.5,
