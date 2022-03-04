@@ -6,15 +6,13 @@ export default function LinkScreen({navigation, route}) {
     const params = route.params;
     console.log(params.url);
     return (
-      <View style={styles.screenOne}>
-            <WebView
-                source={{uri: params.url}}/>
-      </View>
+      <WebView
+          source={{uri: params.url}}/>
     );
   }
 
 const styles = StyleSheet.create({
-    screenOne: {
+    container: {
         flex: 1, 
         alignItems: 'center', 
         justifyContent: 'center',

@@ -31,12 +31,11 @@ export default function OrgInfo({route}) {
                         <Text style={styles.title}>{params.name}</Text>
                         <Image style={styles.logo} source={params.logo}></Image>
                     </View>
-
-                    <Pressable onPress={() => navigation.navigate("LinkScreen", {url:url})}>
-                        <View style={styles.link_button}>
-                            <Text style={styles.description_text}>{params.url}</Text>
-                        </View>
+                    <View style={styles.link_section}>
+                        <Pressable style={styles.link_button} onPress={() => navigation.navigate("LinkScreen", {url:url})}>
+                            <Text style={styles.link_text}>{params.url}</Text>
                         </Pressable>
+                    </View>
 
                     <View style={styles.description_box}>
                         <Text style={styles.description_text}>{params.info}</Text>
@@ -124,15 +123,8 @@ const styles = StyleSheet.create({
     },
     link_section: {
         flex: 0.5,
-        alignSelf: 'center',
-        flexDirection: 'row',
-        padding: '5%',
-    },
-    link: {
         alignSelf: 'flex-start',
-        backgroundColor: colors.lightblue,
-        borderRadius: 15,
-        maxWidth: '20%'
+        padding: '5%',
     },
     description_box: {
         flex: 3,
@@ -154,7 +146,13 @@ const styles = StyleSheet.create({
     },
     link_button: {
         backgroundColor: colors.lightblue,
-        width: 100,
-        borderRadius: 30
+        height: '100%',
+        borderRadius: 30,
+        justifyContent: 'center'
+    },
+    link_text: {
+        fontSize: 17,
+        flexWrap: 'wrap',
+        paddingHorizontal: 20
     }
 });
