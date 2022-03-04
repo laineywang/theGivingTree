@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     category_text: {
-        fontSize: 14,
-        paddingLeft: '10%',
+        fontSize: 16,
+        paddingLeft: '12%',
         color: colors.gray,
         fontWeight: 'bold',
         paddingVertical: 5
@@ -99,13 +99,19 @@ const styles = StyleSheet.create({
         backgroundColor: colors.background,
         maxWidth: '80%',
         maxHeight: '80%',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        borderRadius: 30,
+        shadowColor: 'black',
+        shadowOpacity: 0.4,
+        shadowRadius: 3,
+        shadowOffset: { width: 1, height: 3 },
     },
     title_and_logo_section: {
         flex: 2,
         justifyContent: 'space-between',
         flexDirection: 'row',
-        padding: 10
+        padding: 10,
+        borderRadius: 20
     },
     title: {
         fontSize: 40,
@@ -125,11 +131,13 @@ const styles = StyleSheet.create({
         flex: 0.5,
         alignSelf: 'flex-start',
         padding: '5%',
+        borderRadius: 20
     },
     description_box: {
         flex: 3,
         paddingHorizontal: 10,
         justifyContent: 'center',
+        borderRadius: 20,
     },
     description_text: {
         textAlign: 'left',
@@ -142,13 +150,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         paddingVertical: 10,
-        paddingHorizontal: '5%'
+        paddingHorizontal: '5%',
+        borderRadius: 20
     },
     link_button: {
         backgroundColor: colors.lightblue,
         height: '100%',
         borderRadius: 30,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        shadowColor: 'black',
+        shadowOpacity: 0.4,
+        shadowRadius: 3,
+        shadowOffset: { width: 1, height: 3 },
     },
     link_text: {
         fontSize: 17,

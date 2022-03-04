@@ -1,4 +1,4 @@
-import * as React from "react";
+/*import * as React from "react";
 import { Text, View, StyleSheet, Button, TextInput, Image } from "react-native";
 import colors from "../Themes/Colors";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
@@ -95,3 +95,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: "5%",
   },
 });
+*/
