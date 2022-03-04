@@ -72,14 +72,14 @@ export default function TabTwoScreen() {
         </View>
         <View style={styles.search_sort}>
           <View style={styles.search_bar}>
-            <SearchBar />
+            <SearchBar/>
           </View>
           {/* <div style={styles.sort_button}>
           <Dropdown filters={filters}/>
         </div> */}
         </View>
-
         <FlatList
+          style={styles.list}
           data={organizations} // the array of data that the FlatList displays
           renderItem={({ item }) => renderItem(item)} // function that renders each item
           keyExtractor={(item) => item.id}
@@ -106,12 +106,17 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
 
+
   title: {
     fontSize: 35,
     fontWeight: "bold",
     color: "green",
     textAlign: "center",
     //fontFamily: 'Nunito-Black'
+  },
+
+  list: {
+    left: 20
   },
 
   description: {
@@ -135,7 +140,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: -1, height: 2 },
     borderRadius: 20,
     bottom: 10,
-    left: 40,
     justifyContent: "center",
   },
 

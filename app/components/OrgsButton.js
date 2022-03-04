@@ -13,20 +13,20 @@ const OrgsButton = ({ name, description, id, logo, info}) => {
   const navigation = useNavigation();
 
   return (
-    
-    <Pressable
-      style={styles.org_button}
-      onPress={() => navigation.navigate("OrgDetails", {name: name, description: description, id:id, logo:logo, info:info})}
-    >
-      {/* <Image style={styles.logo} source={require(organization.image)} /> */}
-      <View style={{flexDirection: 'row'}}>
-      <Image style={styles.logo} source={logo}/>
-      <View style={styles.org_title_des}>
-        <Text style={styles.org_title}> {name}</Text>
-        <Text style={styles.org_description}> {description}</Text>
-      </View>
-      </View>
-    </Pressable>
+    <View style={styles.org_button}>
+      <Pressable
+        onPress={() => navigation.navigate("OrgDetails", {name: name, description: description, id:id, logo:logo, info:info})}
+      >
+        {/* <Image style={styles.logo} source={require(organization.image)} /> */}
+        <View style={{flexDirection: 'row'}}>
+        <Image style={styles.logo} source={logo}/>
+        <View style={styles.org_title_des}>
+          <Text style={styles.org_title}> {name}</Text>
+          <Text style={styles.org_description}> {description}</Text>
+        </View>
+        </View>
+      </Pressable>
+    </View>
   );
 };
 
