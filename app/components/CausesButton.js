@@ -59,6 +59,10 @@ import {
       width: 70,
       resizeMode: "contain",
     },
+    icon: {
+      resizeMode: 'contain',
+      backgroundColor: 'black'
+    }
   });
   
   export default CausesButton;
