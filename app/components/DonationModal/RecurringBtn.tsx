@@ -3,7 +3,7 @@ import { StyleSheet, Pressable, Button, SafeAreaView } from "react-native";
 import { Text, View } from "../../components/Themed";
 import Colors from "../../Themes/Colors";
 
-const AmountBtn = ({ label, onPress, active }) => {
+const RecurringBtn = ({ label, onPress, active }) => {
   return (
     <Pressable
       style={({ pressed }) => [
@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     margin: 5,
-    paddingVertical: 20,
+    paddingVertical: 10,
     paddingHorizontal: 10,
-    width: 90,
+    width: "50%",
     shadowColor: "black",
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.25,
@@ -41,9 +41,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     margin: 5,
-    paddingVertical: 20,
+    paddingVertical: 10,
     paddingHorizontal: 10,
-    width: 90,
+    width: "50%",
     shadowColor: "black",
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.25,
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AmountBtn;
+export default RecurringBtn;

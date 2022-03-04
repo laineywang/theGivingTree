@@ -5,6 +5,7 @@ import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
 
 import AmountBtn from "../components/DonationModal/AmountBtn";
+import RecurringBtn from "../components/DonationModal/RecurringBtn";
 import LargeActionButton from "../components/LargeActionButton";
 import React, { Component } from "react";
 import Colors from "../Themes/Colors";
@@ -15,8 +16,10 @@ class DonateModal extends Component {
     this.state = {
       donate: false,
       donateAmt: 0,
+      recurring: "",
       customAmt: "",
       donateBtnState: [false, false, false, false, false, false],
+      recBtnState: [false, false, false, false],
     };
     this.onPress = this.onPress.bind(this);
   }
@@ -32,10 +35,21 @@ class DonateModal extends Component {
     this.setState({ donateAmt: amount, donateBtnState: newState });
   }
 
+  onRecPress(recurr, index) {
+    let newState = [false, false, false, false];
+    if (!this.state.recBtnState[index]) {
+      newState[index] = true;
+    } else {
+      recurr = "";
+    }
+
+    this.setState({ recurring: recurr, recBtnState: newState });
+  }
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.amountContainer}>
+          <Text style={styles.selectText}> Select Amount</Text>
           <View style={styles.rowContainer}>
             <AmountBtn
               label={"$10"}
@@ -83,13 +97,37 @@ class DonateModal extends Component {
             value={this.state.customAmt}
           />
         </View>
-
-        <Text style={styles.selectText}> Recurring Payment</Text>
-
         {/* <Image
           style={styles.bar}
           source={require("../assets/images/divider-bar.png")}
         /> */}
+
+        <Text style={styles.selectText}> Recurring Payment</Text>
+        <View style={styles.rowContainer}>
+          <RecurringBtn
+            label={"One Time"}
+            onPress={() => this.onRecPress("One Time", 0)}
+            active={this.state.recBtnState[0]}
+          />
+          <RecurringBtn
+            label={"Weekly"}
+            onPress={() => this.onRecPress("Weekly", 1)}
+            active={this.state.recBtnState[1]}
+          />
+        </View>
+        <View style={styles.rowContainer}>
+          <RecurringBtn
+            label={"Monthly"}
+            onPress={() => this.onRecPress("Monthly", 2)}
+            active={this.state.recBtnState[2]}
+          />
+          <RecurringBtn
+            label={"Annually"}
+            onPress={() => this.onRecPress("Annually", 3)}
+            active={this.state.recBtnState[3]}
+          />
+        </View>
+
         <View>
           <View></View>
         </View>
@@ -104,18 +142,21 @@ class DonateModal extends Component {
 const styles = StyleSheet.create({
   container: { height: "100%" },
 
-  amountContainer: { marginTop: 100 },
+  amountContainer: {},
 
   selectText: {
-    marginTop: 75,
-    fontSize: 30,
-    textAlign: "center",
-    margin: 30,
+    marginTop: 60,
+    fontSize: 26,
+    marginLeft: "12%",
+    textAlign: "left",
+    marginBottom: 15,
     color: "black",
     fontWeight: "bold",
   },
 
   rowContainer: {
+    paddingLeft: "15%",
+    paddingRight: "15%",
     paddingBottom: 10,
     flexDirection: "row",
     justifyContent: "center",
