@@ -33,6 +33,7 @@ export default function TabTwoScreen() {
     description={item.description}
     logo={item.logo}
     info={item.info}
+    url={item.url}
     />
     </View>
   )

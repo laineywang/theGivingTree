@@ -2,62 +2,96 @@ import { StyleSheet } from "react-native";
 import * as React from 'react';
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View} from "../components/Themed";
-import { Button, Image } from 'react-native';
+import { Button, Image, Pressable} from 'react-native';
+import { WebView} from "react-native-webview";
 import { RootTabScreenProps } from "../types";
 import colors from '../Themes/Colors';
 import organizations from "../data/organizations.js";
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-
+import LinkScreen from "../components/LinkScreen";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function OrgInfo({route}) {
     const navigation = useNavigation();
 
     const params = route.params;
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.box}>
-                <View style={styles.title_and_logo_section}>
-                    <Text style={styles.title}>{params.name}</Text>
-                    <Image style={styles.logo} source={params.logo}></Image>
-                </View>
+    console.log(params.url);
 
-                <View style={styles.link_section}>
-                    <View style={styles.link}></View>
-                </View>
+    const url = params.url;
 
-                <View style={styles.description_box}>
-                    <Text style={styles.description_text}>{params.info}</Text>
-                </View>
+    const HomeStack = createNativeStackNavigator();
+    function Home() {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.category_text}>Organizations for Animal Rights</Text>
+                <View style={styles.box}>
+                    <View style={styles.title_and_logo_section}>
+                        <Text style={styles.title}>{params.name}</Text>
+                        <Image style={styles.logo} source={params.logo}></Image>
+                    </View>
 
-                <View style={styles.confirm_section}>
-                    <Button 
-                        title='CONFIRM'
-                        onPress={() => (navigation.navigate('Root'))}
-                        color={colors.darkgreen} />
+                    <Pressable onPress={() => navigation.navigate("LinkScreen", {url:url})}>
+                        <View style={styles.link_button}>
+                            <Text style={styles.description_text}>{params.url}</Text>
+                        </View>
+                        </Pressable>
+
+                    <View style={styles.description_box}>
+                        <Text style={styles.description_text}>{params.info}</Text>
+                    </View>
+
+                    <View style={styles.confirm_section}>
+                        <Button 
+                            title='CONFIRM'
+                            onPress={() => (navigation.navigate('Root'))}
+                            color={colors.darkgreen} />
+                    </View>
                 </View>
             </View>
-        </View>
-      
-  );
+        );
+    }
+
+  return (
+      <HomeStack.Navigator>
+        <HomeStack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <HomeStack.Screen
+          name="LinkScreen"
+          component={LinkScreen}
+          options={{
+            headerTransparent: true,
+            headerBackTitleVisible: false,
+            headerTintColor: "black",
+          }}
+        />
+      </HomeStack.Navigator>
+    );
 }
 
 const styles = StyleSheet.create({
     container :{
         backgroundColor : colors.lightgreen,
         justifyContent: 'center',
-        alignItems: 'center',
         flex: 1,
     },
     category_text: {
-        fontSize: 20,
+        fontSize: 14,
         paddingLeft: '10%',
-        textAlign: 'left',
+        color: colors.gray,
+        fontWeight: 'bold',
+        paddingVertical: 5
     },
     box: {
         backgroundColor: colors.background,
         maxWidth: '80%',
         maxHeight: '80%',
+        alignSelf: 'center'
     },
     title_and_logo_section: {
         flex: 2,
@@ -108,6 +142,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingVertical: 10,
         paddingHorizontal: '5%'
+    },
+    link_button: {
+        backgroundColor: colors.lightblue,
+        width: 100,
+        borderRadius: 30
     }
-
 });
