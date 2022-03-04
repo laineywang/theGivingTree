@@ -26,6 +26,7 @@ export default function TabTwoScreen() {
   // }) => <OrgsButton organization={item} />;
 
   const renderItem = (item) => (
+    <View style={styles.button}>
     <OrgsButton 
     name={item.name}
     id={item.id}
@@ -33,6 +34,7 @@ export default function TabTwoScreen() {
     logo={item.logo}
     info={item.info}
     />
+    </View>
   )
 
   const HomeStack = createNativeStackNavigator();
@@ -95,6 +97,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 
+  button:{
+    marginBottom: 10, 
+  },
+  
   // upper region (title and description)
   upper: {
     justifyContent: "flex-start",
@@ -156,57 +162,3 @@ const styles = StyleSheet.create({
   },
 });
 
-// Previous Drafts
-
-// <View style={styles.lower}>
-//         <Pressable style={styles.org_button}>
-//         <Image style={styles.logo} source={require("../assets/images/unnamed.jpeg")}/>
-//           <View style={styles.org_title_des}>
-//           <Text style={styles.org_title}>
-//             Animal Ethics
-//           </Text>
-//           <Text style={styles.org_description}>
-//             "Our vision is a world where all sentient beings are given moral consideration."
-//           </Text>
-//           </View>
-//         </Pressable>
-//       </View>
-//       <View style={styles.lower}>
-//         <Pressable style={styles.org_button}>
-//         <Image style={styles.aspa} source={require("../assets/images/ASPCA-logo-1024x276.png")}/>
-//         <View style={styles.org_title_des}>
-//           <Text style={styles.org_title}>
-//             ASPCA
-//           </Text>
-//           <Text style={styles.org_description}>
-//             "We are their voice"
-//           </Text>
-//           </View>
-//         </Pressable>
-//       </View>
-//       <View style={styles.lower}>
-//         <Pressable style={styles.org_button}>
-//         <Image style={styles.logo} source={require("../assets/images/logo-header-mobile.png")}/>
-//         <View style={styles.org_title_des}>
-//           <Text style={styles.org_title}>
-//             In Defense of Animals
-//           </Text>
-//           <Text style={styles.org_description}>
-//             "Working to protect the rights, welfare, and habitats of animals."
-//           </Text>
-//           </View>
-//         </Pressable>
-//       </View>
-//       <View style={styles.lower}>
-//         <Pressable style={styles.org_button}>
-//         <Image style={styles.logo} source={require("../assets/images/oceanAllianceLogo.png")}/>
-//         <View style={styles.org_title_des}>
-//           <Text style={styles.org_title}>
-//             Ocean Alliance
-//           </Text>
-//           <Text style={styles.org_description}>
-//             "Healthy Whales, Healthy Oceans, Healthy Humans."
-//           </Text>
-//           </View>
-//         </Pressable>
-//       </View>
