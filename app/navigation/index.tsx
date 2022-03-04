@@ -86,14 +86,14 @@ function BottomTabNavigator() {
           ),
         })}
       />
-      <BottomTab.Screen
+      {/* <BottomTab.Screen
         name="placeholder"
         component={OrganizationsFor}
         options={{
           title: 'placeholder',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
-      />
+      /> */}
       <BottomTab.Screen
         name="Browse"
         component={Browse}

@@ -5,6 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 import organizations from "../data/organizations.js";
 import CausesButton from "../components/CausesButton";
 import causes from "../data/causes.js";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import OrganizationsFor from "./OrganizationsFor";
 
 export default function Browse() {
     const renderItem = (item) => (
@@ -14,7 +16,30 @@ export default function Browse() {
         />
     )
 
-    return (
+    const HomeStack = createNativeStackNavigator();
+        return (
+            <HomeStack.Navigator>
+            <HomeStack.Screen
+                name="Home"
+                component={Browse}
+                options={{
+                headerShown: false,
+            }}
+            />
+            <HomeStack.Screen
+                name="OrganizationsFor"
+                component={OrganizationsFor}
+                options={{
+                headerTransparent: true,
+                headerBackTitleVisible: false,
+                headerTintColor: "black",
+                }}
+            />
+            </HomeStack.Navigator>
+  );
+
+    function Browse () {
+        return (
         <SafeAreaView> 
             <Text> Browse Causes</Text>
             <FlatList
@@ -23,7 +48,8 @@ export default function Browse() {
                 keyExtractor={(item) => item.id}
             />
         </SafeAreaView>
-    )
+        );
+    }
 }
 
 const styles = StyleSheet.create({
