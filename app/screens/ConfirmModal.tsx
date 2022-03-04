@@ -25,9 +25,7 @@ class ConfirmModal extends Component {
     this.onPress = this.onPress.bind(this);
   }
 
-  onDonatePress() {
-    const navigation = useNavigation();
-  }
+  onDonatePress() {}
 
   onPress(amount, index) {
     let newState = [false, false, false, false, false, false];

@@ -39,28 +39,31 @@ export default function TabTwoScreen() {
   const ModalStack = createNativeStackNavigator();
   const HomeStack = createNativeStackNavigator();
 
-  const DonateModalStack = () => (
-    <ModalStack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <ModalStack.Screen
-        name="DonateModal"
-        component={DonateModal}
-        options={{
-          presentation: "modal",
+  function DonateModalStack() {
+    return (
+      <ModalStack.Navigator
+        screenOptions={{
+          headerShown: false,
         }}
-      />
-      <ModalStack.Screen
-        name="ConfirmModal"
-        component={ConfirmModal}
-        options={{
-          presentation: "card",
-        }}
-      />
-    </ModalStack.Navigator>
-  );
+      >
+        <ModalStack.Screen
+          name="DonateModal"
+          component={DonateModal}
+          options={{
+            presentation: "modal",
+          }}
+        />
+        <ModalStack.Screen
+          name="ConfirmModal"
+          component={ConfirmModal}
+          options={{
+            presentation: "card",
+            headerShown: true,
+          }}
+        />
+      </ModalStack.Navigator>
+    );
+  }
 
   return (
     <HomeStack.Navigator>
