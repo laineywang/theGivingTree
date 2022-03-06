@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 
 const SearchBar = () => {
@@ -10,6 +10,7 @@ const SearchBar = () => {
         </View>
     )
 }
+
 
 const styles = StyleSheet.create({
     container :{

@@ -1,7 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Image,
@@ -9,6 +8,8 @@ import {
   Pressable,
   ScrollView,
   FlatList,
+  StatusBar, 
+  TextInput
 } from "react-native";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
@@ -20,13 +21,6 @@ import DonateModal from "./DonateModal";
 import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
 import colors from "../Themes/Colors";
-
-// const renderItem = (item: {
-//   id: number;
-//   name: string;
-//   description: string;
-//   logo: string;
-// }) => <OrgsButton organization={item} />;
 
 const renderItem = (item) => (
   <View style={styles.button}>
@@ -42,24 +36,35 @@ const renderItem = (item) => (
 );
 
 export default function OrganizationsFor() {
+
+  const [organizations, setData]= useState(organizations)
+
+  const item =({item})=>{
+    return(
+    <View> 
+      <Text>{item.name}</Text>
+    </View>
+    ); ; 
+  }
+
+  const searchName = (input)=> {
+    let data = organizations
+    let searchData = data.filter((item) =>{
+      return item.name.toLowerCase().includes(input.toLowerCase())
+    });
+    setData(searchData)
+  }
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.upper}>
-        <Text style={styles.title}>Organizations for Animal Rights</Text>
-        <Text style={styles.description}>
-          Help aid organizations fighting for animals to be free of involvement
-          and suffering in medical research, hunting, and other industries that
-          benefit humans.
-        </Text>
-      </View>
-      <View style={styles.search_sort}>
-        <View style={styles.search_bar}>
-          <SearchBar />
-        </View>
-        {/* <div style={styles.sort_button}>
-          <Dropdown filters={filters}/>
-        </div> */}
-      </View>
+      <View> 
+          <TextInput 
+            placeholder="Search Name"
+            onChangeText={(input) => {
+              searchName(input)
+            }}
+          />
+      </View>  
       <FlatList
         style={styles.list}
         data={organizations} // the array of data that the FlatList displays
@@ -146,3 +151,21 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 });
+
+
+//  <View style={styles.upper}>
+//         <Text style={styles.title}>Organizations for Animal Rights</Text>
+//         <Text style={styles.description}>
+//           Help aid organizations fighting for animals to be free of involvement
+//           and suffering in medical research, hunting, and other industries that
+//           benefit humans.
+//         </Text>
+//       </View>
+//       <View style={styles.search_sort}>
+//         <View style={styles.search_bar}>
+//          <SearchBar/>
+//         </View>
+//         {/* <div style={styles.sort_button}>
+//           <Dropdown filters={filters}/>
+//         </div> */}
+//       </View> 
