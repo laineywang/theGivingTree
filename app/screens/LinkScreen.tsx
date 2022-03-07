@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View, StyleSheet, Button, TextInput } from 'react-native';
 import { WebView } from "react-native-webview";
 
-export default function LinkScreen({navigation, route}) {  
+export default function LinkScreen({route}) {  
     const params = route.params;
     console.log(params.url);
     return (

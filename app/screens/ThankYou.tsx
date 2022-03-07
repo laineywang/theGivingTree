@@ -14,12 +14,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function ThankYou() {
   const navigation = useNavigation();
-  const HomeStack = createNativeStackNavigator();
     return (
       <View style={styles.screen}>
         <Text style={styles.thanks_text}>Thank you for your donation!</Text>
         <Pressable
-          onPress={() => navigation.navigate("TabOne")}
+          onPress={() => navigation.navigate("Home")}
           style={styles.button}>
           <Text style={styles.nav_text}>See your GivingTree's progress</Text>
         </Pressable>

@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     tax_forms : {
         flex: 1,
         backgroundColor: 'white',
-        width: '80%',
+        width: '85%',
         marginVertical: 15,
         borderRadius: 30,
 
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     past_transactions: {
         flex: 1.5,
         backgroundColor: 'white',
-        width: '80%',
+        width: '85%',
         marginVertical: 15,
         borderRadius: 30,
     },

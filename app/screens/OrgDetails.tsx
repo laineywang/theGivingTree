@@ -9,7 +9,7 @@ import { RootTabScreenProps } from "../types";
 import colors from "../Themes/Colors";
 import organizations from "../data/organizations.js";
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import LinkScreen from "../components/LinkScreen";
+import LinkScreen from "./LinkScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function OrgInfo({route}) {
@@ -21,9 +21,7 @@ export default function OrgInfo({route}) {
 
     const url = params.url;
 
-    const HomeStack = createNativeStackNavigator();
-    function Home() {
-        return (
+    return (
             <View style={styles.container}>
                 <Text style={styles.category_text}>Organizations for Animal Rights</Text>
                 <View style={styles.box}>
@@ -59,26 +57,7 @@ export default function OrgInfo({route}) {
             </View>
         );
     }
-    return (
-        <HomeStack.Navigator>
-          <HomeStack.Screen
-            name="Home"
-            component={Home}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <HomeStack.Screen
-            name="LinkScreen"
-            component={LinkScreen}
-            options={{
-              headerShown:false
-            }}
-          />
-        </HomeStack.Navigator>
-      );
 
-}
 
 const styles = StyleSheet.create({
     container :{

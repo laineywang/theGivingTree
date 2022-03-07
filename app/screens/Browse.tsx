@@ -20,6 +20,7 @@ import DonateModal from "./DonateModal";
 import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
 import colors from "../Themes/Colors";
+import LinkScreen from "./LinkScreen";
 
 export default function Browse() {
   const renderItem = (item) => <CausesButton id={item.id} cause={item.cause}/>;
@@ -29,7 +30,7 @@ export default function Browse() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
-        name="Home"
+        name="Browse"
         component={Browse}
         options={{
           headerShown: false,
@@ -49,6 +50,17 @@ export default function Browse() {
       <HomeStack.Screen
         name="OrgDetails"
         component={OrgDetails}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerBackTitleVisible: false,
+          headerTintColor: "black",
+          presentation: "card",
+        }}
+      />
+      <HomeStack.Screen
+        name="LinkScreen"
+        component={LinkScreen}
         options={{
           title: "",
           headerTransparent: true,
