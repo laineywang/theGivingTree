@@ -9,17 +9,36 @@ import {
   Pressable,
   ScrollView,
   FlatList,
+  TextInput
 } from "react-native";
 import { Text, View } from "../components/Themed";
 import colors from "../Themes/Colors";
 
 export default function Settings() {
+    const [name, setName] = useState();
+    const [age, setAge] = useState(); 
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Settings</Text>
             <View style={styles.back}>
                 <Text style={styles.headings}>Account</Text>
-
+                <View style={styles.text}>
+                    <Text style={styles.label}>Name:</Text>
+                    <TextInput 
+                    style={styles.input}
+                    placeholder="e.g. John Doe"
+                    onChangeText={(val) => setName(val)}
+                    />
+                </View> 
+                <View style={styles.text}>
+                    <Text style={styles.label}>Email: </Text>
+                    <TextInput 
+                    style={styles.input}
+                    placeholder="e.g. johndoe@gmail.com"
+                    onChangeText={(val) => setName(val)}
+                    />
+                </View> 
             </View>
             <View style={styles.back}>
                 <Text style={styles.headings}>Payment Information</Text>
@@ -59,6 +78,25 @@ const styles = StyleSheet.create({
         color: colors.darkgreen, 
         textAlign: 'left',
         left: 15,
+    },
+
+    text: {
+        flexDirection: 'row',
+        backgroundColor: colors.lightgreen, 
+        left: 15,
+        marginTop: 10,
+        width: '90%',
+    },
+
+    label: {
+        fontSize: 15, 
+        marginRight: 10, 
+    },
+
+    input: {
+        borderWidth:1, 
+        borderColor: "#777",
+        width: 200, 
     }
 
 
