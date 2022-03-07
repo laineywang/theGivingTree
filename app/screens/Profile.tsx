@@ -1,6 +1,6 @@
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   StyleSheet,
@@ -21,10 +21,35 @@ import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
 import colors from "../Themes/Colors";
 import Forms from "./Forms"
+import { db } from "../firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 export default function Profile() {
     const navigation = useNavigation();
     const HomeStack = createNativeStackNavigator();
+    // const [transactionData, setTransactionData] = useState({})
+
+    // const addDocument = async () => {
+    //     await setDoc(doc(db, "transactions", "transaction-2"), {
+    //         amount: "$10",
+    //         date: "03/07/2022"
+    //     })
+    // }
+
+    // const getDocument = async () => {
+    //     const docRef = doc(db, "transactions", "transaction-1");
+    //     const docSnap = await getDoc(docRef);
+
+    //     if (docSnap.exists()) {
+    //         setTransactionData(docSnap.data())
+    //     } else {
+    //         console.log("No such doc");
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     getDocument()
+    // }, []);
 
     return (
         <HomeStack.Navigator>
@@ -59,6 +84,8 @@ export default function Profile() {
                 </View>
                 <View style={styles.trans_back}>
                     <Text style={styles.headers}>RECENT TRANSACTIONS</Text>
+                    {/* <Text> {transactionData.amount}</Text>
+                    <Text> {transactionData.date}</Text> */}
                 </View>
                 <Pressable style={styles.bottom_buttons} onPress={() => navigation.navigate("Forms")}>
                     <Text style={styles.bottom_headers}>FORMS</Text>

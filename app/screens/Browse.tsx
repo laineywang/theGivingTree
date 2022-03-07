@@ -23,8 +23,7 @@ import colors from "../Themes/Colors";
 import LinkScreen from "./LinkScreen";
 
 export default function Browse() {
-  const renderItem = (item) => <CausesButton id={item.id} cause={item.cause}/>;
-
+  const renderItem = (item) => <CausesButton id={item.id} cause={item.cause} />;
 
   const HomeStack = createNativeStackNavigator();
   return (
@@ -100,7 +99,6 @@ export default function Browse() {
         }}
       />
     </HomeStack.Navigator>
-
   );
 
   function Browse() {
@@ -108,7 +106,7 @@ export default function Browse() {
       <SafeAreaView>
         <Text style={styles.title}> Browse Causes</Text>
         <FlatList
-          columnWrapperStyle={{justifyContent: 'space-evenly'}}
+          columnWrapperStyle={{ justifyContent: "space-evenly" }}
           numColumns={2}
           data={causes} // the array of data that the FlatList displays
           renderItem={({ item }) => renderItem(item)} // function that renders each item
@@ -132,5 +130,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.darkgreen,
     textAlign: "center",
-  }
+  },
 });
