@@ -60,9 +60,16 @@ class OrganizationsFor extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <Text style={styles.title}>Organizations for Animal Rights</Text>
+         <Text style={styles.description}>
+           Help aid organizations fighting for animals to be free of involvement
+           and suffering in medical research, hunting, and other industries that
+           benefit humans.
+         </Text>
         <View>
           <TextInput
-            placeholder="Search Name"
+            placeholder="Search Organization"
+            style={styles.search_bar}
             onChangeText={(input) => {
               this.searchName(input);
             }}
@@ -107,7 +114,8 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    left: 20,
+    top: 10,
+    left: 15,
   },
 
   description: {
@@ -126,12 +134,14 @@ const styles = StyleSheet.create({
     height: 30,
     width: 300,
     shadowColor: "gray",
-    shadowOpacity: 0.4,
+    shadowOpacity: 1,
     shadowRadius: 5,
     shadowOffset: { width: -1, height: 2 },
     borderRadius: 20,
+    borderColor: "gray",
+    borderWidth: 0.3,
     bottom: 10,
-    justifyContent: "center",
+    textAlign: 'center'
   },
 
   sort_button: {
@@ -146,32 +156,6 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     alignItems: "center",
   },
-
-  aspa: {
-    top: 10,
-    left: 5,
-    paddingRight: 5,
-    height: 45,
-    width: 60,
-    resizeMode: "contain",
-  },
 });
-
-//  <View style={styles.upper}>
-//         <Text style={styles.title}>Organizations for Animal Rights</Text>
-//         <Text style={styles.description}>
-//           Help aid organizations fighting for animals to be free of involvement
-//           and suffering in medical research, hunting, and other industries that
-//           benefit humans.
-//         </Text>
-//       </View>
-//       <View style={styles.search_sort}>
-//         <View style={styles.search_bar}>
-//          <SearchBar/>
-//         </View>
-//         {/* <div style={styles.sort_button}>
-//           <Dropdown filters={filters}/>
-//         </div> */}
-//       </View>
 
 export default OrganizationsFor;

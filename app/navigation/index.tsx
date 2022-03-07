@@ -28,6 +28,7 @@ import {
 import LinkingConfiguration from "./LinkingConfiguration";
 import Browse from "../screens/Browse";
 import Profile from "../screens/Profile";
+import Settings from "../screens/Settings";
 
 export default function Navigation({
   colorScheme,
@@ -131,6 +132,14 @@ function BottomTabNavigator() {
         component={Profile}
         options={{
           title: "Profile",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          title: "Settings",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
