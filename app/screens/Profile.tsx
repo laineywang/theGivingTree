@@ -1,4 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState } from "react";
 
@@ -20,23 +20,52 @@ import DonateModal from "./DonateModal";
 import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
 import colors from "../Themes/Colors";
+import Forms from "./Forms"
 
 export default function Profile() {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Your Profile</Text>
-            <View style={styles.donations_back}>
-                <Text style={styles.headers}>YOUR DONATIONS</Text>
-            </View>
-            <View style={styles.trans_back}>
-                <Text style={styles.headers}>RECENT TRANSACTIONS</Text>
-            </View>
-            <View style={styles.bottom_buttons}>
-                <Text style={styles.bottom_headers}>FORMS</Text>
-            </View>
+    const navigation = useNavigation();
+    const HomeStack = createNativeStackNavigator();
 
-        </View>
-    );
+    return (
+        <HomeStack.Navigator>
+          <HomeStack.Screen
+            name="Home"
+            component={Profile}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <HomeStack.Screen
+            name="Forms"
+            component={Forms}
+            options={{
+              title: "",
+              headerTransparent: true,
+              headerBackTitleVisible: false,
+              headerTintColor: "black",
+              presentation: "card",
+            }}
+          />
+        </HomeStack.Navigator>
+    
+      );
+
+    function Profile() {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.title}>Your Profile</Text>
+                <View style={styles.donations_back}>
+                    <Text style={styles.headers}>YOUR DONATIONS</Text>
+                </View>
+                <View style={styles.trans_back}>
+                    <Text style={styles.headers}>RECENT TRANSACTIONS</Text>
+                </View>
+                <Pressable style={styles.bottom_buttons} onPress={() => navigation.navigate("Forms")}>
+                    <Text style={styles.bottom_headers}>FORMS</Text>
+                </Pressable>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({

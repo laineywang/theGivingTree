@@ -12,7 +12,7 @@ export default function ThankYou() {
       <View style={styles.screen}>
         <Text style={styles.thanks_text}>Thank you for your donation!</Text>
         <Pressable
-          onPress={() => navigation.popToTop()}
+          onPress={() => navigation.navigate("TabOne")}
           style={styles.button}>
           <Text style={styles.nav_text}>See your GivingTree's progress</Text>
         </Pressable>
