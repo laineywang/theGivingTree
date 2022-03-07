@@ -124,6 +124,7 @@ function BottomTabNavigator() {
         component={Browse}
         options={{
           title: "Browse",
+          unmountOnBlur: true,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
