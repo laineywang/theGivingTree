@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useState, useEffect } from "react";
+import React, { Component, useState, useEffect } from "react";
 import {
   StyleSheet,
   Image,
@@ -8,8 +8,8 @@ import {
   Pressable,
   ScrollView,
   FlatList,
-  StatusBar, 
-  TextInput
+  StatusBar,
+  TextInput,
 } from "react-native";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
@@ -22,58 +22,63 @@ import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
 import colors from "../Themes/Colors";
 
-const renderItem = (item) => (
-  <View style={styles.button}>
-    <OrgsButton
-      name={item.name}
-      id={item.id}
-      description={item.description}
-      logo={item.logo}
-      info={item.info}
-      url={item.url}
-    />
-  </View>
-);
+class OrganizationsFor extends Component {
+  constructor(props) {
+    super(props);
 
-export default function OrganizationsFor() {
-
-  const [organizations, setData]= useState(organizations)
-
-  const item =({item})=>{
-    return(
-    <View> 
-      <Text>{item.name}</Text>
-    </View>
-    ); ; 
+    this.state = {
+      organizations: organizations,
+    };
   }
 
-  const searchName = (input)=> {
-    let data = organizations
-    let searchData = data.filter((item) =>{
-      return item.name.toLowerCase().includes(input.toLowerCase())
+  renderItem(item) {
+    return (
+      <View style={styles.button}>
+        <OrgsButton
+          name={item.name}
+          id={item.id}
+          description={item.description}
+          logo={item.logo}
+          info={item.info}
+          url={item.url}
+        />
+      </View>
+    );
+  }
+
+  // search name only searches by org name rn. have to add more logic to search by description or anything
+  searchName(input) {
+    let searchData = organizations.filter((item) => {
+      return item.name.toLowerCase().includes(input.toLowerCase());
     });
-    setData(searchData)
+
+    this.setState({
+      organizations: searchData,
+    });
   }
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View> 
-          <TextInput 
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View>
+          <TextInput
             placeholder="Search Name"
             onChangeText={(input) => {
-              searchName(input)
+              this.searchName(input);
             }}
           />
-      </View>  
-      <FlatList
-        style={styles.list}
-        data={organizations} // the array of data that the FlatList displays
-        renderItem={({ item }) => renderItem(item)} // function that renders each item
-        keyExtractor={(item) => item.id}
-      />
-    </SafeAreaView>
-  );
+        </View>
+        <FlatList
+          style={styles.list}
+          data={this.state.organizations} // the array of data that the FlatList displays
+          renderItem={({ item }) => this.renderItem(item)} // function that renders each item
+          keyExtractor={(item) => item.id}
+        />
+      </SafeAreaView>
+    );
+  }
 }
+//}
 
 const styles = StyleSheet.create({
   container: {
@@ -152,7 +157,6 @@ const styles = StyleSheet.create({
   },
 });
 
-
 //  <View style={styles.upper}>
 //         <Text style={styles.title}>Organizations for Animal Rights</Text>
 //         <Text style={styles.description}>
@@ -168,4 +172,6 @@ const styles = StyleSheet.create({
 //         {/* <div style={styles.sort_button}>
 //           <Dropdown filters={filters}/>
 //         </div> */}
-//       </View> 
+//       </View>
+
+export default OrganizationsFor;

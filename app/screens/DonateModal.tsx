@@ -120,10 +120,6 @@ class DonateModal extends Component {
             value={this.state.customAmt}
           />
         </View>
-        {/* <Image
-          style={styles.bar}
-          source={require("../assets/images/divider-bar.png")}
-        /> */}
         <View style={styles.freqContainer}>
           <Text style={styles.freqText}>Frequency</Text>
           <View style={styles.rowContainer}>
@@ -155,14 +151,16 @@ class DonateModal extends Component {
             <View></View>
           </View>
           <View style={styles.actionContainer}>
-            <LargeActionButton
-              label={"DONATE"}
-              onPress={() => this.onDonatePress()}
-              active={
-                (this.state.donateAmt > 0 || this.state.customAmt != "") &&
-                this.state.recurring != ""
-              }
-            />
+            <View style={styles.fullSize}>
+              <LargeActionButton
+                label={"DONATE"}
+                onPress={() => this.onDonatePress()}
+                active={
+                  (this.state.donateAmt > 0 || this.state.customAmt != "") &&
+                  this.state.recurring != ""
+                }
+              />
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -170,17 +168,21 @@ class DonateModal extends Component {
   }
 }
 
-let ScreenHeight = Dimensions.get("window").height;
-
 const styles = StyleSheet.create({
-  container: { height: ScreenHeight },
+  container: {
+    height: "100%",
+    width: "100%",
+    flex: 1,
+    alignSelf: "center",
+  },
 
   amountContainer: { flex: 1 },
 
   freqContainer: { flex: 1 },
 
   selectText: {
-    marginTop: "30%",
+    marginTop: "15%",
+    maxHeight: "100%",
     fontSize: 26,
     marginLeft: "12%",
     textAlign: "left",
@@ -190,16 +192,16 @@ const styles = StyleSheet.create({
   },
 
   freqText: {
-    marginTop: "10%",
     fontSize: 26,
     marginLeft: "12%",
     textAlign: "left",
-    marginBottom: 15,
+    marginBottom: "5%",
     color: "black",
     fontWeight: "bold",
   },
 
   rowContainer: {
+    height: "20%",
     paddingLeft: "15%",
     paddingRight: "15%",
     paddingBottom: 10,
@@ -212,18 +214,19 @@ const styles = StyleSheet.create({
     margin: 0,
     alignSelf: "center",
     resizeMode: "contain",
-    height: 50,
+    height: "5%",
   },
 
   textInput: {
     borderRadius: 5,
     borderWidth: 1,
-    height: 50,
+    height: "10%",
     fontSize: 20,
     fontWeight: "bold",
     paddingHorizontal: 10,
     marginHorizontal: "15%",
-    marginTop: 20,
+    marginTop: 15,
+    marginBottom: "15%",
   },
 
   bar: {
@@ -235,7 +238,12 @@ const styles = StyleSheet.create({
   },
 
   actionContainer: {
-    marginTop: "10%",
+    width: "100%",
+  },
+
+  fullSize: {
+    height: "100%",
+    marginVertical: "10%",
     width: "70%",
     alignSelf: "center",
   },
