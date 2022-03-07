@@ -1,9 +1,16 @@
 import * as React from "react";
-import { Text, View, StyleSheet, Button, TextInput, Image, Pressable } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  TextInput,
+  Image,
+  Pressable,
+} from "react-native";
 import colors from "../Themes/Colors";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import TabOneScreen from "./TabOneScreen";
 
 export default function ThankYou() {
   const navigation = useNavigation();
@@ -22,15 +29,15 @@ export default function ThankYou() {
 
 const styles = StyleSheet.create({
   screen: {
-  flex: 1,
-  justifyContent: 'center'
+    flex: 1,
+    justifyContent: "center",
   },
   thanks_text: {
     fontSize: 40,
     fontWeight: "bold",
     color: colors.darkgreen,
     padding: 30,
-    textAlign: 'center'
+    textAlign: "center",
   },
   go_home: {
     borderRadius: 15,
@@ -39,14 +46,14 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: colors.lightgreen,
-    alignSelf: 'center',
-    borderRadius: 30
+    alignSelf: "center",
+    borderRadius: 30,
   },
   nav_text: {
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
     fontSize: 20,
     padding: 20,
-    textAlign: 'center',
-    fontWeight: 'bold'
-  }
+    textAlign: "center",
+    fontWeight: "bold",
+  },
 });
