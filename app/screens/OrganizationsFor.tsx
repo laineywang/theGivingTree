@@ -25,20 +25,6 @@ import * as Font from 'expo-font';
 
 class OrganizationsFor extends Component {
 
-  async loadFonts() {
-    await Font.loadAsync({
-      // Load a font `Montserrat` from a static resource
-      Nunito: require('../assets/fonts/Nunito-Regular.ttf'),
-
-      // Any string can be used as the fontFamily name. Here we use an object to provide more control
-      'Nunito-Bold': {
-        uri: require('../assets/fonts/Nunito-Bold.ttf'),
-        display: Font.FontDisplay.FALLBACK,
-      },
-    });
-    this.setState({ fontsLoaded: true });
-  }
-
   constructor(props) {
     super(props);
 
