@@ -1,12 +1,12 @@
 const causes = [
-    {"id": 1, "cause": "Disease"},
-    {"id": 2, "cause": "Animals"},
-    {"id": 3, "cause": "Women's Rights"},
-    {"id": 4, "cause": "Disaster Relief"},
-    {"id": 5, "cause": "Shelter"},
-    {"id": 6, "cause": "Education"},
-    {"id": 7, "cause": "Hunger Relief"},
-    {"id": 8, "cause": "Other", "icon": "https://img.icons8.com/material-outlined/48/000000/out-patient-department.png"},
+    {"id": 1, "cause": "Disease", "icon": require("./icons/disease.png")},
+    {"id": 2, "cause": "Animals", "icon": require("./icons/animals.png")},
+    {"id": 3, "cause": "Women's Rights", "icon": require("./icons/women.png")},
+    {"id": 4, "cause": "Disaster Relief", "icon": require("./icons/disaster.png")},
+    {"id": 5, "cause": "Shelter", "icon": require("./icons/shelter.png")},
+    {"id": 6, "cause": "Education", "icon": require("./icons/education.png")},
+    {"id": 7, "cause": "Hunger Relief", "icon": require("./icons/hunger.png")},
+    {"id": 8, "cause": "Other", "icon": require("./icons/other.png")},
 ]
 
 export default causes
