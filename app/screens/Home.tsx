@@ -8,6 +8,7 @@ import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 import Colors from "../Themes/Colors";
 import { themeTools } from "native-base";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 class Home extends Component {
   constructor(props) {
@@ -25,9 +26,16 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    // insert firebase call here, update donations, donationsLeft, and progress appropriately
-
     let numLeft = 1;
+    let donations = 0;
+
+    // insert firebase call here, update donations, donationsLeft, and progress appropriately
+    // const db = getDatabase();
+    // const reference = ref(db, "donations/");
+
+    // // onValue(reference, (snapshot) => {
+    // //   // donations = snapshot.size;
+    // // });
 
     if (this.state.donations == 0) {
       numLeft = 1;
@@ -40,9 +48,9 @@ class Home extends Component {
     }
 
     this.setState({
-      donations: this.state.donations,
+      donations: donations,
       donationsLeft: numLeft,
-      progress: this.state.donations / numLeft,
+      progress: donations / numLeft,
     });
   }
 
