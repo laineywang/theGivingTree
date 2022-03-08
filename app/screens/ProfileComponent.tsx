@@ -125,7 +125,8 @@ const styles = StyleSheet.create({
   amount: {
     fontSize: 15,
     marginRight: 10,
-    color: colors.darkgreen
+    color: colors.darkgreen,
+    alignItems: 'flex-end'
   },
 
   title: {
