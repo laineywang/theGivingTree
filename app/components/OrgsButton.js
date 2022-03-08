@@ -21,7 +21,7 @@ const OrgsButton = ({ name, description, id, logo, info, url}) => {
         <View style={{ flexDirection: "row" }}>
           <Image style={styles.logo} source={logo} />
           <View style={styles.org_title_des}>
-            <Text style={styles.org_title}>{name}</Text>
+            <Text numberOfLines = {1} style={styles.org_title}>{name}</Text>
             <Text style={styles.org_description}>{description}</Text>
           </View>
         </View>

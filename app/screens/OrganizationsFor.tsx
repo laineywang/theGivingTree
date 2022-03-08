@@ -56,6 +56,7 @@ class OrganizationsFor extends Component {
       organizations: searchData,
     });
   }
+  
 
   render() {
     return (
@@ -75,12 +76,14 @@ class OrganizationsFor extends Component {
             }}
           />
         </View>
+        <ScrollView>
         <FlatList
           style={styles.list}
           data={this.state.organizations} // the array of data that the FlatList displays
           renderItem={({ item }) => this.renderItem(item)} // function that renders each item
           keyExtractor={(item) => item.id}
         />
+        </ScrollView>
       </SafeAreaView>
     );
   }
