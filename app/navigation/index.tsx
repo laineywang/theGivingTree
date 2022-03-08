@@ -29,6 +29,9 @@ import LinkingConfiguration from "./LinkingConfiguration";
 import Browse from "../screens/Browse";
 import Profile from "../screens/Profile";
 import Settings from "../screens/Settings";
+import { Ionicons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons'; 
+import colors from "../Themes/Colors";
 
 
 export default function Navigation({
@@ -97,7 +100,7 @@ function BottomTabNavigator() {
         component={Home}
         options={({ navigation }: RootTabScreenProps<"Home">) => ({
           title: "Home",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Modal")}
@@ -129,7 +132,7 @@ function BottomTabNavigator() {
         options={{
           title: "Browse",
           unmountOnBlur: true,
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -137,7 +140,7 @@ function BottomTabNavigator() {
         component={Profile}
         options={{
           title: "Profile",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -145,7 +148,7 @@ function BottomTabNavigator() {
         component={Settings}
         options={{
           title: "Settings",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -159,5 +162,5 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
 }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome size={27} style={{ marginBottom: -3 }} {...props} />;
 }
