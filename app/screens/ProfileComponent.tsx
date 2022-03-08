@@ -54,12 +54,12 @@ class ProfileComponent extends Component {
 
   renderItem(item) {
     return (
-      <View>
+      <ScrollView>
         <View style={styles.row}>
           <Text style={styles.trans_info}>{item.date}: {item.orgName} ({item.recurring})</Text>
           <Text style = {styles.amount}> - ${item.donateAmt}</Text>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 
@@ -106,6 +106,20 @@ const styles = StyleSheet.create({
     paddingLeft : 15,
     paddingVertical: 10,
     alignItems: 'center'
+  },
+
+  date: {
+    fontSize: 15,
+    fontStyle: 'italic', 
+    color: 'gray',
+  }, 
+
+  orgName: {
+
+  }, 
+
+  recurrting: {
+
   },
 
   amount: {
