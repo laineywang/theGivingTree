@@ -3,11 +3,9 @@ import { Image, ImageBackground } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import ProgressBar from "react-native-progress/Bar";
 
-import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
-import { RootTabScreenProps } from "../types";
 import Colors from "../Themes/Colors";
-import { themeTools } from "native-base";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 class Home extends Component {
   constructor(props) {
@@ -16,7 +14,7 @@ class Home extends Component {
     this.state = {
       name: "Nancy",
       progress: 0,
-      donations: 47,
+      donations: 0,
       donationsLeft: 1,
     };
     this.renderStage = this.renderStage.bind(this);
@@ -25,24 +23,30 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    // insert firebase call here, update donations, donationsLeft, and progress appropriately
-
     let numLeft = 1;
+    let donations = 0;
 
-    if (this.state.donations == 0) {
-      numLeft = 1;
-    } else if (this.state.donations >= 1 && this.state.donations < 5) {
-      numLeft = 5;
-    } else if (this.state.donations >= 5 && this.state.donations < 25) {
-      numLeft = 25;
-    } else if (this.state.donations >= 25 && this.state.donations < 50) {
-      numLeft = 50;
-    }
+    // insert firebase call here, update donations, donationsLeft, and progress appropriately
+    const db = getDatabase();
+    const reference = ref(db, "donations/");
 
-    this.setState({
-      donations: this.state.donations,
-      donationsLeft: numLeft,
-      progress: this.state.donations / numLeft,
+    onValue(reference, (snapshot) => {
+      donations = snapshot.size;
+      if (donations == 0) {
+        numLeft = 1;
+      } else if (donations >= 1 && donations < 5) {
+        numLeft = 5;
+      } else if (donations >= 5 && donations < 25) {
+        numLeft = 25;
+      } else if (donations >= 25 && donations < 50) {
+        numLeft = 50;
+      }
+
+      this.setState({
+        donations: donations,
+        donationsLeft: numLeft,
+        progress: donations / numLeft,
+      });
     });
   }
 

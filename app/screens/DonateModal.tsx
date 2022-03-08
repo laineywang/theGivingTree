@@ -18,8 +18,6 @@ import { Dimensions } from "react-native";
 
 import Colors from "../Themes/Colors";
 
-import { useNavigation } from "react-navigation/native";
-
 class DonateModal extends Component {
   constructor(props) {
     super(props);

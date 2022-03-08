@@ -18,11 +18,12 @@ import Colors from "../Themes/Colors";
 
 import { useNavigation } from "@react-navigation/native";
 
+import { getDatabase, ref, onValue, set, push } from "firebase/database";
+
 class ConfirmModal extends Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props);
     this.state = {
       donateAmt: 0,
       recurring: "",
@@ -34,6 +35,21 @@ class ConfirmModal extends Component {
   }
 
   onPress() {
+    let date = new Date().getDate();
+    let month = new Date().getMonth() + 1;
+    let year = new Date().getFullYear();
+    let dateString = month + "/" + date + "/" + year;
+
+    const db = getDatabase();
+
+    const reference = ref(db, "donations/");
+    push(reference, {
+      donateAmt: this.props.route.params.donateAmt,
+      recurring: this.props.route.params.recurring,
+      orgName: this.props.route.params.name,
+      date: dateString,
+    });
+
     this.props.navigation.navigate("ThankYou");
   }
 
