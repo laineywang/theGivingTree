@@ -14,6 +14,7 @@ import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: "AIzaSyDJ6qNAFNSvyFyImdNv2fcwTMI7YO4kZ3k",
   authDomain: "thegivingtree-fa759.firebaseapp.com",
+  databaseURL: "https://thegivingtree-fa759-default-rtdb.firebaseio.com",
   projectId: "thegivingtree-fa759",
   storageBucket: "thegivingtree-fa759.appspot.com",
   messagingSenderId: "158149705053",
@@ -21,7 +22,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 //const db = getFirestore(app);
 //const db = getDatabase(app);
 

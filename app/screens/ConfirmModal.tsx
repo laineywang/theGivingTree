@@ -24,7 +24,6 @@ class ConfirmModal extends Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props);
     this.state = {
       donateAmt: 0,
       recurring: "",

@@ -1,5 +1,3 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { Component, useState, useEffect } from "react";
 import {
   StyleSheet,
@@ -61,11 +59,11 @@ class OrganizationsFor extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Organizations for Animal Rights</Text>
-         <Text style={styles.description}>
-           Help aid organizations fighting for animals to be free of involvement
-           and suffering in medical research, hunting, and other industries that
-           benefit humans.
-         </Text>
+        <Text style={styles.description}>
+          Help aid organizations fighting for animals to be free of involvement
+          and suffering in medical research, hunting, and other industries that
+          benefit humans.
+        </Text>
         <View>
           <TextInput
             placeholder="Search Organization"
@@ -141,7 +139,7 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 0.3,
     bottom: 10,
-    textAlign: 'center'
+    textAlign: "center",
   },
 
   sort_button: {
