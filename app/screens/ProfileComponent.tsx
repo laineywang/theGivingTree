@@ -56,10 +56,8 @@ class ProfileComponent extends Component {
     return (
       <View>
         <View style={styles.row}>
-        <Text>{item.date}</Text>
-        <Text>{item.orgName}</Text>
-        <Text>{item.recurring}</Text>
-        <Text style = {styles.amount}>${item.donateAmt}</Text>
+          <Text style={styles.trans_info}>{item.date}: {item.orgName} ({item.recurring})</Text>
+          <Text style = {styles.amount}> - ${item.donateAmt}</Text>
         </View>
       </View>
     );
@@ -105,10 +103,15 @@ const styles = StyleSheet.create({
 
   row: {
     flexDirection: 'row',
+    paddingLeft : 15,
+    paddingVertical: 10,
+    alignItems: 'center'
   },
 
   amount: {
-    fontSize: 20,
+    fontSize: 15,
+    marginRight: 10,
+    color: colors.darkgreen
   },
 
   title: {
@@ -131,6 +134,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: colors.darkgreen,
     textAlign: "center",
+    fontWeight: 'bold'
   },
 
   pie_chart: {},
@@ -162,4 +166,7 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
   },
+  trans_info: {
+    fontSize: 15,
+  }
 });
