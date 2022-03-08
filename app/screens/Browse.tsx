@@ -105,7 +105,7 @@ export default function Browse() {
 
   function Browse() {
     return (
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.title}> Browse Causes</Text>
         <FlatList
           columnWrapperStyle={{ justifyContent: "space-evenly" }}

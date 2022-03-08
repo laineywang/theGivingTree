@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.darkgreen,
     textAlign: "center",
-    //fontFamily: 'Nunito-Black'
+    fontFamily: 'Nunito-Black'
   },
 
   list: {

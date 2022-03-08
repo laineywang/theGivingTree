@@ -37,13 +37,12 @@ const styles = StyleSheet.create({
     shadowColor: "gray",
     shadowOpacity: 0.4,
     shadowRadius: 3,
-    shadowOffset: { width: 4, height: 2 },
+    shadowOffset: { width: 0, height: 4 },
     borderRadius: 16,
     height: 100,
     width: "92%",
     flexDirection: "row",
     paddingTop: 10,
-    left: 7,
   },
 
   org_title_des: {

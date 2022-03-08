@@ -12,7 +12,7 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName, Pressable, StatusBar } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -29,6 +29,7 @@ import LinkingConfiguration from "./LinkingConfiguration";
 import Browse from "../screens/Browse";
 import Profile from "../screens/Profile";
 import Settings from "../screens/Settings";
+
 
 export default function Navigation({
   colorScheme,
@@ -50,6 +51,8 @@ export default function Navigation({
  * https://reactnavigation.org/docs/modal
  */
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+
 
 function RootNavigator() {
   return (
@@ -78,6 +81,7 @@ function RootNavigator() {
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
+  /* insert your code here */
   const colorScheme = useColorScheme();
 
   return (

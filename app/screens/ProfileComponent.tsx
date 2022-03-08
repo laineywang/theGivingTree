@@ -55,10 +55,12 @@ class ProfileComponent extends Component {
   renderItem(item) {
     return (
       <View>
-        <Text>{item.donateAmt}</Text>
-        <Text>{item.orgName}</Text>
+        <View style={styles.row}>
         <Text>{item.date}</Text>
+        <Text>{item.orgName}</Text>
         <Text>{item.recurring}</Text>
+        <Text style = {styles.amount}>${item.donateAmt}</Text>
+        </View>
       </View>
     );
   }
@@ -99,6 +101,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.lightgreen,
+  },
+
+  row: {
+    flexDirection: 'row',
+  },
+
+  amount: {
+    fontSize: 20,
   },
 
   title: {

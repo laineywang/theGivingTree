@@ -1,4 +1,5 @@
-import { StatusBar } from "expo-status-bar";
+//import { StatusBar } from "expo-status-bar";
+import { StatusBar } from 'react-native';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import useCachedResources from "./hooks/useCachedResources";
@@ -6,6 +7,8 @@ import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { initializeApp } from "firebase/app";
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -29,6 +32,15 @@ initializeApp(firebaseConfig);
 //export { db };
 
 export default function App() {
+  // let [fontsLoaded] = useFonts({
+  //   Nunito: require('./assets/fonts/Nunito-Black.ttf'),
+  //   'Nunito-Bold': require('./assets/fonts/Nunito-Bold.ttf'),
+  // });
+  // if (!fontsLoaded) return <AppLoading />;
+  // /* ^Don't mind/edit the code above, it's there to load the font for you! */
+  // StatusBar.setBarStyle('dark-content');
+
+
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
   EStyleSheet.build();
