@@ -15,8 +15,7 @@ import RecurringBtn from "../components/DonationModal/RecurringBtn";
 import LargeActionButton from "../components/LargeActionButton";
 import React, { Component } from "react";
 import Colors from "../Themes/Colors";
-
-import { useNavigation } from "@react-navigation/native";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 import { getDatabase, ref, onValue, set, push } from "firebase/database";
 
@@ -98,7 +97,7 @@ class ConfirmModal extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: { height: "100%" },
 
   amountContainer: {},
@@ -145,6 +144,16 @@ const styles = StyleSheet.create({
     marginTop: "10%",
     width: "70%",
     alignSelf: "center",
+    borderRadius: 30,
+  },
+
+  "@media (min-height: 600) and (max-height: 700)": {
+    selectText: {
+      marginTop: "15%",
+    },
+    freqText: {
+      marginTop: "0%",
+    },
   },
 });
 

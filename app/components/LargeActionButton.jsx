@@ -2,6 +2,7 @@ import { createIconSetFromFontello } from "@expo/vector-icons";
 import { StyleSheet, Pressable, Button, SafeAreaView } from "react-native";
 import { Text, View } from "../components/Themed";
 import Colors from "../Themes/Colors";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 const LargeActionButton = ({ label, onPress, active }) => {
   return (
@@ -18,12 +19,14 @@ const LargeActionButton = ({ label, onPress, active }) => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   activeButton: {
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
+    maxHeight: "5rem",
+    height: "4.5rem",
 
     borderRadius: 30,
     elevation: 3,

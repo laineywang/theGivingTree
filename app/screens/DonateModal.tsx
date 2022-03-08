@@ -14,7 +14,7 @@ import AmountBtn from "../components/DonationModal/AmountBtn";
 import RecurringBtn from "../components/DonationModal/RecurringBtn";
 import LargeActionButton from "../components/LargeActionButton";
 import React, { Component } from "react";
-import { Dimensions } from "react-native";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 import Colors from "../Themes/Colors";
 
@@ -44,6 +44,11 @@ class DonateModal extends Component {
     });
   }
 
+  onText(customAmt) {
+    let newState = [false, false, false, false, false, false];
+    this.setState({ customAmt: customAmt, donateBtnState: newState });
+  }
+
   onPress(amount, index) {
     let newState = [false, false, false, false, false, false];
     if (!this.state.donateBtnState[index]) {
@@ -52,7 +57,11 @@ class DonateModal extends Component {
       amount = 0;
     }
 
-    this.setState({ donateAmt: amount, donateBtnState: newState });
+    this.setState({
+      donateAmt: amount,
+      donateBtnState: newState,
+      customAmt: "",
+    });
   }
 
   onRecPress(recurr, index) {
@@ -114,7 +123,7 @@ class DonateModal extends Component {
             style={styles.textInput}
             placeholder="$20.00"
             keyboardType="numeric"
-            onChangeText={(customAmt) => this.setState({ customAmt })}
+            onChangeText={(customAmt) => this.onText(customAmt)}
             value={this.state.customAmt}
           />
         </View>
@@ -166,7 +175,7 @@ class DonateModal extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     height: "100%",
     width: "100%",
@@ -179,7 +188,7 @@ const styles = StyleSheet.create({
   freqContainer: { flex: 1 },
 
   selectText: {
-    marginTop: "15%",
+    marginTop: "20%",
     maxHeight: "100%",
     fontSize: 26,
     marginLeft: "12%",
@@ -191,6 +200,7 @@ const styles = StyleSheet.create({
 
   freqText: {
     fontSize: 26,
+    marginTop: "15%",
     marginLeft: "12%",
     textAlign: "left",
     marginBottom: "5%",
@@ -244,6 +254,16 @@ const styles = StyleSheet.create({
     marginVertical: "10%",
     width: "70%",
     alignSelf: "center",
+    borderRadius: 30,
+  },
+
+  "@media (min-height: 600) and (max-height: 700)": {
+    selectText: {
+      marginTop: "15%",
+    },
+    freqText: {
+      marginTop: "0%",
+    },
   },
 });
 
