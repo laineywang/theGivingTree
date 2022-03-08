@@ -54,14 +54,14 @@ class ProfileComponent extends Component {
 
   renderItem(item) {
     return (
-      <View>
+      <ScrollView>
         <View style={styles.row}>
-        <Text>{item.date}</Text>
-        <Text>{item.orgName}</Text>
-        <Text>{item.recurring}</Text>
+        <Text style={styles.date} >{item.date}</Text>
+        <Text style={styles.orgName}>{item.orgName}</Text>
+        <Text style={styles.recurring}>{item.recurring}</Text>
         <Text style = {styles.amount}>${item.donateAmt}</Text>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 
@@ -107,8 +107,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
+  date: {
+    fontSize: 15,
+    fontStyle: 'italic', 
+    color: 'gray',
+  }, 
+
+  orgName: {
+
+  }, 
+
+  recurrting: {
+
+  },
+
   amount: {
-    fontSize: 20,
+    fontSize: 15,
   },
 
   title: {
