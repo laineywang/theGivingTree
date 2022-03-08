@@ -25,7 +25,7 @@ import LinkScreen from "./LinkScreen";
 
 
 export default function Browse() {
-  const renderItem = (item) => <CausesButton id={item.id} cause={item.cause} />;
+  const renderItem = (item) => <CausesButton id={item.id} cause={item.cause} icon={item.icon} />;
 
   const HomeStack = createNativeStackNavigator();
   return (

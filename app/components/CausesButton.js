@@ -11,17 +11,18 @@ import {
   import colors from '../Themes/Colors';
 
 
-  const CausesButton = ({ id, cause}) => {
+
+  const CausesButton = ({ id, cause, icon}) => {
     const navigation = useNavigation();
   
     return (
       <Pressable
         style={styles.causes_button}
-        onPress={() => navigation.navigate("OrganizationsFor", {id:id, cause:cause})}
+        onPress={() => navigation.navigate("OrganizationsFor", {id:id, cause:cause, icon:icon})}
       >
-        {/* <Image style={styles.logo} source={require(organization.image)} /> */}
-        {/* <Image style={styles.logo} source={logo}/> */}
+        <Image style={styles.icon} source={icon}/>
         <Text style={styles.cause_name}> {cause}</Text>
+        
       </Pressable>
     );
   };
@@ -43,25 +44,23 @@ import {
     },
   
     cause_name: {
-      top: 10,
       fontSize: 16,
       color: "black",
       fontWeight: "bold",
       top: 85,
       textAlign: 'center',
       color: colors.darkgreen,
-      right: 3,
+      right: 27,
     },
   
-    cause_image: {
-      top: 10,
-      height: 50,
-      width: 70,
-      resizeMode: "contain",
-    },
+
     icon: {
       resizeMode: 'contain',
-      backgroundColor: 'black'
+      color: colors.darkgreen,
+      height: 50, 
+      width: 50,
+      left: 30,
+      top: 25,
     }
   });
   

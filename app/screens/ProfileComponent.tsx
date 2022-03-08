@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingLeft : 15,
     paddingVertical: 10,
-    alignItems: 'center'
   },
 
   date: {
@@ -126,7 +125,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginRight: 10,
     color: colors.darkgreen,
-    alignItems: 'flex-end'
+  
+    
   },
 
   title: {
