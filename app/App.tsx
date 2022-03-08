@@ -33,7 +33,7 @@ initializeApp(firebaseConfig);
 
 export default function App() {
   // let [fontsLoaded] = useFonts({
-  //   Nunito: require('./assets/fonts/Nunito-Black.ttf'),
+  //   Nunito: require('./assets/fonts/Nunito-Regular.ttf'),
   //   'Nunito-Bold': require('./assets/fonts/Nunito-Bold.ttf'),
   // });
   // if (!fontsLoaded) return <AppLoading />;
