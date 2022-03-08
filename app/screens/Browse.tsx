@@ -5,9 +5,10 @@ import {
   Pressable,
   ScrollView,
   FlatList,
+  TextInput
 } from "react-native";
 import { Text, View } from "../components/Themed";
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import organizations from "../data/organizations.js";
 import CausesButton from "../components/CausesButton";
@@ -21,6 +22,7 @@ import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
 import colors from "../Themes/Colors";
 import LinkScreen from "./LinkScreen";
+
 
 export default function Browse() {
   const renderItem = (item) => <CausesButton id={item.id} cause={item.cause} />;

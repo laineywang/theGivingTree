@@ -16,12 +16,13 @@ const OrgsButton = ({ name, description, id, logo, info, url}) => {
     <View style={styles.org_button}>
       <Pressable
         onPress={() => navigation.navigate("OrgDetails", {name: name, description: description, id:id, logo:logo, info:info, url:url})}
+        style={{width: '100%'}}
       >
         {/* <Image style={styles.logo} source={require(organization.image)} /> */}
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row", width: '100%' }}>
           <Image style={styles.logo} source={logo} />
           <View style={styles.org_title_des}>
-            <Text style={styles.org_title}>{name}</Text>
+            <Text numberOfLines = {1} style={styles.org_title}>{name}</Text>
             <Text style={styles.org_description}>{description}</Text>
           </View>
         </View>
@@ -35,20 +36,21 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     shadowColor: "gray",
     shadowOpacity: 0.4,
-    shadowRadius: 5,
-    shadowOffset: { width: -1, height: 2 },
+    shadowRadius: 3,
+    shadowOffset: { width: 4, height: 2 },
     borderRadius: 16,
     height: 100,
-    width: "85%",
+    width: "92%",
     flexDirection: "row",
     paddingTop: 10,
     left: 7,
   },
 
   org_title_des: {
-    width: "100%",
-    maxWidth: "60%",
-    marginLeft: 10,
+    width: "80%",
+    // maxWidth: "90%",
+    // marginLeft: 10,
+    paddingLeft: 10,
   },
 
   org_title: {
@@ -68,7 +70,8 @@ const styles = StyleSheet.create({
   logo: {
     top: 10,
     height: 50,
-    width: 70,
+    // width: 70,
+    width: '20%',
     resizeMode: "contain",
   },
 });
