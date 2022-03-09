@@ -24,7 +24,7 @@ import Forms from "./Forms";
 import { db } from "../firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { Ionicons } from "@expo/vector-icons";
+import { Fontisto, Ionicons } from "@expo/vector-icons";
 
 class ProfileComponent extends Component {
   constructor(props) {
@@ -120,12 +120,27 @@ class ProfileComponent extends Component {
   renderYourDonations() {
     return (
       <View>
-        <Text>{this.state.topThreeNames[0]}</Text>
-        <Text>{this.state.topThreeVals[0]}</Text>
-        <Text>{this.state.topThreeNames[1]}</Text>
-        <Text>{this.state.topThreeVals[1]}</Text>
-        <Text>{this.state.topThreeNames[2]}</Text>
-        <Text>{this.state.topThreeVals[2]}</Text>
+        <View style={styles.donations_row}>
+          <View style={styles.circle}>
+            <Text style={styles.number}>1</Text>
+          </View>
+        <Text style={styles.topNames}>{this.state.topThreeNames[0]}</Text>
+        <Text style={styles.topValues}>${this.state.topThreeVals[0]}</Text>
+        </View>
+        <View style={styles.donations_row}>
+        <View style={styles.circle}>
+            <Text style={styles.number}>2</Text>
+          </View>
+        <Text style={styles.topNames}>{this.state.topThreeNames[1]}</Text>
+        <Text style={styles.topValues}>${this.state.topThreeVals[1]}</Text>
+        </View>
+        <View style={styles.donations_row}>
+        <View style={styles.circle}>
+            <Text style={styles.number}>3</Text>
+          </View>
+        <Text style={styles.topNames}>{this.state.topThreeNames[2]}</Text>
+        <Text style={styles.topValues}>${this.state.topThreeVals[2]}</Text>
+        </View>
       </View>
     );
   }
@@ -135,7 +150,7 @@ class ProfileComponent extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Your Profile</Text>
         <View style={styles.donations_back}>
-          <Text style={styles.headers}>YOUR DONATIONS</Text>
+          <Text style={styles.headers}>YOUR TOP DONATIONS</Text>
           {this.renderYourDonations()}
         </View>
         <View style={styles.trans_back}>
@@ -173,6 +188,54 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.lightgreen,
+  },
+
+  donations_row: {
+    marginTop: 5,
+    flexDirection: 'row', 
+    right: 20,
+    justifyContent: 'flex-start',
+    marginBottom: 20,
+  },
+
+  number: {
+    fontSize: 17, 
+    color: colors.darkgreen,
+    fontFamily: 'Nunito-Bold', 
+    alignSelf: 'center'
+  }, 
+
+  circle: {
+    borderColor: colors.darkgreen,
+    borderWidth: 2, 
+    height: 30, 
+    width: 30, 
+    borderRadius: 20, 
+    backgroundColor: colors.lightgreen,
+    justifyContent: 'center',
+    marginRight: 20,
+    marginLeft: 20,
+  }, 
+
+  donations_back: {
+    width: "90%",
+    height: "30%",
+    borderRadius: 16,
+    alignItems: 'center'
+  },
+
+  topNames: {
+    fontFamily: 'Nunito-Bold',
+    alignSelf: 'center',
+    fontSize: 17,
+    marginRight: 20,
+  }, 
+
+  topValues: {
+    fontFamily: 'Nunito',
+    color: colors.darkgreen,
+    alignSelf: 'center',
+    fontSize: 17,
   },
 
   arrow: {
@@ -221,12 +284,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingBottom: 20,
     fontFamily: "Nunito-Bold",
-  },
-
-  donations_back: {
-    width: "90%",
-    height: "30%",
-    borderRadius: 16,
   },
 
   headers: {
