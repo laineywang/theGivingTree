@@ -10,8 +10,7 @@ import {
 } from "react-native";
 import colors from "../Themes/Colors";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Profile from "./Profile";
+import ConfirmDownload from "./ConfirmDownload";
 
 export default function Forms() {
   const navigation = useNavigation();
@@ -27,22 +26,13 @@ export default function Forms() {
             <Text style={styles.view_text}>View 2021</Text>
           </Pressable>
           <View style={styles.share_button}>
-            <Image source={require("../data/icons/share.png")} />
+            <Pressable onPress={() => navigation.navigate("TurboTax")}>
+              <Image source={require("../data/icons/share.png")} />
+              </Pressable>
           </View>
-          <View style={styles.download_button}>
+          <Pressable style={styles.download_button} onPress={() => navigation.navigate("ConfirmDownload")}>
             <Image source={require("../data/icons/download.png")} />
-          </View>
-        </View>
-        <View style={styles.button_row}>
-          <Pressable style={styles.view_button_1} onPress={() => navigation.navigate("Form8283")}>
-            <Text style={styles.view_text}>View 2021</Text>
-          </Pressable>
-          <View style={styles.share_button}>
-            <Image source={require("../data/icons/share.png")} />
-          </View>
-          <View style={styles.download_button}>
-            <Image source={require("../data/icons/download.png")} />
-          </View>
+          </Pressable >
         </View>
       </View>
 
@@ -52,25 +42,17 @@ export default function Forms() {
           <View style={styles.view_button_2}>
             <Text style={styles.view_text}>View 2022</Text>
           </View>
-          <View style={styles.download_button}>
+          <Pressable style={styles.download_button} onPress={() => navigation.navigate("ConfirmDownload")}>
             <Image source={require("../data/icons/download.png")} />
-          </View>
+          </Pressable >
         </View>
         <View style={styles.button_row}>
           <View style={styles.view_button_2}>
             <Text style={styles.view_text}>View 2021</Text>
           </View>
-          <View style={styles.download_button}>
+          <Pressable style={styles.download_button} onPress={() => navigation.navigate("ConfirmDownload")}>
             <Image source={require("../data/icons/download.png")} />
-          </View>
-        </View>
-        <View style={styles.button_row}>
-          <View style={styles.view_button_2}>
-            <Text style={styles.view_text}>View 2020</Text>
-          </View>
-          <View style={styles.download_button}>
-            <Image source={require("../data/icons/download.png")} />
-          </View>
+          </Pressable >
         </View>
       </View>
     </View>
@@ -81,11 +63,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     backgroundColor: colors.lightgreen,
   },
   title: {
-    paddingTop: "15%",
+    paddingTop: "20%",
     fontSize: 35,
     fontWeight: "bold",
     color: colors.darkgreen,
@@ -94,14 +76,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Nunito-Bold',
   },
   tax_forms: {
-    flex: 1,
+    height: '20%',
     backgroundColor: "white",
     width: "85%",
     marginVertical: 15,
     borderRadius: 30,
   },
   past_transactions: {
-    flex: 1.5,
+    height: '30%',
     backgroundColor: "white",
     width: "85%",
     marginVertical: 15,
@@ -114,6 +96,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     color: colors.darkgreen,
     fontSize: 25,
+    fontFamily: 'Nunito',
   },
   button_row: {
     flex: 1,
@@ -149,7 +132,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     fontWeight: "bold",
-    fontFamily: 'Nunito',
+    fontFamily: 'Nunito-Bold',
   },
   share_button: {
     height: 50,
