@@ -121,7 +121,7 @@ class DonateModal extends Component {
           />
           <TextInput
             style={styles.textInput}
-            placeholder="$20.00"
+            placeholder="20.00"
             keyboardType="numeric"
             onChangeText={(customAmt) => this.onText(customAmt)}
             value={this.state.customAmt}

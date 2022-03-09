@@ -20,7 +20,7 @@ export default function Forms() {
       <Text style={styles.title}>Forms</Text>
 
       <View style={styles.tax_forms}>
-        <Text style={styles.heading}>Tax From 8283</Text>
+        <Text style={styles.heading}>Tax Form 8283</Text>
         <View style={styles.button_row}>
           <Pressable style={styles.view_button_1} onPress={() => navigation.navigate("Form8283")}>
             <Text style={styles.view_text}>View 2021</Text>

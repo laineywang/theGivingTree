@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions, View } from 'react-native';
 import { WebView } from "react-native-webview";
 
 export default function Form8283() {
-    const source = { uri: 'https://www.irs.gov/pub/irs-pdf/f8283.pdf', cache: true };
+    const source = require('../assets/faketaxform.pdf')
     return (
         <View style={styles.container}>
             <WebView
