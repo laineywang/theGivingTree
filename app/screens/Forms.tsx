@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     color: colors.darkgreen,
     textAlign: "center",
     paddingBottom: 20,
+    fontFamily: 'Nunito-Bold',
   },
   tax_forms: {
     flex: 1,
@@ -148,6 +149,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     fontWeight: "bold",
+    fontFamily: 'Nunito',
   },
   share_button: {
     height: 50,

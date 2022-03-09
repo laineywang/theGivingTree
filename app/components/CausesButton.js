@@ -51,6 +51,7 @@ import {
       textAlign: 'center',
       color: colors.darkgreen,
       right: 27,
+      fontFamily: 'Nunito',
     },
   
 

@@ -111,14 +111,15 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontStyle: 'italic', 
     color: 'gray',
+    fontFamily: 'Nunito',
   }, 
 
   orgName: {
-
+    fontFamily: 'Nunito',
   }, 
 
-  recurrting: {
-
+  recurring: {
+    fontFamily: 'Nunito',
   },
 
   amount: {
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
     color: colors.darkgreen,
     textAlign: "center",
     paddingBottom: 20,
+    fontFamily: 'Nunito-Bold',
   },
 
   donations_back: {
@@ -149,7 +151,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: colors.darkgreen,
     textAlign: "center",
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'Nunito-Bold',
   },
 
   pie_chart: {},
@@ -180,6 +183,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "white",
     textAlign: "center",
+    fontFamily: 'Nunito',
   },
   trans_info: {
     fontSize: 15,

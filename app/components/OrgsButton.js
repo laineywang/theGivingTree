@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: "black",
     fontWeight: "bold",
+    fontFamily: 'Nunito-Bold',
   },
 
   org_description: {
@@ -64,6 +65,7 @@ const styles = StyleSheet.create({
     top: 15,
     fontSize: 12,
     color: "gray",
+    fontFamily: 'Nunito',
   },
 
   logo: {

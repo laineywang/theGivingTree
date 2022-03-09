@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.darkgreen,
     textAlign: "center",
-    fontFamily: 'Nunito',
+    fontFamily: 'Nunito-Bold',
   },
 
   list: {
@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     paddingRight: 30,
     paddingTop: 15,
+    fontFamily: 'Nunito',
   },
 
   // search bar and sort function

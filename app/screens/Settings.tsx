@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
         color: colors.darkgreen,
         textAlign: "center",
         paddingBottom: 20,
+        fontFamily: 'Nunito-Bold',
     },
 
     back: {
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
         color: colors.darkgreen, 
         textAlign: 'left',
         left: 15,
+        fontFamily: 'Nunito',
     },
 
     text: {
@@ -144,6 +146,7 @@ const styles = StyleSheet.create({
         left: 15,
         marginTop: 20,
         width: '90%',
+        fontFamily: 'Nunito',
     },
 
     small_text: {
