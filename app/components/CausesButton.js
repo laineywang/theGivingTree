@@ -22,7 +22,6 @@ import {
       >
         <Image style={styles.icon} source={icon}/>
         <Text style={styles.cause_name}> {cause}</Text>
-        
       </Pressable>
     );
   };
@@ -37,12 +36,12 @@ import {
       borderRadius: 100,
       height: 150,
       width: 150,
-      flexDirection: "row",
       margin: 15,
       marginHorizontal: 20,
       justifyContent: 'center',
     },
   
+
     cause_name: {
       fontSize: 16,
       color: "black",
