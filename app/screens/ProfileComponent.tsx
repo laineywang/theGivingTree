@@ -31,6 +31,8 @@ class ProfileComponent extends Component {
 
     this.state = {
       transactions: [],
+      topThreeNames: [],
+      topThreeVals: [],
     };
   }
 
@@ -39,15 +41,64 @@ class ProfileComponent extends Component {
     const reference = ref(db, "donations/");
 
     let transactions = [];
+    let yourDonations = {};
+
+    // function weeksBetween(d1, d2) {
+    //   return Math.floor(
+    //     Math.abs(d2.getTime() - d1.getTime() / (7 * 24 * 60 * 60 * 1000)
+    //   );
+    //   return Math.floor(Math.abs((d2 - d1) / (7 * 24 * 60 * 60 * 1000)));
+    // }
 
     onValue(reference, (snapshot) => {
       snapshot.forEach((child) => {
         transactions.push(child.val());
+
+        let donation = child.val();
+        let multiplier =
+          donation.recurring == "Weekly"
+            ? 7 //weeksBetween(new Date(), new Date(2022, 3, 1))
+            : 1;
+
+        // calculate total donation vals
+        if (donation.orgName in yourDonations) {
+          yourDonations[donation.orgName] += donation.donateAmt * multiplier;
+        } else {
+          yourDonations[donation.orgName] = donation.donateAmt;
+        }
       });
+
+      let topThreeNames = ["", "", ""];
+      let topThreeVals = [0, 0, 0];
+
+      // calculate top three values in array
+      for (let orgName in yourDonations) {
+        if (yourDonations[orgName] > topThreeVals[0]) {
+          // new 1st place
+          topThreeNames[2] = topThreeNames[1];
+          topThreeNames[1] = topThreeNames[0];
+          topThreeNames[0] = orgName;
+          topThreeVals[2] = topThreeVals[1];
+          topThreeVals[1] = topThreeVals[0];
+          topThreeVals[0] = yourDonations[orgName];
+        } else if (yourDonations[orgName] > topThreeVals[1]) {
+          // new 2nd place
+          topThreeNames[2] = topThreeNames[1];
+          topThreeNames[1] = orgName;
+          topThreeVals[2] = topThreeVals[1];
+          topThreeVals[1] = yourDonations[orgName];
+        } else if (yourDonations[orgName] > topThreeVals[2]) {
+          // new 3rd place
+          topThreeNames[2] = orgName;
+          topThreeVals[2] = yourDonations[orgName];
+        }
+      }
 
       transactions = transactions.reverse();
       this.setState({
         transactions: transactions,
+        topThreeNames: topThreeNames,
+        topThreeVals: topThreeVals,
       });
     });
   }
@@ -56,10 +107,25 @@ class ProfileComponent extends Component {
     return (
       <ScrollView>
         <View style={styles.row}>
-          <Text style={styles.trans_info}>{item.date}: {item.orgName} ({item.recurring})</Text>
-          <Text style = {styles.amount}> - ${item.donateAmt}</Text>
+          <Text style={styles.trans_info}>
+            {item.date}: {item.orgName} ({item.recurring})
+          </Text>
+          <Text style={styles.amount}> - ${item.donateAmt}</Text>
         </View>
       </ScrollView>
+    );
+  }
+
+  renderYourDonations() {
+    return (
+      <View>
+        <Text>{this.state.topThreeNames[0]}</Text>
+        <Text>{this.state.topThreeVals[0]}</Text>
+        <Text>{this.state.topThreeNames[1]}</Text>
+        <Text>{this.state.topThreeVals[1]}</Text>
+        <Text>{this.state.topThreeNames[2]}</Text>
+        <Text>{this.state.topThreeVals[2]}</Text>
+      </View>
     );
   }
 
@@ -69,6 +135,7 @@ class ProfileComponent extends Component {
         <Text style={styles.title}>Your Profile</Text>
         <View style={styles.donations_back}>
           <Text style={styles.headers}>YOUR DONATIONS</Text>
+          {this.renderYourDonations()}
         </View>
         <View style={styles.trans_back}>
           <Text style={styles.headers}>RECENT TRANSACTIONS</Text>
@@ -102,32 +169,30 @@ const styles = StyleSheet.create({
   },
 
   row: {
-    flexDirection: 'row',
-    paddingLeft : 15,
+    flexDirection: "row",
+    paddingLeft: 15,
     paddingVertical: 10,
   },
 
   date: {
     fontSize: 15,
-    fontStyle: 'italic', 
-    color: 'gray',
-    fontFamily: 'Nunito',
-  }, 
+    fontStyle: "italic",
+    color: "gray",
+    fontFamily: "Nunito",
+  },
 
   orgName: {
-    fontFamily: 'Nunito',
-  }, 
+    fontFamily: "Nunito",
+  },
 
   recurring: {
-    fontFamily: 'Nunito',
+    fontFamily: "Nunito",
   },
 
   amount: {
     fontSize: 15,
     marginRight: 10,
     color: colors.darkgreen,
-  
-    
   },
 
   title: {
@@ -137,7 +202,7 @@ const styles = StyleSheet.create({
     color: colors.darkgreen,
     textAlign: "center",
     paddingBottom: 20,
-    fontFamily: 'Nunito-Bold',
+    fontFamily: "Nunito-Bold",
   },
 
   donations_back: {
@@ -151,8 +216,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: colors.darkgreen,
     textAlign: "center",
-    fontWeight: 'bold',
-    fontFamily: 'Nunito-Bold',
+    fontWeight: "bold",
+    fontFamily: "Nunito-Bold",
   },
 
   pie_chart: {},
@@ -183,9 +248,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "white",
     textAlign: "center",
-    fontFamily: 'Nunito',
+    fontFamily: "Nunito",
   },
   trans_info: {
     fontSize: 15,
-  }
+  },
 });
