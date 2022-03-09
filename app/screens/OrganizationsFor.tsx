@@ -19,8 +19,12 @@ import DonateModal from "./DonateModal";
 import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
 import colors from "../Themes/Colors";
+//import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
+import * as Font from 'expo-font';
 
 class OrganizationsFor extends Component {
+
   constructor(props) {
     super(props);
 
@@ -111,7 +115,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.darkgreen,
     textAlign: "center",
-    fontFamily: 'Nunito-Black'
+    fontFamily: 'Nunito',
   },
 
   list: {

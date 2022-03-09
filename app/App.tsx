@@ -32,17 +32,18 @@ initializeApp(firebaseConfig);
 //export { db };
 
 export default function App() {
-  // let [fontsLoaded] = useFonts({
-  //   Nunito: require('./assets/fonts/Nunito-Black.ttf'),
-  //   'Nunito-Bold': require('./assets/fonts/Nunito-Bold.ttf'),
-  // });
-  // if (!fontsLoaded) return <AppLoading />;
-  // /* ^Don't mind/edit the code above, it's there to load the font for you! */
-  // StatusBar.setBarStyle('dark-content');
-
 
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
+
+  let [fontsLoaded] = useFonts({
+    Nunito: require('./assets/fonts/Nunito-Regular.ttf'),
+    'Nunito-Bold': require('./assets/fonts/Nunito-Bold.ttf'),
+  });
+  if (!fontsLoaded) return <AppLoading />;
+  /* ^Don't mind/edit the code above, it's there to load the font for you! */
+  StatusBar.setBarStyle('dark-content');
+
   EStyleSheet.build();
 
   if (!isLoadingComplete) {
