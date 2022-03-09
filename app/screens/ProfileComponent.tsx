@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 
   row: {
     flexDirection: 'row',
-    paddingLeft : 15,
+    paddingLeft : 25,
     paddingVertical: 10,
   },
 
@@ -125,9 +125,7 @@ const styles = StyleSheet.create({
   amount: {
     fontSize: 15,
     marginRight: 10,
-    color: colors.darkgreen,
-  
-    
+    color: colors.darkgreen,  
   },
 
   title: {
@@ -148,6 +146,7 @@ const styles = StyleSheet.create({
 
   headers: {
     paddingTop: 20,
+    paddingBottom: 10,
     fontSize: 20,
     color: colors.darkgreen,
     textAlign: "center",
