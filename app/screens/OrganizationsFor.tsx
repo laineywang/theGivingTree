@@ -1,5 +1,10 @@
 import React, { Component, useState, useEffect } from "react";
 import {
+  OptionType,
+  Select,
+  State,
+} from "@mobile-reality/react-native-select-pro";
+import {
   StyleSheet,
   Image,
   SafeAreaView,
@@ -20,16 +25,24 @@ import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
 import colors from "../Themes/Colors";
 //import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
-import * as Font from 'expo-font';
+import AppLoading from "expo-app-loading";
+import * as Font from "expo-font";
 
 class OrganizationsFor extends Component {
-
   constructor(props) {
     super(props);
 
+    let labels = [
+      { value: "0", label: "Alphabetical" },
+      {
+        value: "1",
+        label: "Most in Need",
+      },
+    ];
+
     this.state = {
       organizations: organizations,
+      labels: labels,
     };
   }
 
@@ -58,9 +71,46 @@ class OrganizationsFor extends Component {
       organizations: searchData,
     });
   }
-  
+
+  _selectHelper = (option) => () => {
+    const [selected, setSelected] = useState<OptionType | null>(null);
+    setSelected(option);
+
+    return;
+  };
+
+  onSelect(option) {
+    //this._selectHelper(option);
+    let labels = [
+      { value: "0", label: "Alphabetical" },
+      {
+        value: "1",
+        label: "Most in Need",
+      },
+    ];
+
+    if (option.label == "Alphabetical") {
+      this.setState({
+        organizations: organizations,
+        labels: labels,
+      });
+    } else {
+      this.setState({
+        organizations: organizations.reverse(),
+        labels: labels.reverse(),
+      });
+    }
+  }
 
   render() {
+    let labels = [
+      { value: "0", label: "Alphabetical" },
+      {
+        value: "1",
+        label: "Most in Need",
+      },
+    ];
+
     return (
       <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Organizations for Animal Rights</Text>
@@ -78,19 +128,37 @@ class OrganizationsFor extends Component {
             }}
           />
         </View>
-        <View style={styles.sort_row}>
-          <Pressable style={styles.sort_button}>
+        <Select
+          placeholderText="Sort"
+          clearable={false}
+          closeDropdownOnSelect={true}
+          selectContainerStyle={styles.selectContainer}
+          selectControlStyle={styles.selectControl}
+          selectControlButtonsContainerStyle={styles.selectControlContainer}
+          optionTextStyle={styles.optionText}
+          optionsListStyle={styles.optionList}
+          selectControlTextStyle={styles.sortText}
+          defaultOption={this.state.labels[0]}
+          onSelect={(option) => this.onSelect(option)}
+          options={this.state.labels}
+        />
+        <View>
+          {/* <View style={styles.sort_row}> */}
+          {/* <Pressable onPress={() => this.onPress()} style={styles.sort_button}>
             <Text style={styles.sort_text}>Sort By</Text>
-            <Image style={styles.down_arrow} source={require('../data/icons/down_arrow.png')}/>
-          </Pressable>
+            <Image
+              style={styles.down_arrow}
+              source={require("../data/icons/down_arrow.png")}
+            />
+          </Pressable> */}
         </View>
         <ScrollView>
-        <FlatList
-          style={styles.list}
-          data={this.state.organizations} // the array of data that the FlatList displays
-          renderItem={({ item }) => this.renderItem(item)} // function that renders each item
-          keyExtractor={(item) => item.id}
-        />
+          <FlatList
+            style={styles.list}
+            data={this.state.organizations} // the array of data that the FlatList displays
+            renderItem={({ item }) => this.renderItem(item)} // function that renders each item
+            keyExtractor={(item) => item.id}
+          />
         </ScrollView>
       </SafeAreaView>
     );
@@ -121,7 +189,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.darkgreen,
     textAlign: "center",
-    fontFamily: 'Nunito-Bold',
+    fontFamily: "Nunito-Bold",
   },
 
   list: {
@@ -136,7 +204,7 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     paddingRight: 30,
     paddingTop: 15,
-    fontFamily: 'Nunito',
+    fontFamily: "Nunito",
   },
 
   // search bar and sort function
@@ -155,35 +223,71 @@ const styles = StyleSheet.create({
     bottom: 10,
     textAlign: "center",
   },
-  sort_row: {
-    flexDirection: 'row',
-    height: '5%',
-  },
-  sort_button: {
-    width: '25%',
-    height: '100%',
-    marginVertical: 10,
-    marginRight: '60%',
-    borderRadius: 20,
-    borderColor: "gray",
-    borderWidth: 0.3,
-    alignItems: "center",
-    justifyContent: 'space-around',
-    flexDirection: 'row',
+
+  selectContainer: {
+    alignSelf: "flex-start",
+    marginLeft: "10%",
+    width: "35%",
+    color: "gray",
+    borderWidth: 0,
+
+    backgroundColor: "white",
+    tintColor: "white",
   },
 
-  sort_text: {
-    fontSize: 15,
+  selectControl: {
+    width: "100%",
+    color: "gray",
+    borderColor: "gray",
+    borderRadius: 20,
+    borderWidth: 0.3,
+  },
+
+  selectControlContainer: { color: colors.gray },
+
+  optionText: {
     color: colors.gray,
-    marginLeft: 10,
-    alignSelf: 'center'
   },
-  down_arrow: {
-    resizeMode: 'contain',
-    height: '50%',
-    width: '20%',
-    marginRight: 5
+
+  optionList: {
+    width: "100%",
+    color: "gray",
+    borderColor: "gray",
+    borderWidth: 0.3,
   },
+
+  sortText: {
+    color: colors.gray,
+  },
+  // sort_row: {
+  //   flexDirection: "row",
+  //   height: "5%",
+  // },
+  // sort_button: {
+  //   width: "25%",
+  //   height: "100%",
+  //   marginVertical: 10,
+  //   marginRight: "60%",
+  //   borderRadius: 20,
+  //   borderColor: "gray",
+  //   borderWidth: 0.3,
+  //   alignItems: "center",
+  //   justifyContent: "space-around",
+  //   flexDirection: "row",
+  // },
+
+  // sort_text: {
+  //   fontSize: 15,
+  //   color: colors.gray,
+  //   marginLeft: 10,
+  //   alignSelf: "center",
+  // },
+  // down_arrow: {
+  //   resizeMode: "contain",
+  //   height: "50%",
+  //   width: "20%",
+  //   marginRight: 5,
+  // },
 
   // lower region (orgs)
   lower: {
