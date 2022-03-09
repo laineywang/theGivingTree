@@ -119,8 +119,8 @@ class Home extends Component {
           </View>
           <View style={styles.progressContainer}>
             <Text style={styles.donationsLeftText}>
-              {this.state.donationsLeft - this.state.donations}/
-              {this.state.donationsLeft} donations left
+              {this.state.donations}/
+              {this.state.donationsLeft} donations 
             </Text>
             <ProgressBar
               progress={this.state.donations / this.state.donationsLeft}
