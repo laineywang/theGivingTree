@@ -4,6 +4,7 @@ import React, { useEffect, useState, Component } from "react";
 
 import Forms from "./Forms";
 import ProfileComponent from "./ProfileComponent";
+import Form8283 from "./Form8283";
 
 export default function Profile() {
   const HomeStack = createNativeStackNavigator();
@@ -20,6 +21,17 @@ export default function Profile() {
       <HomeStack.Screen
         name="Forms"
         component={Forms}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerBackTitleVisible: false,
+          headerTintColor: "black",
+          presentation: "card",
+        }}
+      />
+      <HomeStack.Screen
+        name="Form8283"
+        component={Form8283}
         options={{
           title: "",
           headerTransparent: true,

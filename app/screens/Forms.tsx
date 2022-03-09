@@ -14,6 +14,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Profile from "./Profile";
 
 export default function Forms() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Forms</Text>
@@ -21,9 +23,9 @@ export default function Forms() {
       <View style={styles.tax_forms}>
         <Text style={styles.heading}>Tax From 8283</Text>
         <View style={styles.button_row}>
-          <View style={styles.view_button_1}>
+          <Pressable style={styles.view_button_1} onPress={() => navigation.navigate("Form8283")}>
             <Text style={styles.view_text}>View 2021</Text>
-          </View>
+          </Pressable>
           <View style={styles.share_button}>
             <Image source={require("../data/icons/share.png")} />
           </View>
@@ -32,9 +34,9 @@ export default function Forms() {
           </View>
         </View>
         <View style={styles.button_row}>
-          <View style={styles.view_button_1}>
-            <Text style={styles.view_text}>View 2020</Text>
-          </View>
+          <Pressable style={styles.view_button_1} onPress={() => navigation.navigate("Form8283")}>
+            <Text style={styles.view_text}>View 2021</Text>
+          </Pressable>
           <View style={styles.share_button}>
             <Image source={require("../data/icons/share.png")} />
           </View>

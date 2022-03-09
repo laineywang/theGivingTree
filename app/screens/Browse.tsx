@@ -22,6 +22,7 @@ import ConfirmModal from "./ConfirmModal";
 import ThankYou from "./ThankYou";
 import colors from "../Themes/Colors";
 import LinkScreen from "./LinkScreen";
+import { Ionicons } from '@expo/vector-icons';
 
 
 export default function Browse() {
