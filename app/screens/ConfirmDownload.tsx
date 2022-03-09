@@ -4,19 +4,21 @@ import {
   View,
   StyleSheet,
   Pressable,
+  Image
 } from "react-native";
 import colors from "../Themes/Colors";
-import Modal from 'modal-react-native-web';
+import {useNavigation } from '@react-navigation/native';
 
-export default function ThankYou() {
+export default function ConfirmDownload() {
   const navigation = useNavigation();
     return (
       <View style={styles.screen}>
-        <Text style={styles.thanks_text}>Thank you for your donation!</Text>
+        <Text style={styles.download_text}>Download Successful!</Text>
+        <Image style={styles.icon} source={require("../data/icons/downloaded.png")}></Image>
         <Pressable
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.goBack()} 
           style={styles.button}>
-          <Text style={styles.nav_text}>See your GivingTree's progress</Text>
+          <Text style={styles.nav_text}>Go Back</Text>
         </Pressable>
       </View>
     );
@@ -27,15 +29,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
-  thanks_text: {
-    fontSize: 40,
-    fontWeight: "bold",
+  download_text: {
+    fontSize: 45,
+    fontFamily: 'Nunito-Bold',
     color: colors.darkgreen,
-    padding: 30,
+    margin: 5,
     textAlign: "center",
   },
+  icon: {
+    alignSelf: 'center',
+    marginBottom: 30
+  },
   go_home: {
-    borderRadius: 15,
+    borderRadius: 10,
     maxWidth: "70%",
     backgroundColor: colors.lightblue,
   },
@@ -46,7 +52,7 @@ const styles = StyleSheet.create({
   },
   nav_text: {
     flexWrap: "wrap",
-    fontSize: 20,
+    fontSize: 30,
     padding: 20,
     textAlign: "center",
     fontWeight: "bold",

@@ -53,10 +53,9 @@ import {
     cause_name: {
       fontSize: 16,
       color: "black",
-      fontWeight: "bold",
+      fontFamily: 'Nunito-Bold',
       textAlign: 'center',
       color: colors.darkgreen,
-      fontFamily: 'Nunito',
     },
     icon: {
       resizeMode: 'contain',

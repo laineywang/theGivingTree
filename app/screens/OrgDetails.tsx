@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingLeft: "12%",
     color: colors.gray,
-    fontWeight: "bold",
     paddingVertical: 5,
+    fontFamily: 'Nunito-Bold',
   },
   box: {
     backgroundColor: colors.background,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
-    fontWeight: "bold",
+    fontFamily: 'Nunito-Bold',
     alignSelf: "flex-end",
     flexWrap: "wrap",
     flex: 2,
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     flexWrap: "wrap",
     padding: 10,
+    fontFamily: 'Nunito',
   },
   confirm_section: {
     flex: 1.5,
