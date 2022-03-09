@@ -24,6 +24,7 @@ import Forms from "./Forms";
 import { db } from "../firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { getDatabase, ref, onValue } from "firebase/database";
+import { Ionicons } from "@expo/vector-icons";
 
 class ProfileComponent extends Component {
   constructor(props) {
@@ -152,7 +153,13 @@ class ProfileComponent extends Component {
           style={styles.bottom_buttons}
           onPress={() => this.props.navigation.navigate("Forms")}
         >
-          <Text style={styles.bottom_headers}>FORMS</Text>
+          <View style={styles.forms_container}>
+            <Text style={styles.bottom_headers}>FORMS</Text>
+            <Image
+              style={styles.arrow}
+              source={require("../data/icons/right_arrow.png")}
+            />
+          </View>
         </Pressable>
       </View>
     );
@@ -168,9 +175,20 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightgreen,
   },
 
+  arrow: {
+    height: "100%",
+    resizeMode: "contain",
+    alignSelf: "center",
+    left: 30,
+  },
+
+  forms_container: {
+    flexDirection: "row",
+  },
+
   row: {
     flexDirection: "row",
-    paddingLeft: 15,
+    paddingLeft: 25,
     paddingVertical: 10,
   },
 
@@ -213,6 +231,7 @@ const styles = StyleSheet.create({
 
   headers: {
     paddingTop: 20,
+    paddingBottom: 10,
     fontSize: 20,
     color: colors.darkgreen,
     textAlign: "center",
@@ -233,22 +252,25 @@ const styles = StyleSheet.create({
 
   bottom_buttons: {
     marginTop: 20,
-    width: "90%",
+    width: "80%",
     height: "10%",
     borderRadius: 16,
-    backgroundColor: colors.darkgreen,
+    backgroundColor: "white",
     shadowColor: "gray",
     shadowOpacity: 0.4,
     shadowRadius: 5,
     shadowOffset: { width: -1, height: 2 },
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   bottom_headers: {
-    paddingTop: 20,
+    //paddingTop: 20,
     fontSize: 30,
-    color: "white",
+    color: colors.darkgreen,
     textAlign: "center",
-    fontFamily: "Nunito",
+    fontFamily: "Nunito-Bold",
+    left: 30,
   },
   trans_info: {
     fontSize: 15,

@@ -78,6 +78,12 @@ class OrganizationsFor extends Component {
             }}
           />
         </View>
+        <View style={styles.sort_row}>
+          <Pressable style={styles.sort_button}>
+            <Text style={styles.sort_text}>Sort By</Text>
+            <Image style={styles.down_arrow} source={require('../data/icons/down_arrow.png')}/>
+          </Pressable>
+        </View>
         <ScrollView>
         <FlatList
           style={styles.list}
@@ -149,12 +155,35 @@ const styles = StyleSheet.create({
     bottom: 10,
     textAlign: "center",
   },
-
+  sort_row: {
+    flexDirection: 'row',
+    height: '5%',
+  },
   sort_button: {
-    width: 200,
+    width: '25%',
+    height: '100%',
+    marginVertical: 10,
+    marginRight: '60%',
+    borderRadius: 20,
+    borderColor: "gray",
+    borderWidth: 0.3,
+    alignItems: "center",
+    justifyContent: 'space-around',
+    flexDirection: 'row',
   },
 
-  sort_text: {},
+  sort_text: {
+    fontSize: 15,
+    color: colors.gray,
+    marginLeft: 10,
+    alignSelf: 'center'
+  },
+  down_arrow: {
+    resizeMode: 'contain',
+    height: '50%',
+    width: '20%',
+    marginRight: 5
+  },
 
   // lower region (orgs)
   lower: {
