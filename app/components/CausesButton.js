@@ -18,10 +18,12 @@ import {
     return (
       <Pressable
         style={styles.causes_button}
-        onPress={() => navigation.navigate("OrganizationsFor", {id:id, cause:cause, icon:icon})}
+        onPress={() => navigation.navigate("OrganizationsFor", {cause:cause})}
       >
-        <Image style={styles.icon} source={icon}/>
-        <Text style={styles.cause_name}> {cause}</Text>
+        <View style={styles.info}>
+          <Image style={styles.icon} source={icon}/>
+          <Text style={styles.cause_name}> {cause}</Text>
+        </View> 
         
       </Pressable>
     );
@@ -37,31 +39,31 @@ import {
       borderRadius: 100,
       height: 150,
       width: 150,
-      flexDirection: "row",
       margin: 15,
       marginHorizontal: 20,
-      justifyContent: 'center',
+      justifyContent: 'center'
     },
-  
+    info :{
+      alignItems: 'center',
+      width: '95%',
+      justifyContent: 'center',
+      backgroundColor: colors.lightgreen,
+      borderRadius: 100,
+    },
     cause_name: {
       fontSize: 16,
       color: "black",
       fontWeight: "bold",
-      top: 85,
       textAlign: 'center',
       color: colors.darkgreen,
-      right: 27,
       fontFamily: 'Nunito',
     },
-  
-
     icon: {
       resizeMode: 'contain',
       color: colors.darkgreen,
       height: 50, 
       width: 50,
-      left: 30,
-      top: 25,
+      marginBottom: 5
     }
   });
   
