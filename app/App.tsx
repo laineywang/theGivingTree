@@ -10,6 +10,9 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import { initializeApp } from "firebase/app";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries

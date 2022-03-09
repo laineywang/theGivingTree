@@ -188,6 +188,7 @@ const styles = EStyleSheet.create({
   freqContainer: { flex: 1 },
 
   selectText: {
+    fontFamily: "Nunito-Bold",
     marginTop: "20%",
     maxHeight: "100%",
     fontSize: 26,
@@ -199,6 +200,7 @@ const styles = EStyleSheet.create({
   },
 
   freqText: {
+    fontFamily: "Nunito-Bold",
     fontSize: 26,
     marginTop: "15%",
     marginLeft: "12%",
@@ -226,6 +228,7 @@ const styles = EStyleSheet.create({
   },
 
   textInput: {
+    fontFamily: "Nunito",
     borderRadius: 5,
     borderWidth: 1,
     height: "10%",

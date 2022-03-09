@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     color: colors.darkgreen,
     margin: 5,
     textAlign: "center",
+    
   },
   icon: {
     alignSelf: 'center',

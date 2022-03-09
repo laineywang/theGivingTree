@@ -1080,6 +1080,13 @@
     "exec-sh" "^0.3.2"
     "minimist" "^1.2.0"
 
+"@egjs/hammerjs@^2.0.17":
+  "integrity" "sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A=="
+  "resolved" "https://registry.npmjs.org/@egjs/hammerjs/-/hammerjs-2.0.17.tgz"
+  "version" "2.0.17"
+  dependencies:
+    "@types/hammerjs" "^2.0.36"
+
 "@expo/config-plugins@^4.0.2", "@expo/config-plugins@4.0.6":
   "integrity" "sha512-K/KQaw/CU8uLQgk7sFnZC54YGHoGucKFfdjYeZx5ds2eyzbuMAiKzGFcxZ/S+1dVBZ8QHzwowsVBW3kuYhnQ3Q=="
   "resolved" "https://registry.npmjs.org/@expo/config-plugins/-/config-plugins-4.0.6.tgz"
@@ -1646,6 +1653,13 @@
   "resolved" "https://registry.npmjs.org/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.6.0.tgz"
   "version" "0.6.0"
 
+"@gorhom/portal@1.0.11":
+  "integrity" "sha512-Vrh2hAVp8ZToJ1a1NbYnehNzdJTxJv1BF3vMNbz1pnJIqm0nbi2W51piVvfiqohCDAegOyCCH1j/AEhW2cJYTA=="
+  "resolved" "https://registry.npmjs.org/@gorhom/portal/-/portal-1.0.11.tgz"
+  "version" "1.0.11"
+  dependencies:
+    "nanoid" "^3.1.23"
+
 "@grpc/grpc-js@^1.3.2":
   "integrity" "sha512-RAlSbZ9LXo0wNoHKeUlwP9dtGgVBDUbnBKFpfAv5iSqMG4qWz9um2yLH215+Wow1I48etIa1QMS+WAGmsE/7HQ=="
   "resolved" "https://registry.npmjs.org/@grpc/grpc-js/-/grpc-js-1.5.7.tgz"
@@ -1921,6 +1935,14 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
+
+"@mobile-reality/react-native-select-pro@^1.4.0":
+  "integrity" "sha512-Mlt+vqMg/fN07DgfPNtBU1LPj4fVsIoUSPIoD9I5kNRelvX2tVZ/riQEJDG9AqL/fU3WVpwe+rAhf5MVjFJ0oQ=="
+  "resolved" "https://registry.npmjs.org/@mobile-reality/react-native-select-pro/-/react-native-select-pro-1.4.0.tgz"
+  "version" "1.4.0"
+  dependencies:
+    "@gorhom/portal" "1.0.11"
+    "react-native-gesture-handler" "^2.1.0"
 
 "@nodelib/fs.scandir@2.1.5":
   "integrity" "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="
@@ -2275,6 +2297,11 @@
   "version" "4.1.5"
   dependencies:
     "@types/node" "*"
+
+"@types/hammerjs@^2.0.36":
+  "integrity" "sha512-ewXv/ceBaJprikMcxCmWU1FKyMAQ2X7a9Gtmzw8fcg2kIePI1crERDM818W+XYrxqdBBOdlf2rm137bU+BltCA=="
+  "resolved" "https://registry.npmjs.org/@types/hammerjs/-/hammerjs-2.0.41.tgz"
+  "version" "2.0.41"
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   "integrity" "sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g=="
@@ -4326,6 +4353,13 @@
   dependencies:
     "source-map" "^0.7.3"
 
+"hoist-non-react-statics@^3.3.0":
+  "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
+  "resolved" "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
+  "version" "3.3.2"
+  dependencies:
+    "react-is" "^16.7.0"
+
 "hosted-git-info@^2.1.4":
   "integrity" "sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw=="
   "resolved" "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-2.8.9.tgz"
@@ -5529,7 +5563,7 @@
   "resolved" "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz"
   "version" "4.1.1"
 
-"lodash@^4.17.14", "lodash@^4.17.15", "lodash@^4.17.19", "lodash@^4.7.0":
+"lodash@^4.17.14", "lodash@^4.17.15", "lodash@^4.17.19", "lodash@^4.17.21", "lodash@^4.7.0":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
@@ -6703,6 +6737,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-is@^16.7.0":
+  "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
+  "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
+  "version" "16.13.1"
+
 "react-native-blob-util@^0.14.1":
   "integrity" "sha512-Rf2aURRqM7j96fFdO5tbiVlAsfLOkSyBqrAPlG4VcJj9jT6G7bVHebwJg7BBfTKWTFwPjiOIAdUjsjkGaUUOyQ=="
   "resolved" "https://registry.npmjs.org/react-native-blob-util/-/react-native-blob-util-0.14.1.tgz"
@@ -6727,6 +6766,17 @@
   dependencies:
     "css-mediaquery" "^0.1.2"
     "object-resolve-path" "^1.1.0"
+
+"react-native-gesture-handler@^2.1.0":
+  "integrity" "sha512-Yq7cov7BMX9CTZ9oEIc6iX/XWgU5i88zSky7Vaq7deRQTq2s1REH4Idh0APEFLdHFWN/NKZMkHBRT7vaQAgvqg=="
+  "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.3.1.tgz"
+  "version" "2.3.1"
+  dependencies:
+    "@egjs/hammerjs" "^2.0.17"
+    "hoist-non-react-statics" "^3.3.0"
+    "invariant" "^2.2.4"
+    "lodash" "^4.17.21"
+    "prop-types" "^15.7.2"
 
 "react-native-pdf@^6.4.0":
   "integrity" "sha512-pfrCvHg4dqAPzl2FtRmGGl/D2dHec4w8+wGAKv7L97wxz5oF/QNvQ6q0KdfXdFlIZ22sS+BOwsRMzbB2mHPs2w=="
@@ -6776,7 +6826,7 @@
     "escape-string-regexp" "2.0.0"
     "invariant" "2.2.4"
 
-"react-native@*", "react-native@>=0.59.5", "react-native@>=0.60.0", "react-native@>=0.64.0-rc.0 || 0.0.0-*", "react-native@0.64.3":
+"react-native@*", "react-native@>=0.59.5", "react-native@>=0.60.0", "react-native@>=0.63", "react-native@>=0.64.0-rc.0 || 0.0.0-*", "react-native@0.64.3":
   "integrity" "sha512-2OEU74U0Ek1/WeBzPbg6XDsCfjF/9fhrNX/5TFgEiBKd5mNc9LOZ/OlMmkb7iues/ZZ/oc51SbEfLRQdcW0fVw=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.64.3.tgz"
   "version" "0.64.3"
@@ -6837,7 +6887,7 @@
     "react-shallow-renderer" "^16.13.1"
     "scheduler" "^0.20.1"
 
-"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@^17.0.0", "react@>=16.8.6", "react@>=17.0.1", "react@>16.8.3", "react@17.0.1":
+"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.13 || ^17", "react@^16.8.0 || ^17.0.0", "react@^17.0.0", "react@>=16.8.6", "react@>=17.0.1", "react@>16.8.3", "react@17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"

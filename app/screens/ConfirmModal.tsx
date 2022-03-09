@@ -103,6 +103,7 @@ const styles = EStyleSheet.create({
   amountContainer: {},
 
   selectText: {
+    fontFamily: "Nunito-Bold",
     marginTop: "50%",
     fontSize: 48,
     textAlign: "center",
@@ -129,6 +130,7 @@ const styles = EStyleSheet.create({
   },
 
   leadText: {
+    fontFamily: "Nunito",
     fontSize: 24,
     textAlign: "left",
     marginBottom: 15,

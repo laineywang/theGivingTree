@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   thanks_text: {
+    fontFamily: "Nunito-Bold",
     fontSize: 40,
     fontWeight: "bold",
     color: colors.darkgreen,
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
   nav_text: {
+    fontFamily: "Nunito-Bold",
     flexWrap: "wrap",
     fontSize: 20,
     padding: 20,

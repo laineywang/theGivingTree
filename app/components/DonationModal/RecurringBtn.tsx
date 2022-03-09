@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
+    fontFamily: "Nunito-Bold",
     fontSize: 20,
     fontWeight: "bold",
     letterSpacing: 0.25,

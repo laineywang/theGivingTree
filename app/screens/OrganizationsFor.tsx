@@ -212,25 +212,21 @@ const styles = StyleSheet.create({
 
   search_bar: {
     height: 30,
-    width: 300,
-    shadowColor: "gray",
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: { width: -1, height: 2 },
+    width: 324,
     borderRadius: 20,
     borderColor: "gray",
     borderWidth: 0.3,
     bottom: 10,
     textAlign: "center",
+    marginBottom: 10,
   },
 
   selectContainer: {
     alignSelf: "flex-start",
-    marginLeft: "10%",
+    marginLeft: "8%",
     width: "35%",
     color: "gray",
     borderWidth: 0,
-
     backgroundColor: "white",
     tintColor: "white",
   },
