@@ -163,6 +163,7 @@ const styles = EStyleSheet.create({
   name: {
     fontSize: 50,
     fontWeight: "bold",
+    fontFamily: 'Nunito-Bold',
   },
 
   progressContainer: {
@@ -250,6 +251,7 @@ const styles = EStyleSheet.create({
   donationText: {
     textAlign: "center",
     color: "white",
+    fontFamily: 'Nunito',
   },
 
   "@media (min-height: 600) and (max-height: 700)": {

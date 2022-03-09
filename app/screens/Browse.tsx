@@ -133,5 +133,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.darkgreen,
     textAlign: "center",
+    fontFamily: 'Nunito-Bold',
   },
 });
