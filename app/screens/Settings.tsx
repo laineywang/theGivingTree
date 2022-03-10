@@ -13,13 +13,19 @@ import {
 } from "react-native";
 import { Text, View } from "../components/Themed";
 import colors from "../Themes/Colors";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Settings() {
     const [name, setName] = useState();
     const [age, setAge] = useState(); 
+    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
+            <Pressable
+                onPress={() => navigation.navigate("EditSettings")}
+                style={styles.edit_button}
+            />
             <Text style={styles.title}>Settings</Text>
             <View style={styles.back}>
                 <Text style={styles.headings}>Account</Text>
@@ -28,6 +34,14 @@ export default function Settings() {
                     <TextInput 
                     style={styles.input}
                     placeholder="e.g. John Doe"
+                    onChangeText={(val) => setName(val)}
+                    />
+                </View> 
+                <View style={styles.text}>
+                    <Text style={styles.label}>Pronouns: </Text>
+                    <TextInput 
+                    style={styles.input}
+                    placeholder="e.g. she/her"
                     onChangeText={(val) => setName(val)}
                     />
                 </View> 
@@ -44,14 +58,6 @@ export default function Settings() {
                     <TextInput 
                     style={styles.input}
                     placeholder="e.g. 120-456-7890"
-                    onChangeText={(val) => setName(val)}
-                    />
-                </View> 
-                <View style={styles.text}>
-                    <Text style={styles.label}>Birthday: </Text>
-                    <TextInput 
-                    style={styles.input}
-                    placeholder="e.g. 06/27/2002"
                     onChangeText={(val) => setName(val)}
                     />
                 </View> 
@@ -111,6 +117,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "white",
+    },
+
+    edit_button: {
+        width: '20%',
+        height: '10%',
+        backgroundColor: colors.lightgreen
     },
 
     title: {
