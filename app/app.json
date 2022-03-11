@@ -2,7 +2,7 @@
   "expo": {
     "name": "app",
     "slug": "theGivingTree",
-    "owner" : "thegivingtree",
+    "owner" : "fkramer",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
