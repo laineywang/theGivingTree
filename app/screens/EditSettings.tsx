@@ -8,6 +8,11 @@ class EditSettings extends Component {
         AsyncStorage.getItem('pronouns').then((value) => this.setState({ 'pronouns':value }));
         AsyncStorage.getItem('email').then((value) => this.setState({ 'email':value }));
         AsyncStorage.getItem('phone').then((value) => this.setState({ 'phone':value }));
+        AsyncStorage.getItem('cardFirst').then((value) => this.setState({ 'cardFirst':value }));
+        AsyncStorage.getItem('cardLast').then((value) => this.setState({ 'cardLast':value }));
+        AsyncStorage.getItem('cardNumber').then((value) => this.setState({ 'cardNumber':value }));
+        AsyncStorage.getItem('cvv').then((value) => this.setState({ 'cvv':value }));
+        AsyncStorage.getItem('exp').then((value) => this.setState({ 'exp':value }));
     }
 
     saveEditProfile = () => {
@@ -33,6 +38,31 @@ class EditSettings extends Component {
     setPhone = (value) => {
         AsyncStorage.setItem('phone', value);
         this.setState({'phone':value});
+    }
+
+    setCardFirst = (value) => {
+        AsyncStorage.setItem('cardFirst', value);
+        this.setState({'cardFirst':value});
+    }
+
+    setCardLast = (value) => {
+        AsyncStorage.setItem('cardLast', value);
+        this.setState({'cardLast':value});
+    }
+
+    setCardNumber = (value) => {
+        AsyncStorage.setItem('cardNumber', value);
+        this.setState({'cardNumber':value});
+    }
+
+    setCVV = (value) => {
+        AsyncStorage.setItem('cvv', value);
+        this.setState({'cvv':value});
+    }
+
+    setExp = (value) => {
+        AsyncStorage.setItem('exp', value);
+        this.setState({'exp':value});
     }
 
 constructor(props) {
@@ -96,7 +126,7 @@ render() {
                     <TextInput 
                     style={styles.input}
                     placeholder="e.g. John"
-                    onChangeText={(val) => setName(val)}
+                    onChangeText={this.setCardFirst}
                     />
                 </View> 
                 <View style={styles.text}>
@@ -104,7 +134,7 @@ render() {
                     <TextInput 
                     style={styles.input}
                     placeholder="e.g. Do"
-                    onChangeText={(val) => setName(val)}
+                    onChangeText={this.setCardLast}
                     />
                 </View> 
                 <View style={styles.text}>
@@ -112,7 +142,7 @@ render() {
                     <TextInput 
                     style={styles.input}
                     placeholder="e.g. 1234 5678 1234 5678"
-                    onChangeText={(val) => setName(val)}
+                    onChangeText={this.setCardNumber}
                     />
                 </View> 
                 <View style={styles.small_text}>
@@ -121,7 +151,7 @@ render() {
                     <TextInput 
                     style={styles.small_input}
                     placeholder="e.g. 123"
-                    onChangeText={(val) => setName(val)}
+                    onChangeText={this.setCVV}
                     />
                 </View> 
                 <View style={styles.text}>
@@ -129,7 +159,7 @@ render() {
                     <TextInput 
                     style={styles.small_input}
                     placeholder="e.g. 08/12"
-                    onChangeText={(val) => setName(val)}
+                    onChangeText={this.setExp}
                     />
                 </View> 
                 </View>
