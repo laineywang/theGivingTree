@@ -114,7 +114,7 @@ class OrganizationsFor extends Component {
 
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>Organizations for Animal Rights</Text>
+        <Text style={styles.title}>{(this.props.route.params.cause)}</Text>
         <Text style={styles.description}>
           Help aid organizations fighting for animals to be free of involvement
           and suffering in medical research, hunting, and other industries that
