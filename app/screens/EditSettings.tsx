@@ -12,6 +12,7 @@ class EditSettings extends Component {
 
     saveEditProfile = () => {
         Alert.alert("Data Auto-Saved")
+        this.props.navigation.navigate("Settings")
     }
 
     setName = (value) => {
