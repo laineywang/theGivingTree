@@ -16,6 +16,7 @@ import { Text, View } from "../components/Themed";
 import colors from "../Themes/Colors";
 import { useNavigation } from "@react-navigation/native";
 import EditSettings from "./EditSettings";
+import { getDatabase, ref, onValue, set, push } from "firebase/database";
 
 class Settings extends Component {
   constructor(props) {
@@ -26,34 +27,47 @@ class Settings extends Component {
       pronouns: "",
       email: "",
       phone: "",
+      cardFirstName: "",
+      cardLastName: "",
+      cardNum: "",
+      cardCVV: "",
+      cardExp: "",
     };
   }
 
   componentDidMount = () => {
-    AsyncStorage.getItem("name").then((value) =>
-      this.setState({ name: value })
-    );
-    AsyncStorage.getItem("pronouns").then((value) =>
-      this.setState({ pronouns: value })
-    );
-    AsyncStorage.getItem("email").then((value) =>
-      this.setState({ email: value })
-    );
-    AsyncStorage.getItem("phone").then((value) =>
-      this.setState({ phone: value })
-    );
+    const db = getDatabase();
+
+    const reference = ref(db, "settings/");
+    onValue(reference, (snapshot) => {
+      if (snapshot.val()) {
+        let val = snapshot.val();
+        this.setState({
+          name: val.name,
+          pronouns: val.pronouns,
+          email: val.email,
+          phone: val.phone,
+          cardFirstName: val.cardFirstName,
+          cardLastName: val.cardLastName,
+          cardNum: val.cardNum,
+          cardCVV: val.cardCVV,
+          cardExp: val.cardExp,
+        });
+      }
+    });
   };
 
-
   render() {
-
     return (
       <View style={styles.container}>
-
         <Pressable
           onPress={() => this.props.navigation.navigate("EditSettings")}
-          style={styles.edit_button}>
-          <Image style={styles.edit_icon} source={require('../assets/images/edit.png')}></Image>
+          style={styles.edit_button}
+        >
+          <Image
+            style={styles.edit_icon}
+            source={require("../assets/images/edit.png")}
+          ></Image>
         </Pressable>
         <Text style={styles.title}>Settings</Text>
         <View style={styles.back}>
@@ -71,7 +85,6 @@ class Settings extends Component {
             <Text style={styles.label}>Phone: {this.state.phone} </Text>
           </View>
         </View>
-
 
         <View style={styles.back}>
           <Text style={styles.headings}>Card Information</Text>
@@ -120,7 +133,6 @@ class Settings extends Component {
                 onChangeText={(val) => setName(val)}
               />
             </View>
-
           </View>
         </View>
       </View>
@@ -139,13 +151,13 @@ const styles = StyleSheet.create({
   edit_button: {
     width: "10%",
     height: "5%",
-    flexDirection: 'row',
-    marginLeft: '80%'
+    flexDirection: "row",
+    marginLeft: "80%",
   },
   edit_icon: {
-    height: '80%',
-    width: '80%',
-    resizeMode: 'contain',
+    height: "80%",
+    width: "80%",
+    resizeMode: "contain",
   },
   title: {
     //marginTop: '2%',
