@@ -1,16 +1,16 @@
 const orgs_by_cause = {
     "Animals" : [  
-        { "id": 1, "cause": "Animal Rights", "name": "Ocean Alliance", "description": "Healthy Whales, Healthy Oceans, Healthy Humans.", "logo": require("../assets/images/logos/oceanAllianceLogo.png"),
+        { "id": 1, "cause": "Animals", "name": "Ocean Alliance", "description": "Healthy Whales, Healthy Oceans, Healthy Humans.", "logo": require("../assets/images/logos/oceanAllianceLogo.png"),
        "info": "Ocean Alliance is a non-profit organization dedicated to the conservation of whales and their marine environment through scientific collaboration, public education, and more.",
        "url": "https://whale.org"}, 
  
-        { "id": 2, "cause": "Animal Rights","name": "ASPCA", "description": "We are their voice.", "logo": require("../assets/images/logos/ASPCA.png"),
+        { "id": 2, "cause": "Animals","name": "ASPCA", "description": "We are their voice.", "logo": require("../assets/images/logos/ASPCA.png"),
        "info": "The ASPCA’s mission, as stated by founder Henry Bergh in 1866, is “to provide effective means for the prevention of cruelty to animals throughout the United States.", "url":"https://www.aspca.org/"},
         
-        { "id": 3, "cause": "Animal Rights","name": "In Defense of Animals", "description": "Working to protect the rights, welfare, and habitats of animals.", "logo": require("../assets/images/logos/InDefenseofAnimals.png"),
+        { "id": 3, "cause": "Animals","name": "In Defense of Animals", "description": "Working to protect the rights, welfare, and habitats of animals.", "logo": require("../assets/images/logos/InDefenseofAnimals.png"),
        "info": "In Defense of Animals makes a difference for animals all over the world through our hard-hitting campaigns, direct rescue, and sanctuary care.", "url": "https://www.idausa.org/"}, 
  
-        { "id": 4, "cause": "Animal Rights","name": "Animal Ethics", "description": "Our vision is a world where all sentient beings are given moral consideration.", "logo": require("../assets/images/logos/AnimalEthics.jpeg"), "info": "Animal Ethics promotes respect for nonhuman animals through outreach, research, and education. We support and research interventions to improve the lives of animals in the wild, such as vaccinations and helping animals in natural disasters. We explore how future technologies will enable us to avoid catastrophic risks and ways technology can be used to help wild animals on a large scale.", "url": "https://www.animal-ethics.org/"} 
+        { "id": 4, "cause": "Animals","name": "Animal Ethics", "description": "Our vision is a world where all sentient beings are given moral consideration.", "logo": require("../assets/images/logos/AnimalEthics.jpeg"), "info": "Animal Ethics promotes respect for nonhuman animals through outreach, research, and education. We support and research interventions to improve the lives of animals in the wild, such as vaccinations and helping animals in natural disasters. We explore how future technologies will enable us to avoid catastrophic risks and ways technology can be used to help wild animals on a large scale.", "url": "https://www.animal-ethics.org/"} 
     ],
     "Current": [
       { "id": 5, "cause": "Current","name": "Fight for Right", "description": "Protects the human rights of people living with disabilities in Ukraine.", "logo": require("../assets/images/logos/FightforRight.png"),
@@ -46,7 +46,7 @@ const orgs_by_cause = {
      "info": "Fight For Right works to let all Ukrainians with disabilities know the answer to this question. Our team has a clear position: #IStayInUkraine and we do everything to make it safe for Ukrainians with disabilities to stay here.",
      "url": "https://www.stjude.org/"},
 
-      { "id": 13, "cause": "Disease","name": "AIDS United’s", "description": "End the HIV epidemic in the United States.", "logo": require("../assets/images/logos/AidsUnited.jpeg"),
+      { "id": 13, "cause": "Disease","name": "AIDS United", "description": "End the HIV epidemic in the United States.", "logo": require("../assets/images/logos/AidsUnited.jpeg"),
      "info": "In the ongoing work for social justice and true equity, ending the HIV epidemic in the United States is our chosen role. We’ve seen firsthand how the intersectionality of social injustice, discrimination and health care disparity impacts those living with HIV, and we believe alleviating this struggle is a pivotal step toward our national well-being.",
      "url": "https://aidsunited.org/"}, 
   ],
@@ -100,9 +100,6 @@ const orgs_by_cause = {
 
   { "id": 28, "cause": "Hunger Relief","name": "Feeding America", "description": "Everyone deserves healthy foods.", "logo": require("../assets/images/logos/FeedingAmerica.png"),
      "info": "In a country that wastes billions of pounds of food each year, it's almost shocking that anyone in America goes hungry. Yet every day, there are millions of children and adults who do not get the meals they need to thrive. We work to get nourishing food – from farmers, manufacturers, and retailers – to people in need. At the same time, we also seek to help our neighbors build a path to a brighter, food-secure future.", "url": "https://www.feedingamerica.org/"}, 
-
-  { "id": 29, "cause": "Hunger Relief","name": "Action Against Hunger", "description": "FOR ACTION. AGAINST HUNGER.", "logo": require("../assets/images/logos/Action Against Hunger.png"),
-     "info": "FOR FOOD. AGAINST HUNGER AND MALNUTRITION. FOR CLEAN WATER. AGAINST KILLER DISEASES. FOR FREEDOM FROM HUNGER. FOR EVERYONE. FOR GOOD.", "url": "https://www.actionagainsthunger.org/"}, 
 
   { "id": 30, "cause": "Hunger Relief","name": "The Hunger Project", "description": "Ending hunger starts with people.", "logo": require("../assets/images/logos/TheHungerProject.png"),
      "info": "Resilience. Courage. Ingenuity. Creativity. People are extraordinary. With your support, communities realize their own vision of a future free from hunger and poverty. Together, we make change happen.", "url": "https://thp.org/"},   

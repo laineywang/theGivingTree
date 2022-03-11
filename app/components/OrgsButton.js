@@ -8,14 +8,15 @@ import {
 import { Text, View } from "../components/Themed";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import colors from "../Themes/Colors";
 
-const OrgsButton = ({ name, description, id, logo, info, url}) => {
+const OrgsButton = ({ name, description, id, logo, info, url, cause}) => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.org_button}>
       <Pressable
-        onPress={() => navigation.navigate("OrgDetails", {name: name, description: description, id:id, logo:logo, info:info, url:url})}
+        onPress={() => navigation.navigate("OrgDetails", {name: name, description: description, id:id, logo:logo, info:info, url:url, cause:cause})}
         style={{width: '100%'}}
       >
         {/* <Image style={styles.logo} source={require(organization.image)} /> */}
@@ -23,7 +24,7 @@ const OrgsButton = ({ name, description, id, logo, info, url}) => {
           <Image style={styles.logo} source={logo} />
           <View style={styles.org_title_des}>
             <Text numberOfLines = {1} style={styles.org_title}>{name}</Text>
-            <Text style={styles.org_description}>{description}</Text>
+            <Text numberOfLines = {2} style={styles.org_description}>{description}</Text>
           </View>
         </View>
       </Pressable>
@@ -43,35 +44,46 @@ const styles = StyleSheet.create({
     width: "92%",
     flexDirection: "row",
     paddingTop: 10,
+    borderColor: colors.gray,
+    borderWidth: 0.25,
   },
 
   org_title_des: {
-    width: "80%",
+    width: "75%",
     // maxWidth: "90%",
     // marginLeft: 10,
-    paddingLeft: 10,
+    paddingLeft: '3%',
   },
 
   org_title: {
-    top: 10,
+    top: '15%',
     fontSize: 25,
     color: "black",
     fontWeight: "bold",
     fontFamily: 'Nunito-Bold',
+    marginRight: '5%'
   },
 
   org_description: {
     flexWrap: "wrap",
-    top: 15,
+    marginTop: '5%',
+    marginRight: '5%',
     fontSize: 12,
     color: "gray",
     fontFamily: 'Nunito',
   },
 
   logo: {
-    top: 10,
-    height: 50,
+    //top: 10,
+    //height: 50,
     // width: 70,
+    //marginBottom: '10%',
+    //marginTop: '10%',
+    alignSelf: 'center',
+    marginTop: '10%',
+    marginBottom: '10%',
+    marginLeft: '2%',
+    height: '80%',
     width: '20%',
     resizeMode: "contain",
   },

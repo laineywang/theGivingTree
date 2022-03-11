@@ -17,21 +17,21 @@ export default function OrgInfo({ route }) {
 
   const params = route.params;
 
-  console.log(params.url);
+  console.log(params.cause);
 
   const url = params.url;
 
     return (
             <View style={styles.container}>
-                <Text style={styles.category_text}>Organizations for Animal Rights</Text>
+                <Text style={styles.category_text}>Organizations for {params.cause}</Text>
                 <View style={styles.box}>
                     <View style={styles.title_and_logo_section}>
-                        <Text style={styles.title}>{params.name}</Text>
+                        <Text style={styles.title} adjustsFontSizeToFit={true} numberOfLines={3}>{params.name}</Text>
                         <Image style={styles.logo} source={params.logo}></Image>
                     </View>
                     <View style={styles.link_section}>
                         <Pressable style={styles.link_button} onPress={() => navigation.navigate("LinkScreen", {url:url})}>
-                            <Text style={styles.link_text}>{params.url}</Text>
+                            <Text style={styles.link_text} numberOfLines={1} adjustsFontSizeToFit={true}>{params.url}</Text>
                         </Pressable>
                     </View>
 
@@ -84,25 +84,30 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 3 },
   },
   title_and_logo_section: {
-    flex: 2,
+    flex: 1.5,
     justifyContent: "space-between",
     flexDirection: "row",
     padding: 10,
     borderRadius: 20,
+    //backgroundColor: 'red'
   },
   title: {
-    fontSize: 40,
+    fontSize: 25,
     fontFamily: 'Nunito-Bold',
-    alignSelf: "flex-end",
-    flexWrap: "wrap",
+    alignSelf: "center",
+    //flexWrap: "wrap",
     flex: 2,
-    paddingLeft: 10,
+    //paddingLeft: 10,
+    marginRight: '4%',
+    marginLeft: '3%',
+    marginVertical: '4%'
   },
   logo: {
     resizeMode: "contain",
     height: "100%",
     flex: 1,
     alignSelf: "center",
+    marginRight: '3%'
   },
   link_section: {
     flex: 0.5,
