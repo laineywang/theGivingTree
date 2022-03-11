@@ -49,10 +49,12 @@ class Settings extends Component {
 
     return (
       <View style={styles.container}>
+
         <Pressable
           onPress={() => this.props.navigation.navigate("EditSettings")}
-          style={styles.edit_button}
-        />
+          style={styles.edit_button}>
+          <Image style={styles.edit_icon} source={require('../assets/images/edit.png')}></Image>
+        </Pressable>
         <Text style={styles.title}>Settings</Text>
         <View style={styles.back}>
           <Text style={styles.headings}>Account</Text>
@@ -69,8 +71,11 @@ class Settings extends Component {
             <Text style={styles.label}>Phone: {this.state.phone} </Text>
           </View>
         </View>
+
+
         <View style={styles.back}>
           <Text style={styles.headings}>Card Information</Text>
+
           <View style={styles.text}>
             <Text style={styles.label}> First Name: </Text>
             <TextInput
@@ -79,6 +84,7 @@ class Settings extends Component {
               onChangeText={(val) => setName(val)}
             />
           </View>
+
           <View style={styles.text}>
             <Text style={styles.label}> Last Name: </Text>
             <TextInput
@@ -87,6 +93,7 @@ class Settings extends Component {
               onChangeText={(val) => setName(val)}
             />
           </View>
+
           <View style={styles.text}>
             <Text style={styles.label}> Card Number: </Text>
             <TextInput
@@ -95,7 +102,8 @@ class Settings extends Component {
               onChangeText={(val) => setName(val)}
             />
           </View>
-          <View style={styles.small_text}>
+
+          <View style={styles.small_text} width={"50%"}>
             <View style={styles.text}>
               <Text style={styles.label}> CVV: </Text>
               <TextInput
@@ -105,13 +113,14 @@ class Settings extends Component {
               />
             </View>
             <View style={styles.text}>
-              <Text style={styles.label}> MM/YY </Text>
+              <Text style={styles.label}> MM/YY: </Text>
               <TextInput
                 style={styles.small_input}
                 placeholder="e.g. 08/12"
                 onChangeText={(val) => setName(val)}
               />
             </View>
+
           </View>
         </View>
       </View>
@@ -128,13 +137,18 @@ const styles = StyleSheet.create({
   },
 
   edit_button: {
-    width: "20%",
-    height: "10%",
-    backgroundColor: colors.lightgreen,
+    width: "10%",
+    height: "5%",
+    flexDirection: 'row',
+    marginLeft: '80%'
   },
-
+  edit_icon: {
+    height: '80%',
+    width: '80%',
+    resizeMode: 'contain',
+  },
   title: {
-    paddingTop: 20,
+    //marginTop: '2%',
     fontSize: 35,
     fontWeight: "bold",
     color: colors.darkgreen,
