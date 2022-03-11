@@ -119,8 +119,7 @@ class Home extends Component {
           </View>
           <View style={styles.progressContainer}>
             <Text style={styles.donationsLeftText}>
-              {this.state.donations}/
-              {this.state.donationsLeft} donations 
+              {this.state.donations}/{this.state.donationsLeft} donations
             </Text>
             <ProgressBar
               progress={this.state.donations / this.state.donationsLeft}
@@ -163,7 +162,7 @@ const styles = EStyleSheet.create({
   name: {
     fontSize: 50,
     fontWeight: "bold",
-    fontFamily: 'Nunito-Bold',
+    fontFamily: "Nunito-Bold",
   },
 
   progressContainer: {
@@ -226,7 +225,8 @@ const styles = EStyleSheet.create({
   absoluteContainer: {
     backgroundColor: "transparent",
     position: "absolute",
-    left: 140,
+    left: "35%",
+    //left: 150,
     top: 150,
   },
 
@@ -251,7 +251,7 @@ const styles = EStyleSheet.create({
   donationText: {
     textAlign: "center",
     color: "white",
-    fontFamily: 'Nunito',
+    fontFamily: "Nunito",
   },
 
   "@media (min-height: 600) and (max-height: 700)": {

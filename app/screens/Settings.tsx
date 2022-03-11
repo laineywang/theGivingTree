@@ -90,15 +90,21 @@ class Settings extends Component {
           <Text style={styles.headings}>Card Information</Text>
 
           <View style={styles.text}>
-            <Text style={styles.label}> First Name: {this.state.cardFirstName} </Text>
+            <Text style={styles.label}>
+              {" "}
+              First Name: {this.state.cardFirstName}{" "}
+            </Text>
           </View>
 
           <View style={styles.text}>
-            <Text style={styles.label}> Last Name: {this.state.cardLastName}</Text>
+            <Text style={styles.label}>
+              {" "}
+              Last Name: {this.state.cardLastName}
+            </Text>
           </View>
 
           <View style={styles.text}>
-            <Text style={styles.label}> Card Number: </Text> 
+            <Text style={styles.label}> Card Number: </Text>
             <Text style={styles.dot}> •••• •••• •••• ••••</Text>
           </View>
 
@@ -107,7 +113,10 @@ class Settings extends Component {
               <Text style={styles.label}> CVV: {this.state.cardCVV}</Text>
             </View>
             <View style={styles.text}>
-              <Text style={styles.expiration}> Expiration Date: {this.state.cardExp}</Text>
+              <Text style={styles.expiration}>
+                {" "}
+                Expiration Date: {this.state.cardExp}
+              </Text>
             </View>
           </View>
         </View>
@@ -126,16 +135,16 @@ const styles = StyleSheet.create({
 
   expiration: {
     fontSize: 15,
-    right: 15, 
-
+    right: 15,
+    fontFamily: "Nunito",
   },
 
   dot: {
     fontSize: 30,
-    letterSpacing: -2.5, 
-    marginTop: '-3%',
+    letterSpacing: -2.5,
+    marginTop: "-3%",
     right: 10,
-    marginBottom: '-3%'
+    marginBottom: "-3%",
   },
 
   edit_button: {
@@ -183,7 +192,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: "90%",
     fontFamily: "Nunito",
-
   },
 
   small_text: {
@@ -193,7 +201,7 @@ const styles = StyleSheet.create({
 
   label: {
     fontSize: 15,
-    marginRight: '4%',
+    marginRight: "4%",
   },
 
   input: {
