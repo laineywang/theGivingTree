@@ -191,11 +191,11 @@ const styles = StyleSheet.create({
   },
 
   donations_row: {
-    marginTop: 5,
+    //marginTop: '%',
     flexDirection: 'row', 
-    right: 20,
+    marginRight: '8%',
     justifyContent: 'flex-start',
-    marginBottom: 20,
+    marginBottom: '7%',
   },
 
   number: {
@@ -213,8 +213,8 @@ const styles = StyleSheet.create({
     borderRadius: 20, 
     backgroundColor: colors.lightgreen,
     justifyContent: 'center',
-    marginRight: 20,
-    marginLeft: 20,
+    marginRight: '8%',
+    marginLeft: '8%',
   }, 
 
   donations_back: {
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Nunito-Bold',
     alignSelf: 'center',
     fontSize: 17,
-    marginRight: 20,
+    marginRight: '8%',
   }, 
 
   topValues: {
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "contain",
     alignSelf: "center",
-    left: 30,
+    marginLeft: '5%',
   },
 
   forms_container: {
@@ -308,7 +308,7 @@ const styles = StyleSheet.create({
   recent_trans: {},
 
   bottom_buttons: {
-    marginTop: 20,
+    marginTop: '8%',
     width: "80%",
     height: "10%",
     borderRadius: 16,
@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
     color: colors.darkgreen,
     textAlign: "center",
     fontFamily: "Nunito-Bold",
-    left: 30,
+    marginLeft: '30%',
   },
   trans_info: {
     fontSize: 15,

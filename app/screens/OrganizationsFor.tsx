@@ -143,16 +143,6 @@ class OrganizationsFor extends Component {
           onSelect={(option) => this.onSelect(option)}
           options={this.state.labels}
         />
-        <View>
-          {/* <View style={styles.sort_row}> */}
-          {/* <Pressable onPress={() => this.onPress()} style={styles.sort_button}>
-            <Text style={styles.sort_text}>Sort By</Text>
-            <Image
-              style={styles.down_arrow}
-              source={require("../data/icons/down_arrow.png")}
-            />
-          </Pressable> */}
-        </View>
         <ScrollView>
           <FlatList
             style={styles.list}
@@ -194,17 +184,18 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    top: 10,
-    left: 15,
+    marginTop: '3%',
+    marginLeft: '6%',
   },
 
   description: {
     fontSize: 13,
     color: "black",
-    paddingLeft: 30,
-    paddingBottom: 30,
-    paddingRight: 30,
-    paddingTop: 15,
+    alignSelf: 'center',
+    marginLeft: '6%',
+    marginRight: '6%',
+    marginTop: '7%',
+    marginBottom: '6%',
     fontFamily: "Nunito",
   },
 
@@ -217,9 +208,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: "gray",
     borderWidth: 0.3,
-    bottom: 10,
     textAlign: "center",
-    marginBottom: 10,
+    marginBottom: '6%',
+    alignSelf: 'center'
   },
 
   selectContainer: {
@@ -288,8 +279,8 @@ const styles = StyleSheet.create({
 
   // lower region (orgs)
   lower: {
-    top: 20,
-    paddingBottom: 20,
+    top: '10%',
+    paddingBottom: '%10',
     alignItems: "center",
   },
 });
