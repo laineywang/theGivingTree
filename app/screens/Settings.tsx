@@ -18,6 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import EditSettings from './EditSettings'
 
 
+
 class Settings extends Component {
 
     constructor(props) {
@@ -39,38 +40,37 @@ class Settings extends Component {
     };
 
 
-    
-    const HomeStack = createNativeStackNavigator();
-    return (
-        <HomeStack.Navigator>
-            <HomeStack.Screen
-                name="Settings"
-                component={Settings}
-                options={{
-                headerShown: false,
-                }}
-            />
-            <HomeStack.Screen
-                name="EditSettings"
-                component={EditSettings}
-                options={{
-                    title: "",
-                    headerTransparent: true,
-                    headerBackTitleVisible: false,
-                    headerTintColor: "black",
-                    presentation: "card",
-                }}/>
-        </HomeStack.Navigator>
-    );
+    // const HomeStack = createNativeStackNavigator();
+    // return (
+    //     <HomeStack.Navigator>
+    //         <HomeStack.Screen
+    //             name="Settings"
+    //             component={Settings}
+    //             options={{
+    //             headerShown: false,
+    //             }}
+    //         />
+    //         <HomeStack.Screen
+    //             name="EditSettings"
+    //             component={EditSettings}
+    //             options={{
+    //                 title: "",
+    //                 headerTransparent: true,
+    //                 headerBackTitleVisible: false,
+    //                 headerTintColor: "black",
+    //                 presentation: "card",
+    //             }}/>
+    //     </HomeStack.Navigator>
+    // );
 
 
-    function Settings() {
+    render() {
         const navigation = useNavigation();
 
         return (
             <View style={styles.container}>
                 <Pressable
-                    onPress={() => navigation.navigate("EditSettings")}
+                    onPress={() => this.props.navigation.navigate("EditSettings")}
                     style={styles.edit_button}
                 />
                 <Text style={styles.title}>Settings</Text>
@@ -137,6 +137,7 @@ class Settings extends Component {
             </View>
         );
     }
+}
 /*
 
  export default function Settings() {
