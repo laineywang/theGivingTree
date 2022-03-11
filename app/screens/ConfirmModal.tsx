@@ -65,7 +65,7 @@ class ConfirmModal extends Component {
         <View style={styles.textContainer}>
           <View style={styles.tContainer}>
             <Text style={styles.leadText}>Organization:</Text>
-            <Text style={styles.text}>
+            <Text numberOfLines={2} style={styles.text}>
               {"  "}
               {this.props.route.params.name}
             </Text>
@@ -119,9 +119,10 @@ const styles = EStyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 20,
     paddingVertical: 50,
-    alignItems: "center",
+    //alignItems: "center",
     textAlign: "left",
     marginBottom: "10%",
+    flexWrap: "wrap",
   },
 
   tContainer: {
@@ -136,10 +137,14 @@ const styles = EStyleSheet.create({
     marginBottom: 15,
     color: "black",
     fontWeight: "bold",
+    marginLeft: "10%",
   },
 
   text: {
     fontSize: 24,
+    flexWrap: "wrap",
+    width: "40%",
+    fontFamily: "Nunito",
   },
 
   actionContainer: {
