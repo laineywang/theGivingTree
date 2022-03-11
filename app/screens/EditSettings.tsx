@@ -145,7 +145,7 @@ render() {
                     onChangeText={this.setCardNumber}
                     />
                 </View> 
-                <View style={styles.small_text}>
+                <View style={styles.small_text} width={"50%"}>
                 <View style={styles.text}>
                     <Text style={styles.label}> CVV: </Text>
                     <TextInput 
@@ -155,13 +155,13 @@ render() {
                     />
                 </View> 
                 <View style={styles.text}>
-                    <Text style={styles.label}> MM/YY </Text>
-                    <TextInput 
-                    style={styles.small_input}
-                    placeholder="e.g. 08/12"
-                    onChangeText={this.setExp}
+                    <Text style={styles.label}> MM/YY: </Text>
+                    <TextInput
+                        style={styles.small_input}
+                        placeholder="e.g. 08/12"
+                        onChangeText={(val) => setName(val)}
                     />
-                </View> 
+                </View>
                 </View>
             </View>
             <Pressable onPress={this.saveEditProfile} block>
