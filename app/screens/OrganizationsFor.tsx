@@ -29,7 +29,6 @@ import causes from "../data/causes";
 import { useRoute } from "@react-navigation/native";
 
 class OrganizationsFor extends Component {
- 
   constructor(props) {
     super(props);
 
@@ -40,7 +39,8 @@ class OrganizationsFor extends Component {
         label: "Most in Need",
       },
     ];
-    console.log(this.props.route.params.cause);
+
+    console.log(orgs_by_cause[this.props.route.params.cause]);
     this.state = {
       organizations: orgs_by_cause[this.props.route.params.cause],
       labels: labels,
@@ -64,21 +64,23 @@ class OrganizationsFor extends Component {
 
   // search name only searches by org name rn. have to add more logic to search by description or anything
   searchName(input) {
-    let searchData = organizations.filter((item) => {
-      return item.name.toLowerCase().includes(input.toLowerCase());
-    });
+    let searchData = orgs_by_cause[this.props.route.params.cause].filter(
+      (item) => {
+        return item.name.toLowerCase().includes(input.toLowerCase());
+      }
+    );
 
     this.setState({
       organizations: searchData,
     });
   }
 
-  _selectHelper = (option) => () => {
-    const [selected, setSelected] = useState<OptionType | null>(null);
-    setSelected(option);
+  // _selectHelper = (option) => () => {
+  //   const [selected, setSelected] = useState<OptionType | null>(null);
+  //   setSelected(option);
 
-    return;
-  };
+  //   return;
+  // };
 
   onSelect(option) {
     //this._selectHelper(option);
@@ -92,29 +94,21 @@ class OrganizationsFor extends Component {
 
     if (option.label == "Alphabetical") {
       this.setState({
-        organizations: organizations,
+        organizations: orgs_by_cause[this.props.route.params.cause],
         labels: labels,
       });
     } else {
       this.setState({
-        organizations: organizations.reverse(),
+        organizations: orgs_by_cause[this.props.route.params.cause].reverse(),
         labels: labels.reverse(),
       });
     }
   }
 
   render() {
-    let labels = [
-      { value: "0", label: "Alphabetical" },
-      {
-        value: "1",
-        label: "Most in Need",
-      },
-    ];
-
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>{(this.props.route.params.cause)}</Text>
+        <Text style={styles.title}>{this.props.route.params.cause}</Text>
         <Text style={styles.description}>
           Help aid organizations fighting for animals to be free of involvement
           and suffering in medical research, hunting, and other industries that
@@ -184,18 +178,18 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    marginTop: '3%',
-    marginLeft: '6%',
+    marginTop: "3%",
+    marginLeft: "6%",
   },
 
   description: {
     fontSize: 13,
     color: "black",
-    alignSelf: 'center',
-    marginLeft: '6%',
-    marginRight: '6%',
-    marginTop: '7%',
-    marginBottom: '6%',
+    alignSelf: "center",
+    marginLeft: "6%",
+    marginRight: "6%",
+    marginTop: "7%",
+    marginBottom: "6%",
     fontFamily: "Nunito",
   },
 
@@ -209,8 +203,8 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 0.3,
     textAlign: "center",
-    marginBottom: '6%',
-    alignSelf: 'center'
+    marginBottom: "6%",
+    alignSelf: "center",
   },
 
   selectContainer: {
@@ -279,8 +273,8 @@ const styles = StyleSheet.create({
 
   // lower region (orgs)
   lower: {
-    top: '10%',
-    paddingBottom: '%10',
+    top: "10%",
+    paddingBottom: "%10",
     alignItems: "center",
   },
 });
