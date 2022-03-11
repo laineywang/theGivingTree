@@ -1,8 +1,7 @@
 {
   "expo": {
-    "name": "app",
+    "name": "theGivingTree",
     "slug": "theGivingTree",
-    "owner" : "fkramer",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -20,16 +19,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "buildNumber": "1.0.0",
-      "bundleIdentifier": "fkramer.theGivingTree.v1"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "versionCode": 1
+      }
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

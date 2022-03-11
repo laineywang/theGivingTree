@@ -14,7 +14,7 @@ import {
 
   const CausesButton = ({ id, cause, icon}) => {
     const navigation = useNavigation();
-  
+    console.log(cause);
     return (
       <Pressable
         style={styles.causes_button}

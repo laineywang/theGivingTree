@@ -19,16 +19,17 @@ import { Text, View } from "../components/Themed";
 import SearchBar from "../components/SearchBar";
 import organizations from "../data/organizations.js";
 import OrgsButton from "../components/OrgsButton";
-import OrgDetails from "./OrgDetails";
-import DonateModal from "./DonateModal";
-import ConfirmModal from "./ConfirmModal";
-import ThankYou from "./ThankYou";
+import orgs_by_cause from "../data/orgs-by-cause";
+
 import colors from "../Themes/Colors";
 //import { useFonts } from 'expo-font';
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
+import causes from "../data/causes";
+import { useRoute } from "@react-navigation/native";
 
 class OrganizationsFor extends Component {
+ 
   constructor(props) {
     super(props);
 
@@ -39,9 +40,9 @@ class OrganizationsFor extends Component {
         label: "Most in Need",
       },
     ];
-
+    console.log(this.props.route.params.cause);
     this.state = {
-      organizations: organizations,
+      organizations: orgs_by_cause[this.props.route.params.cause],
       labels: labels,
     };
   }
