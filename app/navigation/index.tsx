@@ -28,11 +28,10 @@ import {
 import LinkingConfiguration from "./LinkingConfiguration";
 import Browse from "../screens/Browse";
 import Profile from "../screens/Profile";
-import Settings from "../screens/Settings";
-import { Ionicons } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons'; 
+import SettingsNav from "../screens/SettingsNav";
+import { Ionicons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import colors from "../Themes/Colors";
-
 
 export default function Navigation({
   colorScheme,
@@ -54,8 +53,6 @@ export default function Navigation({
  * https://reactnavigation.org/docs/modal
  */
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-
 
 function RootNavigator() {
   return (
@@ -145,7 +142,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Settings"
-        component={Settings}
+        component={SettingsNav}
         options={{
           title: "Settings",
           tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
