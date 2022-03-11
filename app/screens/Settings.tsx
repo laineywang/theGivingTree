@@ -17,7 +17,7 @@ import colors from "../Themes/Colors";
 import { useNavigation } from "@react-navigation/native";
 import EditSettings from './EditSettings'
 
-
+/*
 class Settings extends Component {
 
     constructor(props) {
@@ -38,9 +38,8 @@ class Settings extends Component {
         AsyncStorage.getItem('phone').then((value) => this.setState({ 'phone':value }));
     };
 
-
-    
     const HomeStack = createNativeStackNavigator();
+
     return (
         <HomeStack.Navigator>
             <HomeStack.Screen
@@ -137,7 +136,7 @@ class Settings extends Component {
             </View>
         );
     }
-/*
+*/
 
  export default function Settings() {
      const [name, setName] = useState();
@@ -241,7 +240,7 @@ class Settings extends Component {
          );
      }
  }
-*/
+
 
 const styles = StyleSheet.create({
     container: {
