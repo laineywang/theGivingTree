@@ -55,6 +55,7 @@ render() {
                     <Text style={styles.label}>Name:     </Text>
                     <TextInput 
                     style={styles.input}
+                    value={this.state.name}
                     placeholder="e.g. John Doe"
                     onChangeText={this.setName}
                     />
@@ -63,6 +64,7 @@ render() {
                     <Text style={styles.label}>Pronouns: </Text>
                     <TextInput 
                     style={styles.input}
+                    value={this.state.pronouns}
                     placeholder="e.g. she/her"
                     onChangeText={this.setPronouns}
                     />
@@ -71,6 +73,7 @@ render() {
                     <Text style={styles.label}>Email:      </Text>
                     <TextInput 
                     style={styles.input}
+                    value={this.state.email}
                     placeholder="e.g. johndoe@gmail.com"
                     onChangeText={this.setEmail}
                     />
@@ -79,6 +82,7 @@ render() {
                     <Text style={styles.label}>Phone:    </Text>
                     <TextInput 
                     style={styles.input}
+                    value={this.state.phone}
                     placeholder="e.g. 120-456-7890"
                     onChangeText={this.setPhone}
                     />
