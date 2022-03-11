@@ -62,7 +62,7 @@ class EditSettings extends Component {
   };
 
   saveEditProfile = () => {
-    Alert.alert("Data Auto-Saved");
+    Alert.alert("Information Updated");
 
     const db = getDatabase();
 
@@ -177,6 +177,7 @@ class EditSettings extends Component {
             <Text style={styles.label}> First Name: </Text>
             <TextInput
               style={styles.input}
+              value={this.state.cardFirstName}
               placeholder="e.g. John"
               onChangeText={this.setCardFirst}
             />
@@ -185,6 +186,7 @@ class EditSettings extends Component {
             <Text style={styles.label}> Last Name: </Text>
             <TextInput
               style={styles.input}
+              value={this.state.cardLastName}
               placeholder="e.g. Do"
               onChangeText={this.setCardLast}
             />
@@ -193,8 +195,10 @@ class EditSettings extends Component {
             <Text style={styles.label}> Card Number: </Text>
             <TextInput
               style={styles.input}
-              placeholder="e.g. 1234 5678 1234 5678"
+              value={this.state.cardNum}
+              placeholder="e.g. 1234567812345678"
               onChangeText={this.setCardNumber}
+              secureTextEntry={true}
             />
           </View>
           <View style={styles.small_text} width={"50%"}>
@@ -202,6 +206,7 @@ class EditSettings extends Component {
               <Text style={styles.label}> CVV: </Text>
               <TextInput
                 style={styles.small_input}
+                value={this.state.cardCVV}
                 placeholder="e.g. 123"
                 onChangeText={this.setCVV}
               />
@@ -209,6 +214,7 @@ class EditSettings extends Component {
             <View style={styles.text}>
               <Text style={styles.label}> MM/YY: </Text>
               <TextInput
+              value={this.state.cardExp}
                 style={styles.small_input}
                 placeholder="e.g. 08/12"
                 onChangeText={(val) => this.setExp(val)}
@@ -217,7 +223,7 @@ class EditSettings extends Component {
           </View>
         </View>
         <Pressable onPress={this.saveEditProfile} block>
-          <Text style={styles.headings}>UPDATE</Text>
+          <Text style={styles.update}>UPDATE</Text>
         </Pressable>
       </View>
     );
@@ -289,6 +295,12 @@ const styles = StyleSheet.create({
     borderColor: "#777",
     width: 80,
   },
+
+  update: {
+    fontSize: 25,
+    color: colors.darkgreen,
+    marginTop: '5%'
+  }
 });
 
 export default EditSettings;

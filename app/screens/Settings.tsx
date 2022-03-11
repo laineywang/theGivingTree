@@ -90,48 +90,24 @@ class Settings extends Component {
           <Text style={styles.headings}>Card Information</Text>
 
           <View style={styles.text}>
-            <Text style={styles.label}> First Name: </Text>
-            <TextInput
-              style={styles.input}
-              placeholder="e.g. John"
-              onChangeText={(val) => setName(val)}
-            />
+            <Text style={styles.label}> First Name: {this.state.cardFirstName} </Text>
           </View>
 
           <View style={styles.text}>
-            <Text style={styles.label}> Last Name: </Text>
-            <TextInput
-              style={styles.input}
-              placeholder="e.g. Do"
-              onChangeText={(val) => setName(val)}
-            />
+            <Text style={styles.label}> Last Name: {this.state.cardLastName}</Text>
           </View>
 
           <View style={styles.text}>
-            <Text style={styles.label}> Card Number: </Text>
-            <TextInput
-              style={styles.input}
-              placeholder="e.g. 1234 5678 1234 5678"
-              onChangeText={(val) => setName(val)}
-            />
+            <Text style={styles.label}> Card Number: </Text> 
+            <Text style={styles.dot}> •••• •••• •••• ••••</Text>
           </View>
 
           <View style={styles.small_text} width={"50%"}>
             <View style={styles.text}>
-              <Text style={styles.label}> CVV: </Text>
-              <TextInput
-                style={styles.small_input}
-                placeholder="e.g. 123"
-                onChangeText={(val) => setName(val)}
-              />
+              <Text style={styles.label}> CVV: {this.state.cardCVV}</Text>
             </View>
             <View style={styles.text}>
-              <Text style={styles.label}> MM/YY: </Text>
-              <TextInput
-                style={styles.small_input}
-                placeholder="e.g. 08/12"
-                onChangeText={(val) => setName(val)}
-              />
+              <Text style={styles.expiration}> Expiration Date: {this.state.cardExp}</Text>
             </View>
           </View>
         </View>
@@ -146,6 +122,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
+  },
+
+  expiration: {
+    fontSize: 15,
+    right: 15, 
+
+  },
+
+  dot: {
+    fontSize: 30,
+    letterSpacing: -2.5, 
+    marginTop: '-3%',
+    right: 10,
+    marginBottom: '-3%'
   },
 
   edit_button: {
@@ -182,7 +172,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: colors.darkgreen,
     textAlign: "left",
-    left: 15,
+    marginLeft: "5%",
     fontFamily: "Nunito",
   },
 
@@ -193,6 +183,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: "90%",
     fontFamily: "Nunito",
+
   },
 
   small_text: {
@@ -202,7 +193,7 @@ const styles = StyleSheet.create({
 
   label: {
     fontSize: 15,
-    marginRight: 10,
+    marginRight: '4%',
   },
 
   input: {
