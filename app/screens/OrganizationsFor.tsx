@@ -40,7 +40,7 @@ class OrganizationsFor extends Component {
       },
     ];
 
-    console.log(orgs_by_cause[this.props.route.params.cause]);
+    console.log(orgs_by_cause[this.props.route.params.cause.cause_description]);
     this.state = {
       organizations: orgs_by_cause[this.props.route.params.cause],
       labels: labels,
@@ -93,6 +93,8 @@ class OrganizationsFor extends Component {
       },
     ];
 
+
+
     if (option.label == "Alphabetical") {
       this.setState({
         organizations: orgs_by_cause[this.props.route.params.cause],
@@ -109,12 +111,7 @@ class OrganizationsFor extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>Organizations for {(this.props.route.params.cause)}</Text>
-        <Text style={styles.description}>
-          Help aid organizations fighting for animals to be free of involvement
-          and suffering in medical research, hunting, and other industries that
-          benefit humans.
-        </Text>
+        <Text style={styles.title}>{(this.props.route.params.cause)}</Text>
         <View>
           <TextInput
             placeholder="Search Organization"
@@ -176,7 +173,8 @@ const styles = StyleSheet.create({
     color: colors.darkgreen,
     textAlign: "center",
     fontFamily: "Nunito-Bold",
-    marginHorizontal: '5%'
+    marginHorizontal: '5%',
+    marginBottom: '5%'
   },
 
   list: {
