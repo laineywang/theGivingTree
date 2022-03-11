@@ -1,4 +1,4 @@
-const organizations = [
+/*const organizations = [
   {
     id: 1,
     cause: "Animal Rights",
@@ -34,10 +34,11 @@ const organizations = [
     cause: "Animal Rights",
     name: "Ocean Alliance",
     description: "Healthy Whales, Healthy Oceans, Healthy Humans.",
-    logo: require("../assets/images/oceanAllianceLogo.png"),
+    logo: require("../assets/images/logos/oceanAllianceLogo.png"),
     info: "Ocean Alliance is a non-profit organization dedicated to the conservaction of whales and their marine environment through scientific collaboration, public education, and more.",
     url: "https://whale.org",
   },
 ];
 
 export default organizations;
+*/
