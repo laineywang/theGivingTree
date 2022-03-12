@@ -64,24 +64,27 @@ class ConfirmModal extends Component {
         <Text style={styles.selectText}>Your Donation:</Text>
         <View style={styles.textContainer}>
           <View style={styles.tContainer}>
-            <Text style={styles.leadText}>Organization:</Text>
-            <Text numberOfLines={2} style={styles.text}>
-              {"  "}
-              {this.props.route.params.name}
+            <Text style={styles.leadText}>
+              Organization: {this.props.route.params.name}
             </Text>
+            {/* <View style={styles.textLeftMargin}></View>
+            <Text style={styles.text}>{this.props.route.params.name}</Text> */}
           </View>
           <View style={styles.tContainer}>
-            <Text style={styles.leadText}>Amount:</Text>
-            <Text style={styles.text}>
-              {"  "}${this.props.route.params.donateAmt}
+            <Text style={styles.leadText}>
+              Amount: ${this.props.route.params.donateAmt}
             </Text>
+            {/* <View style={styles.textLeftMargin}></View>
+            <Text style={styles.text}>
+              ${this.props.route.params.donateAmt}
+            </Text> */}
           </View>
           <View style={styles.tContainer}>
-            <Text style={styles.leadText}>Frequency:</Text>
-            <Text style={styles.text}>
-              {"  "}
-              {this.props.route.params.recurring}
+            <Text style={styles.leadText}>
+              Frequency: {this.props.route.params.recurring}
             </Text>
+            {/* <View style={styles.textLeftMargin}></View>
+            <Text style={styles.text}>{this.props.route.params.recurring}</Text> */}
           </View>
         </View>
 
@@ -136,9 +139,11 @@ const styles = EStyleSheet.create({
     textAlign: "left",
     marginBottom: 15,
     color: "black",
-    fontWeight: "bold",
     marginLeft: "10%",
+    marginRight: "10%",
   },
+
+  textLeftMargin: { width: "5%" },
 
   text: {
     fontSize: 24,
