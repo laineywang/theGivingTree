@@ -17,5 +17,3 @@ sudo gem install cocoapods
 To run the app, cd into app/ and from there type:
 npm start  
 If everything loads and you can run the simulator with no errors (either on your phone or from XCode simulator), then you should be good to go. 
-
-<img width="428" alt="Screen Shot 2022-02-25 at 8 28 00 PM" src="https://user-images.githubusercontent.com/57604153/155828892-a3d362a7-fbe8-44cd-8ebd-ab70f95e081c.png">
